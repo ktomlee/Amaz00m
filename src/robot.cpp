@@ -31,6 +31,7 @@ class Robot {
       std::lock_guard<decltype(mutex_)> lock(mutex_);
       idx_ = memory_->rinfo.nrobots;
       memory_->rinfo.nrobots++;
+      mutex_.unlock();
     }
 
     // get current location
@@ -39,7 +40,7 @@ class Robot {
 
   }
     int escape() {
-    	return go(2, 2);
+    	return go(5, 5);
     	/*
         if(memory_->magic == 80085) {
             return go(loc_[COL_IDX], loc_[ROW_IDX]);
@@ -58,13 +59,42 @@ class Robot {
    * @return 1 for success, 0 for failure, -1 to quit
    */
   int go(int col, int row) {
+    
+      mutex_.lock();
+      loc_[COL_IDX] = memory_->rinfo.rloc[idx_][COL_IDX];
+      loc_[ROW_IDX] = memory_->rinfo.rloc[idx_][ROW_IDX];
+      mutex_.unlock();
       
-          mutex_.lock();
-          memory_->rinfo.rloc[idx_][COL_IDX] = col;
-          memory_->rinfo.rloc[idx_][ROW_IDX] = row;
-          mutex_.unlock();
-      
+      while((loc_[COL_IDX] != col) || (loc_[ROW_IDX] != row)) {
+          
+          if(loc_[COL_IDX] < col) {
+              mutex_.lock();
+              memory_->rinfo.rloc[idx_][COL_IDX] += 1;
+              mutex_.unlock();
+          }
+          else if(loc_[COL_IDX] > col) {
+              mutex_.lock();
+              memory_->rinfo.rloc[idx_][COL_IDX] -= 1;
+              mutex_.unlock();
+          }
+          
+          else if(loc_[ROW_IDX] < row) {
+              mutex_.lock();
+              memory_->rinfo.rloc[idx_][ROW_IDX] += 1;
+              mutex_.unlock();
+          }
+          else if(loc_[ROW_IDX] > row) {
+              mutex_.lock();
+              memory_->rinfo.rloc[idx_][ROW_IDX] -= 1;
+              mutex_.unlock();
+          }
+          
           std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          mutex_.lock();
+          loc_[COL_IDX] = memory_->rinfo.rloc[idx_][COL_IDX];
+          loc_[ROW_IDX] = memory_->rinfo.rloc[idx_][ROW_IDX];
+          mutex_.unlock();
+      }
       
           return 1;
   }

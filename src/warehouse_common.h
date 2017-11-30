@@ -16,7 +16,7 @@
 #define COL_IDX 0
 #define ROW_IDX 1
 
-#define MAX_ROBOTS 4
+#define MAX_ROBOTS 10
 #define MAX_WAREHOUSE_SIZE 50
 
 struct WarehouseInfo {

@@ -56,7 +56,7 @@ void init_robots(const WarehouseInfo& winfo, RobotInfo& rinfo) {
       (unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
   std::uniform_int_distribution<size_t> rdist(0, winfo.rows);
   std::uniform_int_distribution<size_t> cdist(0, winfo.cols);
-  for (size_t i=0; i<MAX_ROBOTS; ++i) {
+  for (size_t i=0; i<MAX_ROBOTS; i++) {
     // generate until on an empty space
     size_t r,c;
     do {

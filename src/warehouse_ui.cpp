@@ -109,6 +109,8 @@ class MazeUI {
       } else {
 
         // erase old position if now finished
+          
+    /*
         if (lastpos_[i][COL_IDX] != exit_[COL_IDX] || lastpos_[i][ROW_IDX] != exit_[ROW_IDX]) {
           display_.set_cursor_position(YOFF+lastpos_[i][ROW_IDX], XOFF+lastpos_[i][COL_IDX]);
           std::printf("%c", EMPTY_CHAR);
@@ -119,6 +121,7 @@ class MazeUI {
           display_.set_cursor_position(YOFF, XOFF+memory_->winfo.cols+2);
           std::printf("runner %c escaped!!", me);
         }
+     */
       }
     }
     fflush(stdout);  // force output buffer to flush
