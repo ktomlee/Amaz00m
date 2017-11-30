@@ -49,7 +49,7 @@ class MazeUI {
    */
   void draw_maze() {
       
-    static const char WALL = 'W';  // WALL character, or change to 'X' if trouble printing
+    static const char WALL = 'X';  // WALL character, or change to 'X' if trouble printing
     static const char DOCK = 'D';  // EXIT character, or change to 'E' if trouble printing
     static const char SHELF = 'S';
 

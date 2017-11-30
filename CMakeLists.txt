@@ -23,15 +23,22 @@ target_link_libraries(warehouse_ui Threads::Threads)
 add_executable(warehouse_main src/warehouse_main.cpp)
 target_link_libraries(warehouse_main Threads::Threads)
 
+# parent
+add_executable(robot src/robot.cpp)
+target_link_libraries(robot Threads::Threads)
+
 # link with unix realtime library
 if(UNIX AND NOT APPLE)
     target_link_libraries(warehouse_main rt)
     target_link_libraries(warehouse_ui rt)
+    target_link_libraries(robot rt)
 endif()
 
 # set working directories
 if (${CMAKE_VERSION} VERSION_GREATER "3.8.0" OR ${CMAKE_VERSION} VERSION_EQUAL "3.8.0")
     set_target_properties(warehouse_main PROPERTIES
+            VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(CONFIGURATION)")
+    set_target_properties(robot PROPERTIES
             VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(CONFIGURATION)")
 endif()
 

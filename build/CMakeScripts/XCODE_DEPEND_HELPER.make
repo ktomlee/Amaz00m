@@ -7,6 +7,11 @@ default:
 # Rules to remove targets that are older than anything to which they
 # link.  This forces Xcode to relink the targets from scratch.  It
 # does not seem to check these dependencies itself.
+PostBuild.robot.Debug:
+/Users/tomlee/Documents/GitHub/Amaz00m/build/Debug/robot:
+	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/Debug/robot
+
+
 PostBuild.warehouse_main.Debug:
 /Users/tomlee/Documents/GitHub/Amaz00m/build/Debug/warehouse_main:
 	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/Debug/warehouse_main
@@ -15,6 +20,11 @@ PostBuild.warehouse_main.Debug:
 PostBuild.warehouse_ui.Debug:
 /Users/tomlee/Documents/GitHub/Amaz00m/build/Debug/warehouse_ui:
 	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/Debug/warehouse_ui
+
+
+PostBuild.robot.Release:
+/Users/tomlee/Documents/GitHub/Amaz00m/build/Release/robot:
+	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/Release/robot
 
 
 PostBuild.warehouse_main.Release:
@@ -27,6 +37,11 @@ PostBuild.warehouse_ui.Release:
 	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/Release/warehouse_ui
 
 
+PostBuild.robot.MinSizeRel:
+/Users/tomlee/Documents/GitHub/Amaz00m/build/MinSizeRel/robot:
+	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/MinSizeRel/robot
+
+
 PostBuild.warehouse_main.MinSizeRel:
 /Users/tomlee/Documents/GitHub/Amaz00m/build/MinSizeRel/warehouse_main:
 	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/MinSizeRel/warehouse_main
@@ -35,6 +50,11 @@ PostBuild.warehouse_main.MinSizeRel:
 PostBuild.warehouse_ui.MinSizeRel:
 /Users/tomlee/Documents/GitHub/Amaz00m/build/MinSizeRel/warehouse_ui:
 	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/MinSizeRel/warehouse_ui
+
+
+PostBuild.robot.RelWithDebInfo:
+/Users/tomlee/Documents/GitHub/Amaz00m/build/RelWithDebInfo/robot:
+	/bin/rm -f /Users/tomlee/Documents/GitHub/Amaz00m/build/RelWithDebInfo/robot
 
 
 PostBuild.warehouse_main.RelWithDebInfo:

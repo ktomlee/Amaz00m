@@ -95,14 +95,7 @@ int main(int argc, char* argv[]) {
   std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
   std::cout << "Press ENTER to quit." << std::endl;
   std::cin.get();
-    
-
-  //===============================================================
-  //  TODO:  INFORM OTHER PROCESSES TO QUIT
-  //===============================================================
   
-  
-  //memory->magic = 0;
   memory->quit = true;
   
   

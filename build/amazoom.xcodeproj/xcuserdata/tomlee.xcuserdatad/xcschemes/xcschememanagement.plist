@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>robot.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>warehouse_main.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -27,6 +32,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1011A1EF61994631A562EC71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>15978F5D01904931B786E223</key>
 		<dict>
 			<key>primary</key>
