@@ -27,11 +27,11 @@ void load_warehouse(const std::string& filename, WarehouseInfo& winfo) {
       int cols = line.length();
       if (cols > 0) {
         // longest row defines columns
-        if (cols > minfo.cols) {
+        if (cols > winfo.cols) {
           winfo.cols = cols;
         }
         for (size_t col=0; col<cols; ++col) {
-          winfo.maze[col][row] = line[col];
+          winfo.warehouse[col][row] = line[col];
         }
         ++row;
       }
@@ -48,21 +48,21 @@ void load_warehouse(const std::string& filename, WarehouseInfo& winfo) {
  * @param minfo maze input
  * @param rinfo runner info to populate
  */
-void init_robots(const WarehouseInfo& minfo, RobotInfo& rinfo) {
-  rinfo.nrunners = 0;
+void init_robots(const WarehouseInfo& winfo, RobotInfo& rinfo) {
+  rinfo.nrobots = 0;
 
   // fill in random placements for future runners
   std::default_random_engine rnd(
       (unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
-  std::uniform_int_distribution<size_t> rdist(0, minfo.rows);
-  std::uniform_int_distribution<size_t> cdist(0, minfo.cols);
+  std::uniform_int_distribution<size_t> rdist(0, winfo.rows);
+  std::uniform_int_distribution<size_t> cdist(0, winfo.cols);
   for (size_t i=0; i<MAX_ROBOTS; ++i) {
     // generate until on an empty space
     size_t r,c;
     do {
       r = rdist(rnd);
       c = cdist(rnd);
-    } while (winfo.maze[c][r] != EMPTY_CHAR);
+    } while (winfo.warehouse[c][r] != EMPTY_CHAR);
     rinfo.rloc[i][COL_IDX] = c;
     rinfo.rloc[i][ROW_IDX] = r;
   }
@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
   // read maze from command-line, default to maze0
   std::string warehouse = "data/warehouse.txt";
   if (argc > 1) {
-    maze = argv[1];
+    warehouse = argv[1];
   }
   
   cpen333::process::shared_object<SharedData> memory(MEMORY_NAME);

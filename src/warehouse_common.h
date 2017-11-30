@@ -1,7 +1,9 @@
 #ifndef WAREHOUSE_COMMON_H
 #define WAREHOUSE_COMMON_H
 
-using namespace std;
+#include <string>
+#include <map>
+#include <vector>
 
 #define MEMORY_NAME "warehouse_memory"
 #define MUTEX_NAME "warehouse_mutex"
@@ -31,29 +33,29 @@ struct RobotInfo {
 struct Order {
 	int orderId;
 	int weight;
-	map<string, int> order;
+    std::map<std::string, int> order;
+};
+
+struct Shelf {
+    int capacity;
+    std::vector<std::string> location; // Ex. (A, 3, Right, 6);
 };
 
 struct Item {
 	int itemId;
-	string name;
+	std::string name;
 	int weight;
 	Shelf shelf;
 };
 
-struct Shelf {
-	int capacity;
-	vector<string> location; // Ex. (A, 3, Right, 6);
-};
-
 struct SharedData {
-	Robotinfo rinfo;
+	RobotInfo rinfo;
 	WarehouseInfo winfo;
 	bool quit;
-	vector<Order> newOrderQ;
-	vector<Order> shippingQ;
-	vector<Item> receivingQ;
-	map<string, int> inventory;
+	std::vector<Order> newOrderQ;
+	std::vector<Order> shippingQ;
+	std::vector<Item> receivingQ;
+	std::map<std::string, int> inventory;
 };
 
 

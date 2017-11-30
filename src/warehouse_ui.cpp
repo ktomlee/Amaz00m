@@ -29,7 +29,7 @@ class MazeUI {
     display_.set_cursor_visible(false);
 
     // initialize last known runner positions
-    for (size_t i=0; i<MAX_RUNNERS; ++i) {
+    for (size_t i=0; i<MAX_ROBOTS; ++i) {
       lastpos_[i][COL_IDX] = -1;
       lastpos_[i][ROW_IDX] = -1;
     }
@@ -53,7 +53,7 @@ class MazeUI {
     static const char DOCK = 'D';  // EXIT character, or change to 'E' if trouble printing
     static const char SHELF = 'S';
 
-    WarehouseInfo& minfo = memory_->winfo;
+    WarehouseInfo& winfo = memory_->winfo;
     RobotInfo& rinfo = memory_->rinfo;
 
     // clear display
@@ -62,12 +62,12 @@ class MazeUI {
     // draw maze
     for (int r = 0; r < winfo.rows; ++r) {
       display_.set_cursor_position(YOFF+r, XOFF);
-      for (int c = 0; c < minfo.cols; ++c) {
-        char ch = winfo.maze[c][r];
+      for (int c = 0; c < winfo.cols; ++c) {
+        char ch = winfo.warehouse[c][r];
         if (ch == WALL_CHAR) {
           std::printf("%c", WALL);
-        } else if (ch == EXIT_CHAR){
-          std::printf("%c", EXIT);
+        } else if (ch == SHELF_CHAR){
+          std::printf("%c", SHELF);
         } else if (ch == DOCK_CHAR){
           std::printf("%c", DOCK);
         } else {
@@ -86,7 +86,7 @@ class MazeUI {
     RobotInfo& rinfo = memory_->rinfo;
 
     // draw all runner locations
-    for (size_t i=0; i<rinfo.nrunners; ++i) {
+    for (size_t i=0; i<rinfo.nrobots; ++i) {
       char me = 'A'+i;
       int newr = rinfo.rloc[i][ROW_IDX];
       int newc = rinfo.rloc[i][COL_IDX];
@@ -116,7 +116,7 @@ class MazeUI {
           lastpos_[i][ROW_IDX] = newr;
 
           // display a completion message
-          display_.set_cursor_position(YOFF, XOFF+memory_->minfo.cols+2);
+          display_.set_cursor_position(YOFF, XOFF+memory_->winfo.cols+2);
           std::printf("runner %c escaped!!", me);
         }
       }
