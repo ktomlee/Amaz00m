@@ -20,7 +20,7 @@ using namespace std;
 struct WarehouseInfo {
   int rows;           // rows in warehouse
   int cols;           // columns in warehouse
-  char maze[MAX_WAREHOUSE_SIZE][MAX_WAREHOUSE_SIZE];  // warehouse storage
+  char warehouse[MAX_WAREHOUSE_SIZE][MAX_WAREHOUSE_SIZE];  // warehouse storage
 };
 
 struct RobotInfo {
@@ -49,6 +49,7 @@ struct Shelf {
 struct SharedData {
 	Robotinfo rinfo;
 	WarehouseInfo winfo;
+	bool quit;
 	vector<Order> newOrderQ;
 	vector<Order> shippingQ;
 	vector<Item> receivingQ;
