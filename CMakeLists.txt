@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 find_package( Threads REQUIRED )  # Multithreading package required
 
 # add library directory
-include_directories(../library/include)
+include_directories(library/include)
 
 # copy data files
 FILE(COPY data DESTINATION "${CMAKE_BINARY_DIR}")
