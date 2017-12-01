@@ -14,14 +14,16 @@ class Robot {
   // local copy of maze
   WarehouseInfo winfo_;
 
-  // runner info
-  size_t idx_;   // runner index
+  // robot info
+  size_t idx_;   // robot index
   int loc_[2];   // current location
+  int x_;
+  int y_;
 
  public:
 
   Robot() : memory_(MEMORY_NAME), mutex_(MUTEX_NAME),
-                 winfo_(), idx_(0), loc_() {
+                 winfo_(), idx_(0), loc_(), x_(0), y_(0) {
 
     // copy maze contents
     winfo_ = memory_->winfo;
@@ -35,8 +37,8 @@ class Robot {
     }
 
     // get current location
-    loc_[COL_IDX] = memory_->rinfo.rloc[idx_][COL_IDX];
-    loc_[ROW_IDX] = memory_->rinfo.rloc[idx_][ROW_IDX];
+    x_ = memory_->rinfo.rloc[idx_][COL_IDX];
+    y_ = memory_->rinfo.rloc[idx_][ROW_IDX];
 
   }
     int escape() {
@@ -61,29 +63,29 @@ class Robot {
   int go(int col, int row) {
     
       mutex_.lock();
-      loc_[COL_IDX] = memory_->rinfo.rloc[idx_][COL_IDX];
-      loc_[ROW_IDX] = memory_->rinfo.rloc[idx_][ROW_IDX];
+      x_ = memory_->rinfo.rloc[idx_][COL_IDX];
+      y_ = memory_->rinfo.rloc[idx_][ROW_IDX];
       mutex_.unlock();
       
-      while((loc_[COL_IDX] != col) || (loc_[ROW_IDX] != row)) {
+      while((x_ != col) || (y_ != row)) {
           
-          if(loc_[COL_IDX] < col) {
+          if(x_ < col) {
               mutex_.lock();
               memory_->rinfo.rloc[idx_][COL_IDX] += 1;
               mutex_.unlock();
           }
-          else if(loc_[COL_IDX] > col) {
+          else if(x_ > col) {
               mutex_.lock();
               memory_->rinfo.rloc[idx_][COL_IDX] -= 1;
               mutex_.unlock();
           }
           
-          else if(loc_[ROW_IDX] < row) {
+          else if(y_ < row) {
               mutex_.lock();
               memory_->rinfo.rloc[idx_][ROW_IDX] += 1;
               mutex_.unlock();
           }
-          else if(loc_[ROW_IDX] > row) {
+          else if(y_ > row) {
               mutex_.lock();
               memory_->rinfo.rloc[idx_][ROW_IDX] -= 1;
               mutex_.unlock();
@@ -91,8 +93,8 @@ class Robot {
           
           std::this_thread::sleep_for(std::chrono::milliseconds(100));
           mutex_.lock();
-          loc_[COL_IDX] = memory_->rinfo.rloc[idx_][COL_IDX];
-          loc_[ROW_IDX] = memory_->rinfo.rloc[idx_][ROW_IDX];
+          x_ = memory_->rinfo.rloc[idx_][COL_IDX];
+          y_ = memory_->rinfo.rloc[idx_][ROW_IDX];
           mutex_.unlock();
       }
       

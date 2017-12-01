@@ -16,7 +16,7 @@ class MazeUI {
   cpen333::process::shared_object<SharedData> memory_;
   cpen333::process::mutex mutex_;
 
-  // previous positions of runners
+  // previous positions of robota
   int lastpos_[MAX_ROBOTS][2];
   int exit_[2];   // exit location
 
@@ -38,10 +38,6 @@ class MazeUI {
     //exit_[COL_IDX] = -1;
     //exit_[ROW_IDX] = -1;
 
-    //===========================================================
-    // TODO: SEARCH MAZE FOR EXIT LOCATION
-    //===========================================================
-
   }
 
   /**
@@ -55,6 +51,7 @@ class MazeUI {
 
     WarehouseInfo& winfo = memory_->winfo;
     RobotInfo& rinfo = memory_->rinfo;
+    Dock& dinfo = memory_->dinfo;
 
     // clear display
     display_.clear_display();
@@ -70,6 +67,7 @@ class MazeUI {
           std::printf("%c", SHELF);
         } else if (ch == DOCK_CHAR){
           std::printf("%c", DOCK);
+          dinfo.ndocks+=1;
         } else {
           std::printf("%c", EMPTY_CHAR);
         }

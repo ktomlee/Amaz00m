@@ -80,12 +80,16 @@ int main(int argc, char* argv[]) {
   
   WarehouseInfo winfo;
   RobotInfo rinfo;
+  Dock dinfo;
   
   load_warehouse(warehouse, winfo);
   init_robots(winfo, rinfo);
+    
+  dinfo.ndocks = 0;
   
   memory->winfo = winfo;
   memory->rinfo = rinfo;
+  memory->dinfo = dinfo;
   memory->quit = false;
 
   std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;

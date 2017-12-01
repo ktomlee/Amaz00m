@@ -28,6 +28,8 @@ struct WarehouseInfo {
 struct RobotInfo {
   int nrobots;      // number of robots
   int rloc[MAX_ROBOTS][2];   // robot locations [col][row]
+  int x;
+  int y;
 };
 
 struct Order {
@@ -48,9 +50,16 @@ struct Item {
 	Shelf shelf;
 };
 
+struct Dock {
+    int location[2];
+    int dockID;
+    int ndocks;
+};
+
 struct SharedData {
 	RobotInfo rinfo;
 	WarehouseInfo winfo;
+    Dock dinfo;
 	bool quit;
 	std::vector<Order> newOrderQ;
 	std::vector<Order> shippingQ;
