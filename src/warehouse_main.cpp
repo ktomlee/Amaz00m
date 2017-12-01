@@ -88,10 +88,6 @@ int main(int argc, char* argv[]) {
   memory->rinfo = rinfo;
   memory->quit = false;
 
-  //===============================================================
-  //  TODO:  CREATE SHARED MEMORY AND INITIALIZE IT
-  //===============================================================
-
   std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
   std::cout << "Press ENTER to quit." << std::endl;
   std::cin.get();

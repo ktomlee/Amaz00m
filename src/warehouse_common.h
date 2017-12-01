@@ -17,7 +17,7 @@
 #define ROW_IDX 1
 
 #define MAX_ROBOTS 10
-#define MAX_WAREHOUSE_SIZE 50
+#define MAX_WAREHOUSE_SIZE 20
 
 struct WarehouseInfo {
   int rows;           // rows in warehouse
