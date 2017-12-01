@@ -15,16 +15,19 @@ FILE(COPY data DESTINATION "${CMAKE_BINARY_DIR}/Debug")
 #  Amazoom Warehouse
 #===================================================
 
+set(AMAZOOM_HEADERS
+	src/warehouse_common.h)
+
 # child
-add_executable(warehouse_ui src/warehouse_ui.cpp)
+add_executable(warehouse_ui src/warehouse_ui.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(warehouse_ui Threads::Threads)
 
 # parent
-add_executable(warehouse_main src/warehouse_main.cpp)
+add_executable(warehouse_main src/warehouse_main.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(warehouse_main Threads::Threads)
 
 # parent
-add_executable(robot src/robot.cpp)
+add_executable(robot src/robot.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(robot Threads::Threads)
 
 # link with unix realtime library

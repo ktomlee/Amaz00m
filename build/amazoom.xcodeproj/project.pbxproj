@@ -9,24 +9,24 @@
 /* Begin PBXAggregateTarget section */
 		15978F5D01904931B786E223 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 0786E3492EC04C13BB96AC89 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 8373ABEE8954485598967EC8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				70D08C7D4E2049A98D5B4CBF /* CMake Rules */,
+				8DDC891B793547F9B7D19A77 /* CMake Rules */,
 			);
 			dependencies = (
-				FEA098D2F32745BE8FF67C64 /* PBXTargetDependency */,
-				E0D3260DBE8A4CCD8650BE8C /* PBXTargetDependency */,
-				62EA28A7FCD140D69734A186 /* PBXTargetDependency */,
-				7452CD8A4EF0434DA2083187 /* PBXTargetDependency */,
+				465E0715F584429D8DBBAA05 /* PBXTargetDependency */,
+				574D855126E34E1DA4A2D9EA /* PBXTargetDependency */,
+				6EA4BF0CA8554AF7AC1057FB /* PBXTargetDependency */,
+				C88FFA9F5E404B4E89AAA7E8 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
 		};
 		C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 17FE756E7A374AEF9B022E15 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 25838D22D8574E2CA296A2DB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				C797077AFDBA416D8D585240 /* CMake Rules */,
+				C5CFF0C345D24774B416C130 /* CMake Rules */,
 			);
 			dependencies = (
 			);
@@ -36,89 +36,92 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0259D4ABF9B445FFA8B6FF53 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = E4BADEC380364FC3B85F8827 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
-		057C10C25D504CA688F53BFA /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */ = {isa = PBXBuildFile; fileRef = DA43255C2BF54E4C843C94B5 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */; };
-		A2DDDD1A7D9744BD94473518 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 7EA1E0FF794C45138E3E2724 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
-		A6110A50C2EE4B618EF8FB40 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */ = {isa = PBXBuildFile; fileRef = 687CD7E3786E404683096FB8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */; };
-		C406399935524FF4A5C49D17 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */ = {isa = PBXBuildFile; fileRef = 5A92D491B8A5412898A0309D /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */; };
-		C9495E35B7644FF69EBEAD19 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 1B402E579F304C98828ED0BF /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
+		0003F0DFEB4647C2AF3DCB68 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 9639A988A0AE4FD8B161C859 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
+		1C0BFBC16839488BAD48CFD7 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = E0270B412D2848189130E4A8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */; };
+		31FE520F4C704F42BD75925F /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */ = {isa = PBXBuildFile; fileRef = CE40388D34DF4F11AB9EE1FA /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */; };
+		5EF3F6941F6A4F2DB4FB05E3 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */ = {isa = PBXBuildFile; fileRef = 22C12B8F47C54E2098B95C04 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */; };
+		907ACEFDEC66402C915AE42D /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = 0D28AB5CECB64A0CB8802F03 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */; };
+		9A0D0C0CDBB7431A9969262A /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = CC76F9F455E6442DA1752DC9 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
+		B26907DBF5EF4101ACAC8225 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */ = {isa = PBXBuildFile; fileRef = CDEB9B07F4714084AC75F421 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */; };
+		B7EAA8B7A46A4ED38C34CEF0 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = A226F8B0367B4D2099503397 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
+		E5FB0FF8AAA74979A311CC74 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = 7CBBD0D9A0224375895E867A /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		5107024E1DA740D39A20BB82 /* RelWithDebInfo */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = RelWithDebInfo;
-		};
-		59ABEEF5F8634E94BEC8BF57 /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		6E1135A77DF1451B901E0543 /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Debug;
-		};
-		993C64BA4CDA4A96A5C62F05 /* Release */ = {
+		217BE073E712419ABB79CC05 /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Release;
 		};
+		6322F2FEE7A64EE19D18AB25 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		63A5081D098841AB84532CC7 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		78FA0CEF1A1149E59F89FED1 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		47C7F7621CE04572AE376F28 /* PBXContainerItemProxy */ = {
+		89EC60F428CB4F9E81CF063B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1011A1EF61994631A562EC71;
 			remoteInfo = robot;
 		};
-		48640FBC76D648ED93120D1D /* PBXContainerItemProxy */ = {
+		8F664624203444F7B2E58119 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C83BEB6DA53A471499BDAC7C;
 			remoteInfo = ZERO_CHECK;
 		};
-		49BD64ACF4CD41B79FE59D2E /* PBXContainerItemProxy */ = {
+		BE7923A0BF8B421BBEBEEF39 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C83BEB6DA53A471499BDAC7C;
 			remoteInfo = ZERO_CHECK;
 		};
-		C1379562771946EAB0B736C5 /* PBXContainerItemProxy */ = {
+		CCF107A729B5410291B0E501 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C83BEB6DA53A471499BDAC7C;
+			remoteInfo = ZERO_CHECK;
+		};
+		D02970F7F409449C995A0E81 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6E03E64F3CC14D42831527C1;
 			remoteInfo = warehouse_main;
 		};
-		C8FE6047DAD3461788C537B2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C83BEB6DA53A471499BDAC7C;
-			remoteInfo = ZERO_CHECK;
-		};
-		DC80146F3F5843EF8D7B77D0 /* PBXContainerItemProxy */ = {
+		F0642BD1D2CC4106B25943AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DC96ED190A414E07A7DBA4B5;
 			remoteInfo = warehouse_ui;
 		};
-		EED8280A9DAB4204976560E0 /* PBXContainerItemProxy */ = {
+		F1E7146FB02A42FDB9E6ECC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
 			proxyType = 1;
@@ -128,123 +131,153 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11A277DE32B14A63BF0B07DD /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		1B402E579F304C98828ED0BF /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		5A92D491B8A5412898A0309D /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = warehouse_ui.cpp; path = src/warehouse_ui.cpp; sourceTree = SOURCE_ROOT; };
-		5EDEE2731D5D4899A8DA5074 /* warehouse_main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = warehouse_main; sourceTree = BUILT_PRODUCTS_DIR; };
-		687CD7E3786E404683096FB8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = robot.cpp; path = src/robot.cpp; sourceTree = SOURCE_ROOT; };
-		7EA1E0FF794C45138E3E2724 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		C50F7614323D43CABEBE38F1 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		DA43255C2BF54E4C843C94B5 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = warehouse_main.cpp; path = src/warehouse_main.cpp; sourceTree = SOURCE_ROOT; };
-		E4BADEC380364FC3B85F8827 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		E9298BE2920747DCBC5BFECB /* robot */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = robot; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFD8BBC6D0DE4779B0B7F83F /* warehouse_ui */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = warehouse_ui; sourceTree = BUILT_PRODUCTS_DIR; };
+		0457C1287795488F9D88F14F /* robot */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = robot; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D28AB5CECB64A0CB8802F03 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
+		22C12B8F47C54E2098B95C04 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = warehouse_ui.cpp; path = src/warehouse_ui.cpp; sourceTree = SOURCE_ROOT; };
+		41222A100D3147A5A05A32DE /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		7CBBD0D9A0224375895E867A /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
+		9639A988A0AE4FD8B161C859 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A226F8B0367B4D2099503397 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C7F037ED72464415B6511F96 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		CC76F9F455E6442DA1752DC9 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		CDEB9B07F4714084AC75F421 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = warehouse_main.cpp; path = src/warehouse_main.cpp; sourceTree = SOURCE_ROOT; };
+		CE40388D34DF4F11AB9EE1FA /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = robot.cpp; path = src/robot.cpp; sourceTree = SOURCE_ROOT; };
+		DC188F94F9F24588AB679C07 /* warehouse_ui */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = warehouse_ui; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0270B412D2848189130E4A8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
+		F401CDADF4EF4D0D9CCF49CA /* warehouse_main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = warehouse_main; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		18793AA973194036906C5E4B /* warehouse_main */ = {
+		038140F79009472B8314E057 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				CF3E5288A6104908BF7A3001 /* Source Files */,
-				7EA1E0FF794C45138E3E2724 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+				CE40388D34DF4F11AB9EE1FA /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */,
 			);
-			name = warehouse_main;
+			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		21D76BA3FD4148FAA3290113 /* robot */ = {
+		24A92090A007480EB9F1A025 /* ZERO_CHECK */ = {
 			isa = PBXGroup;
 			children = (
-				530539A921474DAFA240F4FE /* Source Files */,
-				E4BADEC380364FC3B85F8827 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+				5503D53D6F804754B4204788 /* CMake Rules */,
+				C7F037ED72464415B6511F96 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		25D85BF83BAB49D6BEECDBBF /* robot */ = {
+			isa = PBXGroup;
+			children = (
+				038140F79009472B8314E057 /* Source Files */,
+				D8E1E66C63694EE884573329 /* Header Files */,
+				CC76F9F455E6442DA1752DC9 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
 			);
 			name = robot;
 			sourceTree = "<group>";
 		};
-		28DACEEA48544192AE1332E1 /* CMake Rules */ = {
+		350E3CEC163444A8AF96A04A = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		47E8DE8CD4DF4B818CD0DFF7 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				5A92D491B8A5412898A0309D /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		530539A921474DAFA240F4FE /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				687CD7E3786E404683096FB8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		59773265274242F994BD1241 = {
-			isa = PBXGroup;
-			children = (
-				21D76BA3FD4148FAA3290113 /* robot */,
-				18793AA973194036906C5E4B /* warehouse_main */,
-				96A792B8DEE5427C9F9FAEFE /* warehouse_ui */,
-				C18C32873A404EDEA789EFBF /* ALL_BUILD */,
-				D9290BABA338417C97135B32 /* ZERO_CHECK */,
-				D5B3A13058E94D05A2EE8E74 /* Products */,
+				25D85BF83BAB49D6BEECDBBF /* robot */,
+				F502ED00AEB24EDE83724439 /* warehouse_main */,
+				3CF63510346344EBB751CBE3 /* warehouse_ui */,
+				488717AA215D47DC92B9E5AC /* ALL_BUILD */,
+				24A92090A007480EB9F1A025 /* ZERO_CHECK */,
+				A6969B7565AF4BD3957DC934 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		92778235411647E7A93E497B /* CMake Rules */ = {
+		3CF63510346344EBB751CBE3 /* warehouse_ui */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		96A792B8DEE5427C9F9FAEFE /* warehouse_ui */ = {
-			isa = PBXGroup;
-			children = (
-				47E8DE8CD4DF4B818CD0DFF7 /* Source Files */,
-				1B402E579F304C98828ED0BF /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+				689C025BA6F84F86BC7FDFB0 /* Source Files */,
+				5128154881CE416295B8EB38 /* Header Files */,
+				A226F8B0367B4D2099503397 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
 			);
 			name = warehouse_ui;
 			sourceTree = "<group>";
 		};
-		C18C32873A404EDEA789EFBF /* ALL_BUILD */ = {
+		488717AA215D47DC92B9E5AC /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-				28DACEEA48544192AE1332E1 /* CMake Rules */,
-				11A277DE32B14A63BF0B07DD /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+				8AAA57E6E4054B5B97B98F63 /* CMake Rules */,
+				41222A100D3147A5A05A32DE /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
 			);
 			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
-		CF3E5288A6104908BF7A3001 /* Source Files */ = {
+		5128154881CE416295B8EB38 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				DA43255C2BF54E4C843C94B5 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */,
+				7CBBD0D9A0224375895E867A /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		5503D53D6F804754B4204788 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		689C025BA6F84F86BC7FDFB0 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				22C12B8F47C54E2098B95C04 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		D5B3A13058E94D05A2EE8E74 /* Products */ = {
+		6AB815622225412F888B8755 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				E9298BE2920747DCBC5BFECB /* robot */,
-				5EDEE2731D5D4899A8DA5074 /* warehouse_main */,
-				FFD8BBC6D0DE4779B0B7F83F /* warehouse_ui */,
+				CDEB9B07F4714084AC75F421 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		8AAA57E6E4054B5B97B98F63 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		A6969B7565AF4BD3957DC934 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0457C1287795488F9D88F14F /* robot */,
+				F401CDADF4EF4D0D9CCF49CA /* warehouse_main */,
+				DC188F94F9F24588AB679C07 /* warehouse_ui */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D9290BABA338417C97135B32 /* ZERO_CHECK */ = {
+		B7BF597F4A394A66A9D45973 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				92778235411647E7A93E497B /* CMake Rules */,
-				C50F7614323D43CABEBE38F1 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+				0D28AB5CECB64A0CB8802F03 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */,
 			);
-			name = ZERO_CHECK;
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		D8E1E66C63694EE884573329 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				E0270B412D2848189130E4A8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		F502ED00AEB24EDE83724439 /* warehouse_main */ = {
+			isa = PBXGroup;
+			children = (
+				6AB815622225412F888B8755 /* Source Files */,
+				B7BF597F4A394A66A9D45973 /* Header Files */,
+				9639A988A0AE4FD8B161C859 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+			);
+			name = warehouse_main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,50 +285,50 @@
 /* Begin PBXNativeTarget section */
 		1011A1EF61994631A562EC71 /* robot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB5232192FFF4B0D891FDC27 /* Build configuration list for PBXNativeTarget "robot" */;
+			buildConfigurationList = 327AFFA03DB74E68B916D384 /* Build configuration list for PBXNativeTarget "robot" */;
 			buildPhases = (
-				18A4B5A37F004DF780B6A641 /* Sources */,
+				363AA96DA37342C48CFF8127 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4734DBD6B8EB4ED2939C8FFC /* PBXTargetDependency */,
+				CB2EEB08687748E79DF38022 /* PBXTargetDependency */,
 			);
 			name = robot;
 			productName = robot;
-			productReference = E9298BE2920747DCBC5BFECB /* robot */;
+			productReference = 0457C1287795488F9D88F14F /* robot */;
 			productType = "com.apple.product-type.tool";
 		};
 		6E03E64F3CC14D42831527C1 /* warehouse_main */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94720180BF66446BA0978D5B /* Build configuration list for PBXNativeTarget "warehouse_main" */;
+			buildConfigurationList = 40A1AB4B18B04448A48D8753 /* Build configuration list for PBXNativeTarget "warehouse_main" */;
 			buildPhases = (
-				C67CF171570646B1BC1E207F /* Sources */,
+				687A26BB2B3143EE9E380C55 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F7DA8F9D751140A2885C5F26 /* PBXTargetDependency */,
+				A7257E55C9304209A1703F1A /* PBXTargetDependency */,
 			);
 			name = warehouse_main;
 			productName = warehouse_main;
-			productReference = 5EDEE2731D5D4899A8DA5074 /* warehouse_main */;
+			productReference = F401CDADF4EF4D0D9CCF49CA /* warehouse_main */;
 			productType = "com.apple.product-type.tool";
 		};
 		DC96ED190A414E07A7DBA4B5 /* warehouse_ui */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F310C38A1E74CFA9C1475B2 /* Build configuration list for PBXNativeTarget "warehouse_ui" */;
+			buildConfigurationList = 89DBE5E775BF49CEB2A8096F /* Build configuration list for PBXNativeTarget "warehouse_ui" */;
 			buildPhases = (
-				FC7B88F431784F0283402469 /* Sources */,
+				9DEE111F2D9E4D0997C08472 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3CF27B98962C45BFB7A2AB46 /* PBXTargetDependency */,
+				646AE34E1B234C69BE418746 /* PBXTargetDependency */,
 			);
 			name = warehouse_ui;
 			productName = warehouse_ui;
-			productReference = FFD8BBC6D0DE4779B0B7F83F /* warehouse_ui */;
+			productReference = DC188F94F9F24588AB679C07 /* warehouse_ui */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -307,18 +340,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 0830;
 			};
-			buildConfigurationList = 645A1324D40246CCB9F8668B /* Build configuration list for PBXProject "amazoom" */;
+			buildConfigurationList = 72EFEF6F0BC44001A2834AD6 /* Build configuration list for PBXProject "amazoom" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				6E1135A77DF1451B901E0543 /* Debug */,
-				993C64BA4CDA4A96A5C62F05 /* Release */,
-				59ABEEF5F8634E94BEC8BF57 /* MinSizeRel */,
-				5107024E1DA740D39A20BB82 /* RelWithDebInfo */,
+				6322F2FEE7A64EE19D18AB25 /* Debug */,
+				217BE073E712419ABB79CC05 /* Release */,
+				78FA0CEF1A1149E59F89FED1 /* MinSizeRel */,
+				63A5081D098841AB84532CC7 /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = 59773265274242F994BD1241;
+			mainGroup = 350E3CEC163444A8AF96A04A;
 			projectDirPath = ../;
 			projectRoot = "";
 			targets = (
@@ -332,7 +365,22 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		70D08C7D4E2049A98D5B4CBF /* CMake Rules */ = {
+		35F79A36296140A58706C040 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		8DDC891B793547F9B7D19A77 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -343,7 +391,7 @@
 			shellScript = "make -C /Users/tomlee/Documents/GitHub/Amaz00m/build -f /Users/tomlee/Documents/GitHub/Amaz00m/build/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		A4EFE78C45E54C2EB39A91BA = {
+		C5C49525E2974CEEB5F2C54C = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,22 +406,7 @@
 exit 0";
 			showEnvVarsInLog = 0;
 		};
-		C315207069BE4D6AAE0467A8 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		C797077AFDBA416D8D585240 /* CMake Rules */ = {
+		C5CFF0C345D24774B416C130 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -387,278 +420,72 @@ exit 0";
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		18A4B5A37F004DF780B6A641 /* Sources */ = {
+		363AA96DA37342C48CFF8127 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6110A50C2EE4B618EF8FB40 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */,
+				31FE520F4C704F42BD75925F /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C67CF171570646B1BC1E207F /* Sources */ = {
+		687A26BB2B3143EE9E380C55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				057C10C25D504CA688F53BFA /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */,
+				B26907DBF5EF4101ACAC8225 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC7B88F431784F0283402469 /* Sources */ = {
+		9DEE111F2D9E4D0997C08472 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C406399935524FF4A5C49D17 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */,
+				5EF3F6941F6A4F2DB4FB05E3 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3CF27B98962C45BFB7A2AB46 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
-			targetProxy = 49BD64ACF4CD41B79FE59D2E /* PBXContainerItemProxy */;
-		};
-		4734DBD6B8EB4ED2939C8FFC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
-			targetProxy = EED8280A9DAB4204976560E0 /* PBXContainerItemProxy */;
-		};
-		62EA28A7FCD140D69734A186 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC96ED190A414E07A7DBA4B5 /* warehouse_ui */;
-			targetProxy = DC80146F3F5843EF8D7B77D0 /* PBXContainerItemProxy */;
-		};
-		7452CD8A4EF0434DA2083187 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
-			targetProxy = C8FE6047DAD3461788C537B2 /* PBXContainerItemProxy */;
-		};
-		E0D3260DBE8A4CCD8650BE8C /* PBXTargetDependency */ = {
+		465E0715F584429D8DBBAA05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6E03E64F3CC14D42831527C1 /* warehouse_main */;
-			targetProxy = C1379562771946EAB0B736C5 /* PBXContainerItemProxy */;
+			targetProxy = D02970F7F409449C995A0E81 /* PBXContainerItemProxy */;
 		};
-		F7DA8F9D751140A2885C5F26 /* PBXTargetDependency */ = {
+		574D855126E34E1DA4A2D9EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
-			targetProxy = 48640FBC76D648ED93120D1D /* PBXContainerItemProxy */;
+			targetProxy = 8F664624203444F7B2E58119 /* PBXContainerItemProxy */;
 		};
-		FEA098D2F32745BE8FF67C64 /* PBXTargetDependency */ = {
+		646AE34E1B234C69BE418746 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
+			targetProxy = CCF107A729B5410291B0E501 /* PBXContainerItemProxy */;
+		};
+		6EA4BF0CA8554AF7AC1057FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC96ED190A414E07A7DBA4B5 /* warehouse_ui */;
+			targetProxy = F0642BD1D2CC4106B25943AC /* PBXContainerItemProxy */;
+		};
+		A7257E55C9304209A1703F1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
+			targetProxy = BE7923A0BF8B421BBEBEEF39 /* PBXContainerItemProxy */;
+		};
+		C88FFA9F5E404B4E89AAA7E8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1011A1EF61994631A562EC71 /* robot */;
-			targetProxy = 47C7F7621CE04572AE376F28 /* PBXContainerItemProxy */;
+			targetProxy = 89EC60F428CB4F9E81CF063B /* PBXContainerItemProxy */;
+		};
+		CB2EEB08687748E79DF38022 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
+			targetProxy = F1E7146FB02A42FDB9E6ECC6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04EE78D78560478A8D8E6691 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		0A779F647221407197DDAB93 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
-			};
-			name = MinSizeRel;
-		};
-		0CA395F3693A46CFA44F0E8D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		22A4E9C36E144E1D9833757D /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_ui;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		2FEBF1390FE64E02B090E726 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		317FB121598C44A18FE0CEAC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_ui;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		67CA656982A04E089BE7FB6C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		6D8D8FF4973842D9B85DE61D /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_ui;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		75BDB7959FC043BEB493FE41 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		845C138458364102ADF57850 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
-			};
-			name = Debug;
-		};
-		8BF3E73AC8C64471AD18418F /* RelWithDebInfo */ = {
+		047EFD755B294613AE6EDCA7 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
@@ -667,99 +494,7 @@ exit 0";
 			};
 			name = RelWithDebInfo;
 		};
-		997F12EF832A41AEBB7CBDB0 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		9A45D6E7877D48099BC822D6 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = robot;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		A312D960F87E441080116FBB /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = robot;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		A9DB42011A28416E9210B4F9 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		B3A5CDFA0ABF4414914BCE57 /* Debug */ = {
+		04D4B3E93FEA4663B8AFBB9D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -784,87 +519,7 @@ exit 0";
 			};
 			name = Debug;
 		};
-		C44BF39D22C342579336EBA9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		C6FA91816E234378A0964E6F /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		C7FC082142B14189A6E39B7B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = robot;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		CA49CC3AB20343DC9A56BA41 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
-			};
-			name = Release;
-		};
-		CFAC90C522654F50A1AE4FDE /* Release */ = {
+		08ED292C00B14B51BD215DB7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -889,28 +544,7 @@ exit 0";
 			};
 			name = Release;
 		};
-		D4456E80D1394E56B280D9BF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		D58DFF197B3C4EADB350C501 /* RelWithDebInfo */ = {
+		161986AE9A564A769418B0D4 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -931,7 +565,200 @@ exit 0";
 			};
 			name = RelWithDebInfo;
 		};
-		FCD6F071A0D541688F19D374 /* MinSizeRel */ = {
+		1FD69D1ECD6643959880393F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		3EA53703F72344F5A918D81F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = robot;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		41D05533BA1F4957A6EC8CFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		4932DDA42FA24FE58EE5E434 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		61E4BE9987364455A5216BF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		689EB0D6DB524DB8A371CF9B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		73F0F160ED184FCDBD329EEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
+			};
+			name = Debug;
+		};
+		7A37D45000D44DFD9E000B38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_ui;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		888ECCA828AA47948BF020AD /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_ui;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		8FACC993E2BB4A98B8540DD5 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -955,72 +782,278 @@ exit 0";
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = MinSizeRel;
+		};
+		92DE1222E0B0429C94E78767 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		9393F47E89794198BFE03895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = robot;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		93EC6D2CF0AB472CA261A98E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		A670B3E621CE487383C030F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
+			};
+			name = Release;
+		};
+		BE900261860A44B8BB272065 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		D61AEA4F230F420BBC810777 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
+			};
+			name = MinSizeRel;
+		};
+		DC8CAA643BA340C5A7575F53 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_ui;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		ECD4DD0E89144110AD89EF34 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		EFF82E407EAF490ABAEB7BD3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = robot;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		FAAACCD66D5E4636B67DC068 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0786E3492EC04C13BB96AC89 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		25838D22D8574E2CA296A2DB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67CA656982A04E089BE7FB6C /* Debug */,
-				D4456E80D1394E56B280D9BF /* Release */,
-				997F12EF832A41AEBB7CBDB0 /* MinSizeRel */,
-				D58DFF197B3C4EADB350C501 /* RelWithDebInfo */,
+				41D05533BA1F4957A6EC8CFC /* Debug */,
+				4932DDA42FA24FE58EE5E434 /* Release */,
+				1FD69D1ECD6643959880393F /* MinSizeRel */,
+				ECD4DD0E89144110AD89EF34 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		17FE756E7A374AEF9B022E15 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		327AFFA03DB74E68B916D384 /* Build configuration list for PBXNativeTarget "robot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2FEBF1390FE64E02B090E726 /* Debug */,
-				75BDB7959FC043BEB493FE41 /* Release */,
-				C6FA91816E234378A0964E6F /* MinSizeRel */,
-				A9DB42011A28416E9210B4F9 /* RelWithDebInfo */,
+				04D4B3E93FEA4663B8AFBB9D /* Debug */,
+				9393F47E89794198BFE03895 /* Release */,
+				3EA53703F72344F5A918D81F /* MinSizeRel */,
+				EFF82E407EAF490ABAEB7BD3 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		3F310C38A1E74CFA9C1475B2 /* Build configuration list for PBXNativeTarget "warehouse_ui" */ = {
+		40A1AB4B18B04448A48D8753 /* Build configuration list for PBXNativeTarget "warehouse_main" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				317FB121598C44A18FE0CEAC /* Debug */,
-				CFAC90C522654F50A1AE4FDE /* Release */,
-				6D8D8FF4973842D9B85DE61D /* MinSizeRel */,
-				22A4E9C36E144E1D9833757D /* RelWithDebInfo */,
+				93EC6D2CF0AB472CA261A98E /* Debug */,
+				BE900261860A44B8BB272065 /* Release */,
+				8FACC993E2BB4A98B8540DD5 /* MinSizeRel */,
+				689EB0D6DB524DB8A371CF9B /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		645A1324D40246CCB9F8668B /* Build configuration list for PBXProject "amazoom" */ = {
+		72EFEF6F0BC44001A2834AD6 /* Build configuration list for PBXProject "amazoom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				845C138458364102ADF57850 /* Debug */,
-				CA49CC3AB20343DC9A56BA41 /* Release */,
-				0A779F647221407197DDAB93 /* MinSizeRel */,
-				8BF3E73AC8C64471AD18418F /* RelWithDebInfo */,
+				73F0F160ED184FCDBD329EEB /* Debug */,
+				A670B3E621CE487383C030F4 /* Release */,
+				D61AEA4F230F420BBC810777 /* MinSizeRel */,
+				047EFD755B294613AE6EDCA7 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		94720180BF66446BA0978D5B /* Build configuration list for PBXNativeTarget "warehouse_main" */ = {
+		8373ABEE8954485598967EC8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C44BF39D22C342579336EBA9 /* Debug */,
-				0CA395F3693A46CFA44F0E8D /* Release */,
-				FCD6F071A0D541688F19D374 /* MinSizeRel */,
-				04EE78D78560478A8D8E6691 /* RelWithDebInfo */,
+				FAAACCD66D5E4636B67DC068 /* Debug */,
+				61E4BE9987364455A5216BF3 /* Release */,
+				92DE1222E0B0429C94E78767 /* MinSizeRel */,
+				161986AE9A564A769418B0D4 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		DB5232192FFF4B0D891FDC27 /* Build configuration list for PBXNativeTarget "robot" */ = {
+		89DBE5E775BF49CEB2A8096F /* Build configuration list for PBXNativeTarget "warehouse_ui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B3A5CDFA0ABF4414914BCE57 /* Debug */,
-				C7FC082142B14189A6E39B7B /* Release */,
-				A312D960F87E441080116FBB /* MinSizeRel */,
-				9A45D6E7877D48099BC822D6 /* RelWithDebInfo */,
+				7A37D45000D44DFD9E000B38 /* Debug */,
+				08ED292C00B14B51BD215DB7 /* Release */,
+				DC8CAA643BA340C5A7575F53 /* MinSizeRel */,
+				888ECCA828AA47948BF020AD /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

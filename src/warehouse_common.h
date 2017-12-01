@@ -18,6 +18,7 @@
 
 #define MAX_ROBOTS 10
 #define MAX_WAREHOUSE_SIZE 20
+#define MAX_DOCKS 5
 
 struct WarehouseInfo {
   int rows;           // rows in warehouse
@@ -28,8 +29,6 @@ struct WarehouseInfo {
 struct RobotInfo {
   int nrobots;      // number of robots
   int rloc[MAX_ROBOTS][2];   // robot locations [col][row]
-  int x;
-  int y;
 };
 
 struct Order {
@@ -51,7 +50,7 @@ struct Item {
 };
 
 struct Dock {
-    int location[2];
+    int dloc[MAX_DOCKS][2];
     int dockID;
     int ndocks;
 };
