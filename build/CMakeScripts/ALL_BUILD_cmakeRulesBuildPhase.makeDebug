@@ -2,9 +2,9 @@
 # Custom rules for ALL_BUILD
 .SUFFIXES: 
 all: \
-	/Users/tomlee/Documents/GitHub/Amaz00m/build/CMakeFiles/ALL_BUILD
+	/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/CMakeFiles/ALL_BUILD
 
 
-/Users/tomlee/Documents/GitHub/Amaz00m/build/CMakeFiles/ALL_BUILD: 
+/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/CMakeFiles/ALL_BUILD: 
 	echo ""
 	echo Build\ all\ projects

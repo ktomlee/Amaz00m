@@ -1,4 +1,4 @@
-# Install script for directory: /Users/tomlee/Documents/GitHub/Amaz00m
+# Install script for directory: /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/tomlee/Documents/GitHub/Amaz00m/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

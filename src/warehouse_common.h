@@ -16,6 +16,15 @@
 #define COL_IDX 0
 #define ROW_IDX 1
 
+#define UP(c,r)    (r > 0             ? winfo_.warehouse[c][r-1] : 'X')
+#define DOWN(c,r)  (r < winfo_.rows-1 ? winfo_.warehouse[c][r+1] : 'X')
+#define LEFT(c,r)  (c > 0             ? winfo_.warehouse[c-1][r] : 'X')
+#define RIGHT(c,r) (c < winfo_.cols-1 ? winfo_.warehouse[c+1][r] : 'X')
+
+#define SUCCESS 1
+#define FAILURE 0
+#define QUIT -1
+
 #define MAX_ROBOTS 10
 #define MAX_WAREHOUSE_SIZE 20
 #define MAX_DOCKS 5

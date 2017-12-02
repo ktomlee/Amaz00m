@@ -7,365 +7,384 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		15978F5D01904931B786E223 /* ALL_BUILD */ = {
+		78F5A87C49224BB59B13412A /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 8373ABEE8954485598967EC8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 599C487FFE1F499D8DCB8534 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				8DDC891B793547F9B7D19A77 /* CMake Rules */,
-			);
-			dependencies = (
-				465E0715F584429D8DBBAA05 /* PBXTargetDependency */,
-				574D855126E34E1DA4A2D9EA /* PBXTargetDependency */,
-				6EA4BF0CA8554AF7AC1057FB /* PBXTargetDependency */,
-				C88FFA9F5E404B4E89AAA7E8 /* PBXTargetDependency */,
-			);
-			name = ALL_BUILD;
-			productName = ALL_BUILD;
-		};
-		C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 25838D22D8574E2CA296A2DB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
-			buildPhases = (
-				C5CFF0C345D24774B416C130 /* CMake Rules */,
+				A51119BB50484B8497D4427A /* CMake Rules */,
 			);
 			dependencies = (
 			);
 			name = ZERO_CHECK;
 			productName = ZERO_CHECK;
 		};
+		FC2A307B1BD34E0396F70715 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A056F8E05C3B4E8EA40F7C87 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				74E0AB48CE7B404E92E6219A /* CMake Rules */,
+			);
+			dependencies = (
+				D600792C7C5C4562B7583C2F /* PBXTargetDependency */,
+				D5BF8BCE8F494326967C00F1 /* PBXTargetDependency */,
+				7B3E96788F6E452EB3434F8A /* PBXTargetDependency */,
+				133CF02006C2417685DBAD57 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0003F0DFEB4647C2AF3DCB68 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 9639A988A0AE4FD8B161C859 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
-		1C0BFBC16839488BAD48CFD7 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = E0270B412D2848189130E4A8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */; };
-		31FE520F4C704F42BD75925F /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */ = {isa = PBXBuildFile; fileRef = CE40388D34DF4F11AB9EE1FA /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */; };
-		5EF3F6941F6A4F2DB4FB05E3 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */ = {isa = PBXBuildFile; fileRef = 22C12B8F47C54E2098B95C04 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */; };
-		907ACEFDEC66402C915AE42D /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = 0D28AB5CECB64A0CB8802F03 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */; };
-		9A0D0C0CDBB7431A9969262A /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = CC76F9F455E6442DA1752DC9 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
-		B26907DBF5EF4101ACAC8225 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */ = {isa = PBXBuildFile; fileRef = CDEB9B07F4714084AC75F421 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */; };
-		B7EAA8B7A46A4ED38C34CEF0 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = A226F8B0367B4D2099503397 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */; };
-		E5FB0FF8AAA74979A311CC74 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = 7CBBD0D9A0224375895E867A /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */; };
+		278C851297094D1EB9381414 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = E947F3F8B5DE461CB030A0C4 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */; };
+		513D9B0106B2499DBD7A2909 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 5933912C0D1044EC90D4D3F2 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */; };
+		58AEC4D3FB9540A580E23B29 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 0BE073F9477A4AE1ADEC318B /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */; };
+		7459E2DD264A4CC7AFCD99C1 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_main.cpp */ = {isa = PBXBuildFile; fileRef = BFA3180059F947CDB169BC3A /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_main.cpp */; };
+		97380CC66C6E4F499F020A53 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = 80702BFC603A494CAD2E0B54 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */; };
+		A32C639E0669413C9AFCCF7E /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = B05371B067A74ABEA68ADFAB /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */; };
+		B9F445A92C3F4209AED15897 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_ui.cpp */ = {isa = PBXBuildFile; fileRef = 2B65A8F5C8674CDB93419C5A /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_ui.cpp */; };
+		D7508A36C7B74175A9A945DA /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/robot.cpp */ = {isa = PBXBuildFile; fileRef = BB93C051B2A142CF99167856 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/robot.cpp */; };
+		E529F29BE4B3476695EE4264 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */ = {isa = PBXBuildFile; fileRef = 50F788B41C9A457D859667B6 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		217BE073E712419ABB79CC05 /* Release */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Release;
-		};
-		6322F2FEE7A64EE19D18AB25 /* Debug */ = {
+		49AF5C5D0CBE4CE1BD31B128 /* Debug */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Debug;
 		};
-		63A5081D098841AB84532CC7 /* RelWithDebInfo */ = {
+		9030EBBD338A40E485AC8D31 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		942DE3D14CE04AB4B2C3E6EB /* RelWithDebInfo */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = RelWithDebInfo;
 		};
-		78FA0CEF1A1149E59F89FED1 /* MinSizeRel */ = {
+		AC87B1441ED545F4B6B94724 /* MinSizeRel */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = MinSizeRel;
 		};
+		F974F5B520CB4EF086569E6F = {
+			isa = PBXBuildStyle;
+		};
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		89EC60F428CB4F9E81CF063B /* PBXContainerItemProxy */ = {
+		0EE59DB97F924C168D7C07BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
+			containerPortal = 10C8ACF984D84791BE46EC2F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1011A1EF61994631A562EC71;
-			remoteInfo = robot;
-		};
-		8F664624203444F7B2E58119 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C83BEB6DA53A471499BDAC7C;
+			remoteGlobalIDString = 78F5A87C49224BB59B13412A;
 			remoteInfo = ZERO_CHECK;
 		};
-		BE7923A0BF8B421BBEBEEF39 /* PBXContainerItemProxy */ = {
+		42266B353C9446319FEE53D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
+			containerPortal = 10C8ACF984D84791BE46EC2F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C83BEB6DA53A471499BDAC7C;
+			remoteGlobalIDString = 78F5A87C49224BB59B13412A;
 			remoteInfo = ZERO_CHECK;
 		};
-		CCF107A729B5410291B0E501 /* PBXContainerItemProxy */ = {
+		848E430D55914127B9BB07BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
+			containerPortal = 10C8ACF984D84791BE46EC2F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C83BEB6DA53A471499BDAC7C;
-			remoteInfo = ZERO_CHECK;
-		};
-		D02970F7F409449C995A0E81 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6E03E64F3CC14D42831527C1;
-			remoteInfo = warehouse_main;
-		};
-		F0642BD1D2CC4106B25943AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC96ED190A414E07A7DBA4B5;
+			remoteGlobalIDString = E68EB772F95948B29D4F86E8;
 			remoteInfo = warehouse_ui;
 		};
-		F1E7146FB02A42FDB9E6ECC6 /* PBXContainerItemProxy */ = {
+		B2C59FCB454B4552B7215E08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 03BB3483FF934E16A8651E28 /* Project object */;
+			containerPortal = 10C8ACF984D84791BE46EC2F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C83BEB6DA53A471499BDAC7C;
+			remoteGlobalIDString = 78F5A87C49224BB59B13412A;
+			remoteInfo = ZERO_CHECK;
+		};
+		BCB0BD34643044C992F407AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10C8ACF984D84791BE46EC2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41EA2945841B46EA96C58EC3;
+			remoteInfo = warehouse_main;
+		};
+		ED252B02F3824EB19224F849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10C8ACF984D84791BE46EC2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F33553C06684E44A2DDCBA1;
+			remoteInfo = robot;
+		};
+		FFE0C5BA71ED4CCDA96459BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10C8ACF984D84791BE46EC2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78F5A87C49224BB59B13412A;
 			remoteInfo = ZERO_CHECK;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0457C1287795488F9D88F14F /* robot */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = robot; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D28AB5CECB64A0CB8802F03 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
-		22C12B8F47C54E2098B95C04 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = warehouse_ui.cpp; path = src/warehouse_ui.cpp; sourceTree = SOURCE_ROOT; };
-		41222A100D3147A5A05A32DE /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		7CBBD0D9A0224375895E867A /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
-		9639A988A0AE4FD8B161C859 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		A226F8B0367B4D2099503397 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		C7F037ED72464415B6511F96 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		CC76F9F455E6442DA1752DC9 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		CDEB9B07F4714084AC75F421 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = warehouse_main.cpp; path = src/warehouse_main.cpp; sourceTree = SOURCE_ROOT; };
-		CE40388D34DF4F11AB9EE1FA /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = robot.cpp; path = src/robot.cpp; sourceTree = SOURCE_ROOT; };
-		DC188F94F9F24588AB679C07 /* warehouse_ui */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = warehouse_ui; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0270B412D2848189130E4A8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
-		F401CDADF4EF4D0D9CCF49CA /* warehouse_main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = warehouse_main; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BE073F9477A4AE1ADEC318B /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		2B65A8F5C8674CDB93419C5A /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_ui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = warehouse_ui.cpp; path = src/warehouse_ui.cpp; sourceTree = SOURCE_ROOT; };
+		2F09E21972604E54BBD11AD2 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		50F788B41C9A457D859667B6 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
+		5933912C0D1044EC90D4D3F2 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		80702BFC603A494CAD2E0B54 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
+		8A17366CFF5D401F9B2303A1 /* robot */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = robot; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DFAA7CFCCEE4B289F7E99A3 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A0F951086FEB40BBA30B095E /* warehouse_ui */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = warehouse_ui; sourceTree = BUILT_PRODUCTS_DIR; };
+		B05371B067A74ABEA68ADFAB /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B4E48F3A8B854F9291185801 /* warehouse_main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = warehouse_main; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB93C051B2A142CF99167856 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/robot.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = robot.cpp; path = src/robot.cpp; sourceTree = SOURCE_ROOT; };
+		BFA3180059F947CDB169BC3A /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = warehouse_main.cpp; path = src/warehouse_main.cpp; sourceTree = SOURCE_ROOT; };
+		E947F3F8B5DE461CB030A0C4 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warehouse_common.h; path = src/warehouse_common.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		038140F79009472B8314E057 /* Source Files */ = {
+		26887F2B7B8346E4B5E785AF /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE40388D34DF4F11AB9EE1FA /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */,
+				BB93C051B2A142CF99167856 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/robot.cpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		24A92090A007480EB9F1A025 /* ZERO_CHECK */ = {
+		50847017504144C0992A0389 = {
 			isa = PBXGroup;
 			children = (
-				5503D53D6F804754B4204788 /* CMake Rules */,
-				C7F037ED72464415B6511F96 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+				7827088BF8DA4AAAA6A6A1DE /* Sources */,
+				9E83CAE2E7D4484A99465C8A /* Resources */,
+				E67FCDF9DCFA4AB4BFF51D7B /* Products */,
 			);
-			name = ZERO_CHECK;
 			sourceTree = "<group>";
 		};
-		25D85BF83BAB49D6BEECDBBF /* robot */ = {
+		5F6C29D449294820BF1F287A /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				038140F79009472B8314E057 /* Source Files */,
-				D8E1E66C63694EE884573329 /* Header Files */,
-				CC76F9F455E6442DA1752DC9 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+				BFA3180059F947CDB169BC3A /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		6A7C595E561B4F5088403551 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				E947F3F8B5DE461CB030A0C4 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		71233495EB784921A2201846 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B65A8F5C8674CDB93419C5A /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_ui.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		7827088BF8DA4AAAA6A6A1DE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				872CC4E4A2534AB5AD94C11F /* robot */,
+				808264D317014DCB9DBD2C96 /* warehouse_main */,
+				D69088DA2D3A4E408802CD76 /* warehouse_ui */,
+				CEBDE1AB0D3F47BDB6474DB0 /* ALL_BUILD */,
+				B83BBA94C4ED4BEAA60A76E6 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		808264D317014DCB9DBD2C96 /* warehouse_main */ = {
+			isa = PBXGroup;
+			children = (
+				5F6C29D449294820BF1F287A /* Source Files */,
+				6A7C595E561B4F5088403551 /* Header Files */,
+				0BE073F9477A4AE1ADEC318B /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */,
+			);
+			name = warehouse_main;
+			sourceTree = "<group>";
+		};
+		872CC4E4A2534AB5AD94C11F /* robot */ = {
+			isa = PBXGroup;
+			children = (
+				26887F2B7B8346E4B5E785AF /* Source Files */,
+				CBCF94A8C13D42DA911D659B /* Header Files */,
+				5933912C0D1044EC90D4D3F2 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */,
 			);
 			name = robot;
 			sourceTree = "<group>";
 		};
-		350E3CEC163444A8AF96A04A = {
+		9E83CAE2E7D4484A99465C8A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				25D85BF83BAB49D6BEECDBBF /* robot */,
-				F502ED00AEB24EDE83724439 /* warehouse_main */,
-				3CF63510346344EBB751CBE3 /* warehouse_ui */,
-				488717AA215D47DC92B9E5AC /* ALL_BUILD */,
-				24A92090A007480EB9F1A025 /* ZERO_CHECK */,
-				A6969B7565AF4BD3957DC934 /* Products */,
 			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		3CF63510346344EBB751CBE3 /* warehouse_ui */ = {
+		B42833DA12884DF1A027BF72 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
-				689C025BA6F84F86BC7FDFB0 /* Source Files */,
-				5128154881CE416295B8EB38 /* Header Files */,
-				A226F8B0367B4D2099503397 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
 			);
-			name = warehouse_ui;
+			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		488717AA215D47DC92B9E5AC /* ALL_BUILD */ = {
+		B83BBA94C4ED4BEAA60A76E6 /* ZERO_CHECK */ = {
 			isa = PBXGroup;
 			children = (
-				8AAA57E6E4054B5B97B98F63 /* CMake Rules */,
-				41222A100D3147A5A05A32DE /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
+				B42833DA12884DF1A027BF72 /* CMake Rules */,
+				2F09E21972604E54BBD11AD2 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		CBCF94A8C13D42DA911D659B /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				80702BFC603A494CAD2E0B54 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		CEBDE1AB0D3F47BDB6474DB0 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				CF8C2718F0DA4C339D9B7D46 /* CMake Rules */,
+				9DFAA7CFCCEE4B289F7E99A3 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */,
 			);
 			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
-		5128154881CE416295B8EB38 /* Header Files */ = {
-			isa = PBXGroup;
-			children = (
-				7CBBD0D9A0224375895E867A /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */,
-			);
-			name = "Header Files";
-			sourceTree = "<group>";
-		};
-		5503D53D6F804754B4204788 /* CMake Rules */ = {
+		CF8C2718F0DA4C339D9B7D46 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		689C025BA6F84F86BC7FDFB0 /* Source Files */ = {
+		D69088DA2D3A4E408802CD76 /* warehouse_ui */ = {
 			isa = PBXGroup;
 			children = (
-				22C12B8F47C54E2098B95C04 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */,
+				71233495EB784921A2201846 /* Source Files */,
+				EBFF05193BB24693ABC187D2 /* Header Files */,
+				B05371B067A74ABEA68ADFAB /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/CMakeLists.txt */,
 			);
-			name = "Source Files";
+			name = warehouse_ui;
 			sourceTree = "<group>";
 		};
-		6AB815622225412F888B8755 /* Source Files */ = {
+		E67FCDF9DCFA4AB4BFF51D7B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CDEB9B07F4714084AC75F421 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		8AAA57E6E4054B5B97B98F63 /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		A6969B7565AF4BD3957DC934 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0457C1287795488F9D88F14F /* robot */,
-				F401CDADF4EF4D0D9CCF49CA /* warehouse_main */,
-				DC188F94F9F24588AB679C07 /* warehouse_ui */,
+				8A17366CFF5D401F9B2303A1 /* robot */,
+				B4E48F3A8B854F9291185801 /* warehouse_main */,
+				A0F951086FEB40BBA30B095E /* warehouse_ui */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B7BF597F4A394A66A9D45973 /* Header Files */ = {
+		EBFF05193BB24693ABC187D2 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				0D28AB5CECB64A0CB8802F03 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */,
+				50F788B41C9A457D859667B6 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_common.h */,
 			);
 			name = "Header Files";
-			sourceTree = "<group>";
-		};
-		D8E1E66C63694EE884573329 /* Header Files */ = {
-			isa = PBXGroup;
-			children = (
-				E0270B412D2848189130E4A8 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_common.h */,
-			);
-			name = "Header Files";
-			sourceTree = "<group>";
-		};
-		F502ED00AEB24EDE83724439 /* warehouse_main */ = {
-			isa = PBXGroup;
-			children = (
-				6AB815622225412F888B8755 /* Source Files */,
-				B7BF597F4A394A66A9D45973 /* Header Files */,
-				9639A988A0AE4FD8B161C859 /* /Users/tomlee/Documents/GitHub/Amaz00m/CMakeLists.txt */,
-			);
-			name = warehouse_main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1011A1EF61994631A562EC71 /* robot */ = {
+		41EA2945841B46EA96C58EC3 /* warehouse_main */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 327AFFA03DB74E68B916D384 /* Build configuration list for PBXNativeTarget "robot" */;
+			buildConfigurationList = 603B36CF56814D1C81C4234C /* Build configuration list for PBXNativeTarget "warehouse_main" */;
 			buildPhases = (
-				363AA96DA37342C48CFF8127 /* Sources */,
+				5E7E54AAAD8241BB821DDDD8 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CB2EEB08687748E79DF38022 /* PBXTargetDependency */,
-			);
-			name = robot;
-			productName = robot;
-			productReference = 0457C1287795488F9D88F14F /* robot */;
-			productType = "com.apple.product-type.tool";
-		};
-		6E03E64F3CC14D42831527C1 /* warehouse_main */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 40A1AB4B18B04448A48D8753 /* Build configuration list for PBXNativeTarget "warehouse_main" */;
-			buildPhases = (
-				687A26BB2B3143EE9E380C55 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A7257E55C9304209A1703F1A /* PBXTargetDependency */,
+				ED3E19F86EE7423BA07C64D0 /* PBXTargetDependency */,
 			);
 			name = warehouse_main;
 			productName = warehouse_main;
-			productReference = F401CDADF4EF4D0D9CCF49CA /* warehouse_main */;
+			productReference = B4E48F3A8B854F9291185801 /* warehouse_main */;
 			productType = "com.apple.product-type.tool";
 		};
-		DC96ED190A414E07A7DBA4B5 /* warehouse_ui */ = {
+		5F33553C06684E44A2DDCBA1 /* robot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 89DBE5E775BF49CEB2A8096F /* Build configuration list for PBXNativeTarget "warehouse_ui" */;
+			buildConfigurationList = EB3B2636DA68475DA9ED5403 /* Build configuration list for PBXNativeTarget "robot" */;
 			buildPhases = (
-				9DEE111F2D9E4D0997C08472 /* Sources */,
+				CA6C88A1733A45368CFA5A4E /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				646AE34E1B234C69BE418746 /* PBXTargetDependency */,
+				2FD3DEB0F292465486FE3C66 /* PBXTargetDependency */,
+			);
+			name = robot;
+			productName = robot;
+			productReference = 8A17366CFF5D401F9B2303A1 /* robot */;
+			productType = "com.apple.product-type.tool";
+		};
+		E68EB772F95948B29D4F86E8 /* warehouse_ui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26168CE1C62C4A968C45A841 /* Build configuration list for PBXNativeTarget "warehouse_ui" */;
+			buildPhases = (
+				E07BFFBEDB3F413E8C76B1A7 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4F20A27CA824CD186D13D59 /* PBXTargetDependency */,
 			);
 			name = warehouse_ui;
 			productName = warehouse_ui;
-			productReference = DC188F94F9F24588AB679C07 /* warehouse_ui */;
+			productReference = A0F951086FEB40BBA30B095E /* warehouse_ui */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		03BB3483FF934E16A8651E28 /* Project object */ = {
+		10C8ACF984D84791BE46EC2F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 			};
-			buildConfigurationList = 72EFEF6F0BC44001A2834AD6 /* Build configuration list for PBXProject "amazoom" */;
+			buildConfigurationList = D5FDF4BCC2D4410DA99B0F09 /* Build configuration list for PBXProject "amazoom" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				6322F2FEE7A64EE19D18AB25 /* Debug */,
-				217BE073E712419ABB79CC05 /* Release */,
-				78FA0CEF1A1149E59F89FED1 /* MinSizeRel */,
-				63A5081D098841AB84532CC7 /* RelWithDebInfo */,
+				49AF5C5D0CBE4CE1BD31B128 /* Debug */,
+				9030EBBD338A40E485AC8D31 /* Release */,
+				AC87B1441ED545F4B6B94724 /* MinSizeRel */,
+				942DE3D14CE04AB4B2C3E6EB /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = 350E3CEC163444A8AF96A04A;
+			mainGroup = 50847017504144C0992A0389;
 			projectDirPath = ../;
 			projectRoot = "";
 			targets = (
-				15978F5D01904931B786E223 /* ALL_BUILD */,
-				C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */,
-				1011A1EF61994631A562EC71 /* robot */,
-				6E03E64F3CC14D42831527C1 /* warehouse_main */,
-				DC96ED190A414E07A7DBA4B5 /* warehouse_ui */,
+				FC2A307B1BD34E0396F70715 /* ALL_BUILD */,
+				78F5A87C49224BB59B13412A /* ZERO_CHECK */,
+				5F33553C06684E44A2DDCBA1 /* robot */,
+				41EA2945841B46EA96C58EC3 /* warehouse_main */,
+				E68EB772F95948B29D4F86E8 /* warehouse_ui */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		35F79A36296140A58706C040 = {
+		4DA91078F5F94DBA8FC42964 = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -380,18 +399,7 @@
 exit 0";
 			showEnvVarsInLog = 0;
 		};
-		8DDC891B793547F9B7D19A77 /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/tomlee/Documents/GitHub/Amaz00m/build -f /Users/tomlee/Documents/GitHub/Amaz00m/build/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
-			showEnvVarsInLog = 0;
-		};
-		C5C49525E2974CEEB5F2C54C = {
+		731DFC1C64AD47BDB509024C = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -406,7 +414,7 @@ exit 0";
 exit 0";
 			showEnvVarsInLog = 0;
 		};
-		C5CFF0C345D24774B416C130 /* CMake Rules */ = {
+		74E0AB48CE7B404E92E6219A /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -414,179 +422,89 @@ exit 0";
 			name = "CMake Rules";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "make -C /Users/tomlee/Documents/GitHub/Amaz00m/build -f /Users/tomlee/Documents/GitHub/Amaz00m/build/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			shellScript = "make -C /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build -f /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		A51119BB50484B8497D4427A /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build -f /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		363AA96DA37342C48CFF8127 /* Sources */ = {
+		5E7E54AAAD8241BB821DDDD8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31FE520F4C704F42BD75925F /* /Users/tomlee/Documents/GitHub/Amaz00m/src/robot.cpp */,
+				7459E2DD264A4CC7AFCD99C1 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_main.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		687A26BB2B3143EE9E380C55 /* Sources */ = {
+		CA6C88A1733A45368CFA5A4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B26907DBF5EF4101ACAC8225 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_main.cpp */,
+				D7508A36C7B74175A9A945DA /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/robot.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9DEE111F2D9E4D0997C08472 /* Sources */ = {
+		E07BFFBEDB3F413E8C76B1A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EF3F6941F6A4F2DB4FB05E3 /* /Users/tomlee/Documents/GitHub/Amaz00m/src/warehouse_ui.cpp */,
+				B9F445A92C3F4209AED15897 /* /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/src/warehouse_ui.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		465E0715F584429D8DBBAA05 /* PBXTargetDependency */ = {
+		133CF02006C2417685DBAD57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E03E64F3CC14D42831527C1 /* warehouse_main */;
-			targetProxy = D02970F7F409449C995A0E81 /* PBXContainerItemProxy */;
+			target = 78F5A87C49224BB59B13412A /* ZERO_CHECK */;
+			targetProxy = FFE0C5BA71ED4CCDA96459BC /* PBXContainerItemProxy */;
 		};
-		574D855126E34E1DA4A2D9EA /* PBXTargetDependency */ = {
+		2FD3DEB0F292465486FE3C66 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
-			targetProxy = 8F664624203444F7B2E58119 /* PBXContainerItemProxy */;
+			target = 78F5A87C49224BB59B13412A /* ZERO_CHECK */;
+			targetProxy = 42266B353C9446319FEE53D7 /* PBXContainerItemProxy */;
 		};
-		646AE34E1B234C69BE418746 /* PBXTargetDependency */ = {
+		7B3E96788F6E452EB3434F8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
-			targetProxy = CCF107A729B5410291B0E501 /* PBXContainerItemProxy */;
+			target = 41EA2945841B46EA96C58EC3 /* warehouse_main */;
+			targetProxy = BCB0BD34643044C992F407AB /* PBXContainerItemProxy */;
 		};
-		6EA4BF0CA8554AF7AC1057FB /* PBXTargetDependency */ = {
+		D5BF8BCE8F494326967C00F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC96ED190A414E07A7DBA4B5 /* warehouse_ui */;
-			targetProxy = F0642BD1D2CC4106B25943AC /* PBXContainerItemProxy */;
+			target = 5F33553C06684E44A2DDCBA1 /* robot */;
+			targetProxy = ED252B02F3824EB19224F849 /* PBXContainerItemProxy */;
 		};
-		A7257E55C9304209A1703F1A /* PBXTargetDependency */ = {
+		D600792C7C5C4562B7583C2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
-			targetProxy = BE7923A0BF8B421BBEBEEF39 /* PBXContainerItemProxy */;
+			target = E68EB772F95948B29D4F86E8 /* warehouse_ui */;
+			targetProxy = 848E430D55914127B9BB07BD /* PBXContainerItemProxy */;
 		};
-		C88FFA9F5E404B4E89AAA7E8 /* PBXTargetDependency */ = {
+		ED3E19F86EE7423BA07C64D0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1011A1EF61994631A562EC71 /* robot */;
-			targetProxy = 89EC60F428CB4F9E81CF063B /* PBXContainerItemProxy */;
+			target = 78F5A87C49224BB59B13412A /* ZERO_CHECK */;
+			targetProxy = 0EE59DB97F924C168D7C07BD /* PBXContainerItemProxy */;
 		};
-		CB2EEB08687748E79DF38022 /* PBXTargetDependency */ = {
+		F4F20A27CA824CD186D13D59 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C83BEB6DA53A471499BDAC7C /* ZERO_CHECK */;
-			targetProxy = F1E7146FB02A42FDB9E6ECC6 /* PBXContainerItemProxy */;
+			target = 78F5A87C49224BB59B13412A /* ZERO_CHECK */;
+			targetProxy = B2C59FCB454B4552B7215E08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		047EFD755B294613AE6EDCA7 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
-			};
-			name = RelWithDebInfo;
-		};
-		04D4B3E93FEA4663B8AFBB9D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = robot;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		08ED292C00B14B51BD215DB7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_ui;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		161986AE9A564A769418B0D4 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		1FD69D1ECD6643959880393F /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		3EA53703F72344F5A918D81F /* MinSizeRel */ = {
+		01A5A9FC00EB492B96AAC7B9 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -597,21 +515,21 @@ exit 0";
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
 				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = robot;
+				PRODUCT_NAME = warehouse_ui;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = MinSizeRel;
 		};
-		41D05533BA1F4957A6EC8CFC /* Debug */ = {
+		1CC95B0493AB4452A23AFAB0 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -620,61 +538,19 @@ exit 0";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		4932DDA42FA24FE58EE5E434 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		61E4BE9987364455A5216BF3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Release;
+			name = RelWithDebInfo;
 		};
-		689EB0D6DB524DB8A371CF9B /* RelWithDebInfo */ = {
+		28F9206B84E44C83A4F444F0 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -685,80 +561,21 @@ exit 0";
 				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
 				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = warehouse_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = RelWithDebInfo;
 		};
-		73F0F160ED184FCDBD329EEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
-			};
-			name = Debug;
-		};
-		7A37D45000D44DFD9E000B38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_ui;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		888ECCA828AA47948BF020AD /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_ui;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		8FACC993E2BB4A98B8540DD5 /* MinSizeRel */ = {
+		390443C5F9324168AD4B3C51 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -769,67 +586,21 @@ exit 0";
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		92DE1222E0B0429C94E78767 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		9393F47E89794198BFE03895 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
 				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = robot;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Release;
+			name = MinSizeRel;
 		};
-		93EC6D2CF0AB472CA261A98E /* Debug */ = {
+		43CD65E31AD44FDDB56FAD48 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -840,30 +611,42 @@ exit 0";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11'  ";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
 				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_main;
+				PRODUCT_NAME = warehouse_ui;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = Debug;
 		};
-		A670B3E621CE487383C030F4 /* Release */ = {
+		465C0AFEE9D84473B09D20E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = Release;
 		};
-		BE900261860A44B8BB272065 /* Release */ = {
+		474DD7C1027E4F2A8BFA9EEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -874,30 +657,21 @@ exit 0";
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
 				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_main;
+				PRODUCT_NAME = robot;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = Release;
 		};
-		D61AEA4F230F420BBC810777 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build/build;
-			};
-			name = MinSizeRel;
-		};
-		DC8CAA643BA340C5A7575F53 /* MinSizeRel */ = {
+		47823300B7C444C6BD3958A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -905,45 +679,24 @@ exit 0";
 				EXECUTABLE_SUFFIX = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
 				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = warehouse_ui;
+				PRODUCT_NAME = warehouse_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = MinSizeRel;
+			name = Release;
 		};
-		ECD4DD0E89144110AD89EF34 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		EFF82E407EAF490ABAEB7BD3 /* RelWithDebInfo */ = {
+		4C1D7C483BFA4D88A61BFEDF /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -954,21 +707,21 @@ exit 0";
 				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
 				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = robot;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = RelWithDebInfo;
 		};
-		FAAACCD66D5E4636B67DC068 /* Debug */ = {
+		5D725ADD608846AC85E7F085 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -977,88 +730,354 @@ exit 0";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/tomlee/Documents/GitHub/Amaz00m/library/include);
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/tomlee/Documents/GitHub/Amaz00m/build;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = Debug;
+		};
+		6362653559244BF2A946F63C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_ui;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		63F2FD35A5754BF4A7A22B55 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		85E24AA7C257432784F5EAB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/build;
+			};
+			name = Release;
+		};
+		8844F7DCB68E4061A2FBA192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		8E82E63A6B3A4B818889598A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		B31D55D5CFD94410B50AB1E8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		B54631358EC34864B553B6E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/build;
+			};
+			name = Debug;
+		};
+		BDE3A8733BAC4D27A16B412A /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/build;
+			};
+			name = RelWithDebInfo;
+		};
+		C6BA397348834FDEA763D0CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = robot;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		C71BE6FC349F40B5A6CD0DCF /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		D05D81625D9D470C8D153A8C /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build/build;
+			};
+			name = MinSizeRel;
+		};
+		E3F0220A96094D99BDF0A099 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		E4D2C50944744B9CA177D6A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		F47ED58D3F69424BB0887D53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11' -I/Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/library/include   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = warehouse_ui;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/moults31/Documents/Engineering/Year4/Term_1/CPEN333/Amaz00m/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		25838D22D8574E2CA296A2DB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		26168CE1C62C4A968C45A841 /* Build configuration list for PBXNativeTarget "warehouse_ui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				41D05533BA1F4957A6EC8CFC /* Debug */,
-				4932DDA42FA24FE58EE5E434 /* Release */,
-				1FD69D1ECD6643959880393F /* MinSizeRel */,
-				ECD4DD0E89144110AD89EF34 /* RelWithDebInfo */,
+				43CD65E31AD44FDDB56FAD48 /* Debug */,
+				F47ED58D3F69424BB0887D53 /* Release */,
+				01A5A9FC00EB492B96AAC7B9 /* MinSizeRel */,
+				6362653559244BF2A946F63C /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		327AFFA03DB74E68B916D384 /* Build configuration list for PBXNativeTarget "robot" */ = {
+		599C487FFE1F499D8DCB8534 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04D4B3E93FEA4663B8AFBB9D /* Debug */,
-				9393F47E89794198BFE03895 /* Release */,
-				3EA53703F72344F5A918D81F /* MinSizeRel */,
-				EFF82E407EAF490ABAEB7BD3 /* RelWithDebInfo */,
+				E4D2C50944744B9CA177D6A0 /* Debug */,
+				E3F0220A96094D99BDF0A099 /* Release */,
+				C71BE6FC349F40B5A6CD0DCF /* MinSizeRel */,
+				B31D55D5CFD94410B50AB1E8 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		40A1AB4B18B04448A48D8753 /* Build configuration list for PBXNativeTarget "warehouse_main" */ = {
+		603B36CF56814D1C81C4234C /* Build configuration list for PBXNativeTarget "warehouse_main" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				93EC6D2CF0AB472CA261A98E /* Debug */,
-				BE900261860A44B8BB272065 /* Release */,
-				8FACC993E2BB4A98B8540DD5 /* MinSizeRel */,
-				689EB0D6DB524DB8A371CF9B /* RelWithDebInfo */,
+				8844F7DCB68E4061A2FBA192 /* Debug */,
+				47823300B7C444C6BD3958A9 /* Release */,
+				63F2FD35A5754BF4A7A22B55 /* MinSizeRel */,
+				28F9206B84E44C83A4F444F0 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		72EFEF6F0BC44001A2834AD6 /* Build configuration list for PBXProject "amazoom" */ = {
+		A056F8E05C3B4E8EA40F7C87 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				73F0F160ED184FCDBD329EEB /* Debug */,
-				A670B3E621CE487383C030F4 /* Release */,
-				D61AEA4F230F420BBC810777 /* MinSizeRel */,
-				047EFD755B294613AE6EDCA7 /* RelWithDebInfo */,
+				5D725ADD608846AC85E7F085 /* Debug */,
+				465C0AFEE9D84473B09D20E8 /* Release */,
+				8E82E63A6B3A4B818889598A /* MinSizeRel */,
+				1CC95B0493AB4452A23AFAB0 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		8373ABEE8954485598967EC8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		D5FDF4BCC2D4410DA99B0F09 /* Build configuration list for PBXProject "amazoom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAAACCD66D5E4636B67DC068 /* Debug */,
-				61E4BE9987364455A5216BF3 /* Release */,
-				92DE1222E0B0429C94E78767 /* MinSizeRel */,
-				161986AE9A564A769418B0D4 /* RelWithDebInfo */,
+				B54631358EC34864B553B6E8 /* Debug */,
+				85E24AA7C257432784F5EAB2 /* Release */,
+				D05D81625D9D470C8D153A8C /* MinSizeRel */,
+				BDE3A8733BAC4D27A16B412A /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		89DBE5E775BF49CEB2A8096F /* Build configuration list for PBXNativeTarget "warehouse_ui" */ = {
+		EB3B2636DA68475DA9ED5403 /* Build configuration list for PBXNativeTarget "robot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7A37D45000D44DFD9E000B38 /* Debug */,
-				08ED292C00B14B51BD215DB7 /* Release */,
-				DC8CAA643BA340C5A7575F53 /* MinSizeRel */,
-				888ECCA828AA47948BF020AD /* RelWithDebInfo */,
+				C6BA397348834FDEA763D0CF /* Debug */,
+				474DD7C1027E4F2A8BFA9EEA /* Release */,
+				390443C5F9324168AD4B3C51 /* MinSizeRel */,
+				4C1D7C483BFA4D88A61BFEDF /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 03BB3483FF934E16A8651E28 /* Project object */;
+	rootObject = 10C8ACF984D84791BE46EC2F /* Project object */;
 }
