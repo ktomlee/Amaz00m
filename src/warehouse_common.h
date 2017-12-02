@@ -28,6 +28,7 @@
 #define MAX_ROBOTS 10
 #define MAX_WAREHOUSE_SIZE 20
 #define MAX_DOCKS 5
+#define MAX_TRUCKS 50
 
 struct WarehouseInfo {
   int rows;           // rows in warehouse
@@ -38,6 +39,11 @@ struct WarehouseInfo {
 struct RobotInfo {
   int nrobots;      // number of robots
   int rloc[MAX_ROBOTS][2];   // robot locations [col][row]
+};
+
+struct TruckInfo {
+  int ntrucks;      // number of robots
+  int tloc[MAX_TRUCKS][2];   // robot locations [col][row]
 };
 
 struct Order {
@@ -67,7 +73,9 @@ struct Dock {
 struct SharedData {
 	RobotInfo rinfo;
 	WarehouseInfo winfo;
-    Dock dinfo;
+  Dock dinfo;
+  TruckInfo tinfo;
+  
 	bool quit;
 	std::vector<Order> newOrderQ;
 	std::vector<Order> shippingQ;

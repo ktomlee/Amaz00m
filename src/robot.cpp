@@ -7,11 +7,10 @@
 #include <thread>
 
 class Robot {
-
   cpen333::process::shared_object<SharedData> memory_;
   cpen333::process::mutex mutex_;
 
-  // local copy of maze
+  // local copy of warehouse
   WarehouseInfo winfo_;
 
   // robot info

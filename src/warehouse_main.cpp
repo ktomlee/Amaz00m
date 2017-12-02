@@ -68,6 +68,32 @@ void init_robots(const WarehouseInfo& winfo, RobotInfo& rinfo) {
   }
 }
 
+/**
+ * Randomly places all possible maze runners on an empty
+ * square in the maze
+ * @param minfo maze input
+ * @param rinfo runner info to populate
+ */
+void init_trucks(const WarehouseInfo& winfo, TruckInfo& tinfo) {
+  tinfo.ntrucks = 0;
+  
+  // fill in random placements for future runners
+  std::default_random_engine rnd(
+                                 (unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
+  std::uniform_int_distribution<size_t> rdist(winfo.rows, winfo.rows+10);
+  std::uniform_int_distribution<size_t> cdist(winfo.cols, winfo.cols+10);
+  for (size_t i=0; i<MAX_TRUCKS; i++) {
+    // generate until on an empty space
+    size_t r,c;
+    //do {
+      r = rdist(rnd);
+      c = cdist(rnd);
+    //} while (winfo.warehouse[c][r] != EMPTY_CHAR);
+    tinfo.tloc[i][COL_IDX] = c;
+    tinfo.tloc[i][ROW_IDX] = r;
+  }
+}
+
 int main(int argc, char* argv[]) {
 
   // read maze from command-line, default to maze0
@@ -81,15 +107,18 @@ int main(int argc, char* argv[]) {
   WarehouseInfo winfo;
   RobotInfo rinfo;
   Dock dinfo;
+  TruckInfo tinfo;
   
   load_warehouse(warehouse, winfo);
   init_robots(winfo, rinfo);
+  init_trucks(winfo, tinfo);
     
   dinfo.ndocks = 0;
   
   memory->winfo = winfo;
   memory->rinfo = rinfo;
   memory->dinfo = dinfo;
+  memory->tinfo = tinfo;
   memory->quit = false;
 
   std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;

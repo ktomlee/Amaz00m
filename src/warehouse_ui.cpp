@@ -52,6 +52,7 @@ class MazeUI {
     WarehouseInfo& winfo = memory_->winfo;
     RobotInfo& rinfo = memory_->rinfo;
     Dock& dinfo = memory_->dinfo;
+    TruckInfo& tinfo = memory_->tinfo;
 
     // clear display
     display_.clear_display();
@@ -104,26 +105,42 @@ class MazeUI {
         // print runner at new location
         display_.set_cursor_position(YOFF+newr, XOFF+newc);
         std::printf("%c", me);
-      } else {
-
-        // erase old position if now finished
+      }
+    }
+    fflush(stdout);  // force output buffer to flush
+  }
+  
+  /**
+   * Draws all runners in the maze
+   */
+  void draw_trucks() {
+    
+    TruckInfo& tinfo = memory_->tinfo;
+    
+    // draw all runner locations
+    for (size_t i=0; i<tinfo.ntrucks; ++i) {
+      char me = 'A'+i;
+      int newr = tinfo.tloc[i][ROW_IDX];
+      int newc = tinfo.tloc[i][COL_IDX];
+      
+      // if not already at the exit...
+      if (newc != exit_[COL_IDX] || newr != exit_[ROW_IDX]) {
+        if (newc != lastpos_[i][COL_IDX]
+            || newr != lastpos_[i][ROW_IDX]) {
           
-    /*
-        if (lastpos_[i][COL_IDX] != exit_[COL_IDX] || lastpos_[i][ROW_IDX] != exit_[ROW_IDX]) {
+          // zero out last spot and update known location
           display_.set_cursor_position(YOFF+lastpos_[i][ROW_IDX], XOFF+lastpos_[i][COL_IDX]);
           std::printf("%c", EMPTY_CHAR);
           lastpos_[i][COL_IDX] = newc;
           lastpos_[i][ROW_IDX] = newr;
-
-          // display a completion message
-          display_.set_cursor_position(YOFF, XOFF+memory_->winfo.cols+2);
-          std::printf("runner %c escaped!!", me);
         }
-     */
+        
+        // print runner at new location
+        display_.set_cursor_position(YOFF+newr, XOFF+newc);
+        std::printf("%c", me);
       }
     }
     fflush(stdout);  // force output buffer to flush
-    
   }
 
   /**
@@ -153,6 +170,7 @@ int main() {
   
   while(!ui.quit()) {
     ui.draw_robots();
+    ui.draw_trucks();
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
   
