@@ -11,13 +11,15 @@ class MazeUI {
   // display offset for better visibility
   static const int XOFF = 2;
   static const int YOFF = 1;
+  static const int TOFF = 0;
+  static const int ROFF = MAX_TRUCKS;
 
   cpen333::console display_;
   cpen333::process::shared_object<SharedData> memory_;
   cpen333::process::mutex mutex_;
 
   // previous positions of robota
-  int lastpos_[MAX_ROBOTS][2];
+  int lastpos_[MAX_ROBOTS + MAX_TRUCKS][2];
   int exit_[2];   // exit location
 
  public:
@@ -51,7 +53,7 @@ class MazeUI {
 
     WarehouseInfo& winfo = memory_->winfo;
     RobotInfo& rinfo = memory_->rinfo;
-    Dock& dinfo = memory_->dinfo;
+    DockInfo& dinfo = memory_->dinfo;
     TruckInfo& tinfo = memory_->tinfo;
 
     // clear display
@@ -81,7 +83,33 @@ class MazeUI {
    * Draws all runners in the maze
    */
   void draw_robots() {
-
+    TruckInfo& tinfo = memory_->tinfo;
+    
+    // draw all runner locations
+    for (size_t i=0; i<tinfo.ntrucks; ++i) {
+      char me = 'A'+i;
+      int newr = tinfo.tloc[i][ROW_IDX];
+      int newc = tinfo.tloc[i][COL_IDX];
+      
+      // if not already at the exit...
+      //if (newc != exit_[COL_IDX] || newr != exit_[ROW_IDX]) {
+        //if (newc != lastpos_[i][COL_IDX]
+          //  || newr != lastpos_[i][ROW_IDX]) {
+          
+          // zero out last spot and update known location
+          display_.set_cursor_position(YOFF+lastpos_[TOFF+i][ROW_IDX], XOFF+lastpos_[TOFF+i][COL_IDX]);
+          std::printf("%c", EMPTY_CHAR);
+          lastpos_[TOFF+i][COL_IDX] = newc;
+          lastpos_[TOFF+i][ROW_IDX] = newr;
+       // }
+        
+        // print runner at new location
+        display_.set_cursor_position(YOFF+newr, XOFF+newc);
+        std::printf("%c", me);
+      //}
+    }
+    
+    
     RobotInfo& rinfo = memory_->rinfo;
 
     // draw all runner locations
@@ -91,22 +119,24 @@ class MazeUI {
       int newc = rinfo.rloc[i][COL_IDX];
 
       // if not already at the exit...
-      if (newc != exit_[COL_IDX] || newr != exit_[ROW_IDX]) {
-        if (newc != lastpos_[i][COL_IDX]
-            || newr != lastpos_[i][ROW_IDX]) {
+      //if (newc != exit_[COL_IDX] || newr != exit_[ROW_IDX]) {
+        //if (newc != lastpos_[i][COL_IDX]
+          //  || newr != lastpos_[i][ROW_IDX]) {
 
           // zero out last spot and update known location
-          display_.set_cursor_position(YOFF+lastpos_[i][ROW_IDX], XOFF+lastpos_[i][COL_IDX]);
+          display_.set_cursor_position(YOFF+lastpos_[ROFF+i][ROW_IDX], XOFF+lastpos_[ROFF+i][COL_IDX]);
           std::printf("%c", EMPTY_CHAR);
-          lastpos_[i][COL_IDX] = newc;
-          lastpos_[i][ROW_IDX] = newr;
-        }
+          lastpos_[ROFF+i][COL_IDX] = newc;
+          lastpos_[ROFF+i][ROW_IDX] = newr;
+       // }
 
         // print runner at new location
         display_.set_cursor_position(YOFF+newr, XOFF+newc);
         std::printf("%c", me);
-      }
+     // }
     }
+   
+    
     fflush(stdout);  // force output buffer to flush
   }
   
@@ -170,7 +200,7 @@ int main() {
   
   while(!ui.quit()) {
     ui.draw_robots();
-    ui.draw_trucks();
+    //ui.draw_trucks();
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
   

@@ -64,16 +64,15 @@ struct Item {
 	Shelf shelf;
 };
 
-struct Dock {
+struct DockInfo {
     int dloc[MAX_DOCKS][2];
-    int dockID;
     int ndocks;
 };
 
 struct SharedData {
 	RobotInfo rinfo;
 	WarehouseInfo winfo;
-  Dock dinfo;
+  DockInfo dinfo;
   TruckInfo tinfo;
   
 	bool quit;

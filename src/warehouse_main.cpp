@@ -69,10 +69,10 @@ void init_robots(const WarehouseInfo& winfo, RobotInfo& rinfo) {
 }
 
 /**
- * Randomly places all possible maze runners on an empty
- * square in the maze
+ * Randomly places all possible trucks on an empty
+ * square outside the warehouse
  * @param minfo maze input
- * @param rinfo runner info to populate
+ * @param tinfo truck info to populate
  */
 void init_trucks(const WarehouseInfo& winfo, TruckInfo& tinfo) {
   tinfo.ntrucks = 0;
@@ -85,12 +85,32 @@ void init_trucks(const WarehouseInfo& winfo, TruckInfo& tinfo) {
   for (size_t i=0; i<MAX_TRUCKS; i++) {
     // generate until on an empty space
     size_t r,c;
-    //do {
-      r = rdist(rnd);
-      c = cdist(rnd);
-    //} while (winfo.warehouse[c][r] != EMPTY_CHAR);
+    
+    r = rdist(rnd);
+    c = cdist(rnd);
     tinfo.tloc[i][COL_IDX] = c;
     tinfo.tloc[i][ROW_IDX] = r;
+  }
+}
+
+/**
+ * Randomly places all possible maze runners on an empty
+ * square in the maze
+ * @param minfo maze input
+ * @param rinfo runner info to populate
+ */
+void init_docks(const WarehouseInfo& winfo, DockInfo& dinfo) {
+  dinfo.ndocks = 0;
+  
+  for (size_t c=0; c<winfo.cols;c++) {
+    for (size_t r=0; r<winfo.rows; r++) {
+      if(winfo.warehouse[c][r] == DOCK_CHAR)
+      {
+        dinfo.dloc[dinfo.ndocks][COL_IDX] = c;
+        dinfo.dloc[dinfo.ndocks][ROW_IDX] = r;
+        dinfo.ndocks++;
+      }
+    }
   }
 }
 
@@ -106,14 +126,13 @@ int main(int argc, char* argv[]) {
   
   WarehouseInfo winfo;
   RobotInfo rinfo;
-  Dock dinfo;
+  DockInfo dinfo;
   TruckInfo tinfo;
   
   load_warehouse(warehouse, winfo);
   init_robots(winfo, rinfo);
   init_trucks(winfo, tinfo);
-    
-  dinfo.ndocks = 0;
+  init_docks(winfo, dinfo);
   
   memory->winfo = winfo;
   memory->rinfo = rinfo;
