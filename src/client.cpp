@@ -10,7 +10,7 @@
 #include "JsonWarehouseApi.h"
 
 #include <cpen333/process/socket.h>
-
+/*
 #include <iostream>
 #include <limits>
 
@@ -34,6 +34,7 @@ void print_menu() {
   std::cout.flush();
 
 }
+*/
 /*
 // add a song to remote server
 void do_add(MusicLibraryApi &api) {
@@ -138,10 +139,12 @@ void do_goodbye(MusicLibraryApi &api) {
   std::cout << std::endl;
 }
 */
+
 int main() {
 
   // start client
-  cpen333::process::socket socket("localhost", MUSIC_LIBRARY_SERVER_PORT);
+  //cpen333::process::socket socket("localhost", MUSIC_LIBRARY_SERVER_PORT);
+  /*
   std::cout << "Client connecting...";
   std::cout.flush();
 
@@ -184,6 +187,7 @@ int main() {
   } else {
     std::cout << "failed." << std::endl;
   }
-
+*/
   return 0;
 }
+
