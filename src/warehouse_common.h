@@ -30,6 +30,8 @@
 #define MAX_DOCKS 5
 #define MAX_TRUCKS 50
 
+using namespace std;
+
 struct WarehouseInfo {
   int rows;           // rows in warehouse
   int cols;           // columns in warehouse
@@ -46,12 +48,6 @@ struct TruckInfo {
   int tloc[MAX_TRUCKS][2];   // robot locations [col][row]
 };
 
-struct Order {
-	int orderId;
-	int weight;
-    std::map<std::string, int> order;
-};
-
 struct Shelf {
     int capacity;
     std::vector<std::string> location; // Ex. (A, 3, Right, 6);
@@ -64,10 +60,20 @@ struct Item {
 	Shelf shelf;
 };
 
+struct Order {
+  int orderId;
+  int weight;
+  std::vector<pair<Item, int>> items;
+};
+
 struct DockInfo {
     int dloc[MAX_DOCKS][2];
     int ndocks;
 };
+
+#define ORDERQ_SIZE 256
+#define SHIPPINGQ_SIZE 256
+#define RECEIVINGQ_SIZE 256
 
 struct SharedData {
 	RobotInfo rinfo;
@@ -76,10 +82,10 @@ struct SharedData {
   TruckInfo tinfo;
   
 	bool quit;
-	std::vector<Order> newOrderQ;
-	std::vector<Order> shippingQ;
-	std::vector<Item> receivingQ;
-	std::map<std::string, int> inventory;
+	Order newOrderQ[ORDERQ_SIZE];
+	Order shippingQ[SHIPPINGQ_SIZE];
+	Item receivingQ[RECEIVINGQ_SIZE];
+	//std::map<std::string, int> inventory;
 };
 
 

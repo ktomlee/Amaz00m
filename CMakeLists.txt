@@ -17,7 +17,12 @@ FILE(COPY data DESTINATION "${CMAKE_BINARY_DIR}/Debug")
 
 set(AMAZOOM_HEADERS
 	src/warehouse_common.h
-	src/truck.h)
+	src/truck.h
+	src/JsonConverter.h
+	src/JsonWarehouseApi.h
+	src/Message.h
+	src/MusicLibrary.h
+	src/WarehouseApi.h)
 
 # child
 add_executable(warehouse_ui src/warehouse_ui.cpp ${AMAZOOM_HEADERS})
@@ -39,6 +44,14 @@ target_link_libraries(receivingtruck Threads::Threads)
 add_executable(shippingtruck src/shippingtruck.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(shippingtruck Threads::Threads)
 
+# parent
+add_executable(webserver src/webserver.cpp ${AMAZOOM_HEADERS})
+target_link_libraries(webserver Threads::Threads)
+
+# parent
+add_executable(client src/client.cpp ${AMAZOOM_HEADERS})
+target_link_libraries(client Threads::Threads)
+
 # link with unix realtime library
 if(UNIX AND NOT APPLE)
     target_link_libraries(warehouse_main rt)
@@ -57,6 +70,10 @@ if (${CMAKE_VERSION} VERSION_GREATER "3.8.0" OR ${CMAKE_VERSION} VERSION_EQUAL "
     set_target_properties(shippingtruck PROPERTIES
             VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(CONFIGURATION)")
     set_target_properties(receivingtruck PROPERTIES
+            VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(CONFIGURATION)")
+    set_target_properties(webserver PROPERTIES
+            VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(CONFIGURATION)")
+    set_target_properties(client PROPERTIES
             VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(CONFIGURATION)")
 endif()
 
