@@ -36,7 +36,7 @@ void abc()
  */
 void service(MusicLibrary &lib, MusicLibraryApi &&api, int id, int &numActiveClients) {
   std::cout << "Client " << id << " connected" << std::endl;
-
+/*
   // Get mutex
   cpen333::process::mutex mutex(MUSICLIBMUTEXNAME);
   
@@ -130,6 +130,7 @@ void service(MusicLibrary &lib, MusicLibraryApi &&api, int id, int &numActiveCli
     // receive next message
     msg = api.recvMessage();
   }
+ */
 }
 
 /**
@@ -138,7 +139,7 @@ void service(MusicLibrary &lib, MusicLibraryApi &&api, int id, int &numActiveCli
  * @param filename file to load
  */
 void load_songs(MusicLibrary &lib, const std::string& filename) {
-
+/*
   // parse from file stream
   std::ifstream fin(filename);
   if (fin.is_open()) {
@@ -149,7 +150,7 @@ void load_songs(MusicLibrary &lib, const std::string& filename) {
   } else {
     std::cerr << "Failed to open file: " << filename << std::endl;
   }
-
+*/
 }
 
 int main() {
@@ -200,10 +201,10 @@ int main() {
       // create API handler
       JsonMusicLibraryApi api(std::move(client));
       // service client-server communication
-      std::thread t(service, std::ref(lib), std::move(api), clientId++, std::ref(numActiveClients));
+      //std::thread t(service, std::ref(lib), std::move(api), clientId++, std::ref(numActiveClients));
       numActiveClients++;
  
-      t.detach();
+      //t.detach();
     }
 /*
     std::cout << numActiveClients << std::endl;

@@ -86,7 +86,7 @@ class JsonConverter {
    * @param song song to jsonify
    * @return JSON object representation
    */
-  static JSON toJSON(const pair<Item, int> &p) {
+  static JSON toJSON(const std::pair<Item, int> &p) {
     JSON j;
     j[MESSAGE_ITEM] = p.first.name;
     j[MESSAGE_QUANTITY] = p.second;
@@ -99,7 +99,7 @@ class JsonConverter {
    * @param songs vector of songs to jsonify
    * @return JSON array representation
    */
-  static JSON toJSON(const std::vector<pair<Item, int>> &result) {
+  static JSON toJSON(const std::vector<std::pair<Item, int>> &result) {
     JSON j;
     for (const auto& r : result) {
       j.push_back(toJSON(r));
@@ -361,8 +361,8 @@ class JsonConverter {
    * @param j JSON object
    * @return Song
    */
-  static vector<pair<Item, int>>  parseItems(const JSON &jitems) {
-    vector<pair<Item, int>> out;
+  static std::vector<std::pair<Item, int>>  parseItems(const JSON &jitems) {
+    std::vector<std::pair<Item, int>> out;
     
     Item tmp_itm;
     int tmp_n;
@@ -371,7 +371,7 @@ class JsonConverter {
       tmp_itm.name = res[MESSAGE_ITEM];
       tmp_n = res[MESSAGE_QUANTITY];
       
-      out.push_back(make_pair(tmp_itm, tmp_n));
+      out.push_back(std::make_pair(tmp_itm, tmp_n));
     }
     
     return out;
@@ -476,7 +476,7 @@ class JsonConverter {
    */
   static SearchResponseMessage parseSearchResponse(const JSON &jsearchr) {
     SearchMessage search = parseSearch(jsearchr[MESSAGE_SEARCH]);
-    std::vector<pair<Item, int>> results = parseItems(jsearchr[MESSAGE_SEARCH_RESULTS]);
+    std::vector<std::pair<Item, int>> results = parseItems(jsearchr[MESSAGE_SEARCH_RESULTS]);
     std::string status = jsearchr[MESSAGE_STATUS];
     std::string info = jsearchr[MESSAGE_INFO];
     return SearchResponseMessage(search, results, status, info);

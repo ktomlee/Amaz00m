@@ -30,8 +30,6 @@
 #define MAX_DOCKS 5
 #define MAX_TRUCKS 50
 
-using namespace std;
-
 struct WarehouseInfo {
   int rows;           // rows in warehouse
   int cols;           // columns in warehouse
@@ -63,7 +61,7 @@ struct Item {
 struct Order {
   int orderId;
   int weight;
-  std::vector<pair<Item, int>> items;
+  std::vector<std::pair<Item, int>> items;
 };
 
 struct DockInfo {
