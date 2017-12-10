@@ -24,7 +24,7 @@ protected:
   
 public:
   // Constructor
-  Truck() : memory_(MEMORY_NAME), mutex_(MUTEX_NAME),
+  Truck() : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
   winfo_(), idx_(0), x_(0), y_(0) {
     // copy maze contents
     tinfo_ = memory_->tinfo;

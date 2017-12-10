@@ -5,7 +5,7 @@
 #include <map>
 #include <vector>
 
-#define MEMORY_NAME "warehouse_memory"
+#define WAREHOUSE_MEMORY_NAME "warehouse_memory"
 #define MUTEX_NAME "warehouse_mutex"
 
 #define WALL_CHAR 'X'
@@ -58,10 +58,15 @@ struct Item {
 	Shelf shelf;
 };
 
+#define ORDER_SIZE 256
 struct Order {
   int orderId;
   int weight;
-  std::vector<std::pair<Item, int>> items;
+  //std::vector<std::pair<Item, int>> items;
+  // replace vector above with fixed size arrays below:
+  Item items[ORDER_SIZE];
+  int quantity[ORDER_SIZE];
+  int nitems;
 };
 
 struct DockInfo {

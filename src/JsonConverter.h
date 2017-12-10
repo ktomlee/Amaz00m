@@ -57,14 +57,16 @@ using JSON = nlohmann::json;
  */
 class JsonConverter {
  public:
+  
   /**
    * Converts the item to a JSON object
    * @param song song to jsonify
    * @return JSON object representation
    */
-  static JSON toJSON(const Item &item) {
+  static JSON toJSON(const Item &item, int quantity) {
     JSON j;
     j[MESSAGE_ITEM] = item.name;
+    j[MESSAGE_QUANTITY] = quantity;
     return j;
   }
 
@@ -73,10 +75,10 @@ class JsonConverter {
    * @param songs vector of songs to jsonify
    * @return JSON array representation
    */
-  static JSON toJSON(const std::vector<Item> &items) {
+  static JSON toJSON(const Item *items, int n, int *quantity) {
     JSON j;
-    for (const auto& item : items) {
-      j.push_back(toJSON(item));
+    for (int i=0; i<n; i++) {
+      j.push_back(toJSON(items[i], quantity[i]));
     }
     return j;
   }
@@ -116,7 +118,7 @@ class JsonConverter {
     JSON j;
     
     j[MESSAGE_ORDER_ID] = order.orderId;
-    j[MESSAGE_ORDER_INFO] = toJSON(order.items);
+    j[MESSAGE_ORDER_INFO] = toJSON((Item *)order.items, order.nitems, (int *)order.quantity);
     
     return j;
   }
@@ -129,8 +131,8 @@ class JsonConverter {
   static JSON toJSON(const AddMessage &add) {
     JSON j;
     j[MESSAGE_TYPE] = MESSAGE_ADD;
-    j[MESSAGE_ITEM] = toJSON(add.item);
-    j[MESSAGE_QUANTITY] = toJSON(add.quantity);
+    j[MESSAGE_ITEM] = add.item.name;
+    j[MESSAGE_QUANTITY] = add.quantity;
     return j;
   }
 
@@ -156,8 +158,8 @@ class JsonConverter {
   static JSON toJSON(const RemoveMessage &remove) {
     JSON j;
     j[MESSAGE_TYPE] = MESSAGE_REMOVE;
-    j[MESSAGE_ITEM] = toJSON(remove.item);
-    j[MESSAGE_QUANTITY] = toJSON(remove.quantity);
+    j[MESSAGE_ITEM] = remove.item.name;
+    j[MESSAGE_QUANTITY] = remove.quantity;
     
     return j;
   }
@@ -361,20 +363,16 @@ class JsonConverter {
    * @param j JSON object
    * @return Song
    */
-  static std::vector<std::pair<Item, int>>  parseItems(const JSON &jitems) {
-    std::vector<std::pair<Item, int>> out;
-    
-    Item tmp_itm;
-    int tmp_n;
+  static void parseItems(const JSON &jitems, Order &order) {
+    int i=0;
     
     for (const auto& res : jitems) {
-      tmp_itm.name = res[MESSAGE_ITEM];
-      tmp_n = res[MESSAGE_QUANTITY];
-      
-      out.push_back(std::make_pair(tmp_itm, tmp_n));
-    }
+      order.items[i].name = res[MESSAGE_ITEM];
+      order.quantity[i] = res[MESSAGE_QUANTITY];
+      order.nitems++;
     
-    return out;
+      i++;
+    }
   }
   
   /**
@@ -386,7 +384,7 @@ class JsonConverter {
     Order order;
     
     order.orderId = jorder[MESSAGE_ORDER_ID];
-    order.items = parseItems(jorder[MESSAGE_ORDER_INFO]);
+    parseItems(jorder[MESSAGE_ORDER_INFO], order);
     
     return order;
   }
@@ -476,7 +474,8 @@ class JsonConverter {
    */
   static SearchResponseMessage parseSearchResponse(const JSON &jsearchr) {
     SearchMessage search = parseSearch(jsearchr[MESSAGE_SEARCH]);
-    std::vector<std::pair<Item, int>> results = parseItems(jsearchr[MESSAGE_SEARCH_RESULTS]);
+    Order results;
+    parseItems(jsearchr[MESSAGE_SEARCH_RESULTS], results);
     std::string status = jsearchr[MESSAGE_STATUS];
     std::string info = jsearchr[MESSAGE_INFO];
     return SearchResponseMessage(search, results, status, info);

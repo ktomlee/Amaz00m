@@ -24,7 +24,7 @@ class MazeUI {
 
  public:
 
-  MazeUI() : display_(), memory_(MEMORY_NAME), mutex_(MUTEX_NAME){
+  MazeUI() : display_(), memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME){
 
     // clear display and hide cursor
     display_.clear_all();
@@ -190,7 +190,7 @@ class MazeUI {
 };
 
 int main() {
-    cpen333::process::shared_object<SharedData> memory(MEMORY_NAME);
+    cpen333::process::shared_object<SharedData> memory(WAREHOUSE_MEMORY_NAME);
   // initialize previous locations of characters
 
   MazeUI ui;

@@ -122,7 +122,7 @@ int main(int argc, char* argv[]) {
     warehouse = argv[1];
   }
   
-  cpen333::process::shared_object<SharedData> memory(MEMORY_NAME);
+  cpen333::process::shared_object<SharedData> memory(WAREHOUSE_MEMORY_NAME);
   
   WarehouseInfo winfo;
   RobotInfo rinfo;

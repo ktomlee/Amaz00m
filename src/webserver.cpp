@@ -19,11 +19,15 @@
 
 #include <cpen333/process/socket.h>
 #include <cpen333/process/mutex.h>
+#include <cpen333/process/shared_memory.h>
 
-void abc()
+bool add(AddMessage &addm, Order &cart)
 {
+  cpen333::process::shared_object<SharedData> memory(WAREHOUSE_MEMORY_NAME);
+
   
   
+  return true;
 }
 
 /**
@@ -34,14 +38,17 @@ void abc()
  * @param api communication interface layer
  * @param id client id for printing messages to the console
  */
-void service(MusicLibrary &lib, MusicLibraryApi &&api, int id, int &numActiveClients) {
+void service(MusicLibraryApi &&api, int id, int &numActiveClients) {
   std::cout << "Client " << id << " connected" << std::endl;
-/*
+  
   // Get mutex
   cpen333::process::mutex mutex(MUSICLIBMUTEXNAME);
   
   // receive message
   std::unique_ptr<Message> msg = api.recvMessage();
+  
+  // create cart for this client
+  Order cart;
 
   // continue while we don't have an error
   while (msg != nullptr) {
@@ -52,25 +59,26 @@ void service(MusicLibrary &lib, MusicLibraryApi &&api, int id, int &numActiveCli
       case MessageType::ADD: {
         // process "add" message
         // get reference to ADD
-        AddMessage &add = (AddMessage &) (*msg);
-        std::cout << "Client " << id << " adding song: " << add.song << std::endl;
+        AddMessage &addm = (AddMessage &) (*msg);
+        std::cout << "Client " << id << " adding song: " << addm.item.name << std::endl;
 
         // add song to library
         bool success = false;
         mutex.lock();
-        success = lib.add(add.song);
+        success = add(addm, cart);
         mutex.unlock();
 
         // send response
         if (success) {
-          api.sendMessage(AddResponseMessage(add, MESSAGE_STATUS_OK));
+          api.sendMessage(AddResponseMessage(addm, MESSAGE_STATUS_OK));
         } else {
-          api.sendMessage(AddResponseMessage(add,
+          api.sendMessage(AddResponseMessage(addm,
             MESSAGE_STATUS_ERROR,
             "Song already exists in database"));
         }
         break;
       }
+        /*
       case MessageType::REMOVE: {
         //====================================================
         // Implement "remove" functionality
@@ -125,12 +133,12 @@ void service(MusicLibrary &lib, MusicLibraryApi &&api, int id, int &numActiveCli
       default: {
         std::cout << "Client " << id << " sent invalid message" << std::endl;
       }
+         */
     }
 
     // receive next message
     msg = api.recvMessage();
   }
- */
 }
 
 /**
@@ -201,12 +209,12 @@ int main() {
       // create API handler
       JsonMusicLibraryApi api(std::move(client));
       // service client-server communication
-      //std::thread t(service, std::ref(lib), std::move(api), clientId++, std::ref(numActiveClients));
+      std::thread t(service, std::move(api), clientId++, std::ref(numActiveClients));
       numActiveClients++;
  
-      //t.detach();
+      t.detach();
     }
-/*
+    
     std::cout << numActiveClients << std::endl;
     
     if(numActiveClients == 0)
@@ -215,7 +223,6 @@ int main() {
       std::cout << "Continue? (1) or Quit? (0)";
       std::cin >> shouldcontinue;
     }
- */
   }
 
   // close server

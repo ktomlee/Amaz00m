@@ -137,9 +137,9 @@ class SearchMessage : public Message {
 class SearchResponseMessage : public ResponseMessage {
  public:
   const SearchMessage search;
-  const std::vector<std::pair<Item, int>> results;
+  const Order results;
 
-  SearchResponseMessage(const SearchMessage& search, const std::vector<std::pair<Item, int>>& results,
+  SearchResponseMessage(const SearchMessage& search, const Order results,
     const std::string& status, const std::string& info = "" ) :
       ResponseMessage(status, info), search(search), results(results) {}
 
