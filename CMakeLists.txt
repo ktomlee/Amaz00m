@@ -54,6 +54,10 @@ target_link_libraries(webserver Threads::Threads)
 add_executable(client src/client.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(client Threads::Threads)
 
+# client
+add_executable(central_computer src/central_computer.cpp ${AMAZOOM_HEADERS})
+target_link_libraries(central_computer Threads::Threads)
+
 # link with unix realtime library
 if(UNIX AND NOT APPLE)
     target_link_libraries(warehouse_main rt)
@@ -63,6 +67,7 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(receivingtruck rt)
     target_link_libraries(webserver rt)
     target_link_libraries(client rt)
+    target_link_libraries(central_computer rt)
 endif()
 
 #

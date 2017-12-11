@@ -62,6 +62,7 @@ public:
     cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
     
     Order order_to_add;
+    order_to_add.nitems = 0;
     
     int order_id;
     
@@ -76,7 +77,7 @@ public:
     
     whmutex.lock();
     
-    order_to_add.orderId = whmemory->nOrders;
+    order_to_add.orderId = whmemory->nOrders + 1;
     order_id = order_to_add.orderId;
     whmemory->nOrders++;
     
@@ -84,7 +85,7 @@ public:
     whmemory->newOrderQ[whmemory->newOrderIdx_end] = order_to_add;
     
     whmutex.unlock();
-    
+        
     // clear cartItems
     cartItems.clear();
     
