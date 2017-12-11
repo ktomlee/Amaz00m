@@ -11,6 +11,7 @@
 #define LAB4_MUSIC_LIBRARY_MESSAGES_H
 
 #include "Song.h"
+#include "CartItem.h"
 #include "warehouse_common.h"
 #include <string>
 
@@ -22,8 +23,8 @@ enum MessageType {
   ADD_RESPONSE,
   REMOVE,
   REMOVE_RESPONSE,
-  SEARCH,
-  SEARCH_RESPONSE,
+  //SEARCH,
+  //SEARCH_RESPONSE,
   SUBMIT,
   SUBMIT_RESPONSE,
   CHECK,
@@ -57,14 +58,13 @@ class ResponseMessage : public Message {
 };
 
 /**
- * Add a song to the library
+ * Add an order to the cart
  */
 class AddMessage : public Message {
  public:
-  const Item item;
-  const int quantity;
+    const CartItem cartItem;
 
-  AddMessage(const Item& item, const int quantity)  : item(item), quantity(quantity) {}
+  AddMessage(const CartItem& cartItem)  : cartItem(cartItem) {}
 
   MessageType type() const {
     return MessageType::ADD;
@@ -72,7 +72,7 @@ class AddMessage : public Message {
 };
 
 /**
- * Response to adding a song to the library
+ * Response to adding an order to the cart
  */
 class AddResponseMessage : public ResponseMessage {
  public:
@@ -87,14 +87,13 @@ class AddResponseMessage : public ResponseMessage {
 };
 
 /**
- * Remove a song from the library
+ * Remove an order from the cart
  */
 class RemoveMessage : public Message {
  public:
-  const Item item;
-  const int quantity;
+  const CartItem cartItem;
 
-  RemoveMessage(const Item& item, const int quantity) : item(item), quantity(quantity) {}
+  RemoveMessage(const CartItem& cartItem)  : cartItem(cartItem) {}
 
   MessageType type() const {
     return MessageType::REMOVE;
@@ -102,7 +101,7 @@ class RemoveMessage : public Message {
 };
 
 /**
- * Response to removing a song from the library
+ * Response to removing an order from the cart
  */
 class RemoveResponseMessage : public ResponseMessage {
  public:
@@ -117,8 +116,9 @@ class RemoveResponseMessage : public ResponseMessage {
 };
 
 /**
- * Search the library using regular expressions
+ * Search the catalogue for an item
  */
+/*
 class SearchMessage : public Message {
  public:
   const std::string item_regex;
@@ -130,10 +130,11 @@ class SearchMessage : public Message {
     return MessageType::SEARCH;
   }
 };
-
+*/
 /**
- * Response to a library search
+ * Response to an item search
  */
+/*
 class SearchResponseMessage : public ResponseMessage {
  public:
   const SearchMessage search;
@@ -147,9 +148,10 @@ class SearchResponseMessage : public ResponseMessage {
     return MessageType::SEARCH_RESPONSE;
   }
 };
+*/
 
 /**
- * Add a song to the library
+ * Checkout cart and add to order queue
  */
 class SubmitMessage : public Message {
 public:
@@ -159,7 +161,7 @@ public:
 };
 
 /**
- * Response to adding a song to the library
+ * Response to order submit
  */
 class SubmitResponseMessage : public ResponseMessage {
 public:
@@ -174,7 +176,7 @@ public:
 };
 
 /**
- * Search the library using regular expressions
+ * Check status of an existing order
  */
 class CheckMessage : public Message {
 public:
@@ -188,7 +190,7 @@ public:
 };
 
 /**
- * Response to adding a song to the library
+ * Response to status check
  */
 class CheckResponseMessage : public ResponseMessage {
 public:
@@ -204,7 +206,7 @@ public:
 };
 
 /**
- * Add a song to the library
+ * Show cart
  */
 class ShowMessage : public Message {
 public:
@@ -214,15 +216,15 @@ public:
 };
 
 /**
- * Response to adding a song to the library
+ * Response to show cart
  */
 class ShowResponseMessage : public ResponseMessage {
 public:
-  const ShowMessage show;
-  const Order result;
+    const ShowMessage show;
+    const std::vector<CartItem> results;
   
-  ShowResponseMessage(const ShowMessage& show, std::string status, Order result, std::string info = "") :
-  ResponseMessage(status, info), show(show), result(result) {}
+  ShowResponseMessage(const ShowMessage& show, const std::vector<CartItem>& results, std::string status, std::string info = "") :
+  ResponseMessage(status, info), show(show), results(results) {}
   
   MessageType type() const {
     return MessageType::SHOW_RESPONSE;

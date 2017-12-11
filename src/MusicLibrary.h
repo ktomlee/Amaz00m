@@ -11,8 +11,38 @@
 #include <vector>
 #include <set>
 #include <regex>
+#include "warehouse_common.h"
+#include "CartItem.h"
 
-#define MUSICLIBMUTEXNAME "lab5_music_lib_mutex"
+#define SERVER_MUTEX "server_mutex"
+
+class Cart {
+    std::map<std::string, int> cartInfo;
+    //Order order;
+    std::set<CartItem> cartItems;
+    
+    public:
+    
+    //Adds an item to the cart
+    bool add(const CartItem& cartItem) {
+        // try to add item to the cart
+        
+        auto elem = cartItems.insert(cartItem);
+        return elem.second;
+        //return true;
+    }
+    
+    bool remove(const CartItem& cartItem) {
+        
+        auto elem = cartItems.erase(cartItem);
+        return elem;
+
+    }
+    
+    std::map<std::string, int> show() {
+        return cartInfo;
+    }
+};
 
 // Stores a list of songs
 class MusicLibrary {
@@ -22,68 +52,6 @@ class MusicLibrary {
  public:
 
   /**
-   * Adds a song to the music library
-   * @param song song info to add
-   * @return true if added, false if already exists
-   */
-  bool add(const Song& song) {
-    // try to add element to the set
-    auto elem = songs_.insert(song);
-    return elem.second;
-  }
-
-  /**
-   * Adds songs to the music library
-   * @param songs song info to add
-   * @return number of songs added
-   */
-  size_t add(const std::vector<Song>& songs) {
-    size_t count = 0;
-
-    for (const Song& song : songs) {
-      if (add(song)) {
-        ++count;
-      }
-    }
-
-    return count;
-  }
-
-  /**
-   * Removes a song from the music library
-   * @param song song info to remove
-   * @return true if removed, false if not in library
-   */
-  bool remove(const Song& song) {
-    
-    for(const Song& candidate : songs_)
-    {
-      if(candidate == song)
-      {
-        return songs_.erase(candidate);
-      }
-    }
-    
-    return false;
-  }
-
-  /**
-   * Removes songs from the music library
-   * @param songs song info to remove
-   * @return number of songs removed
-   */
-  size_t remove(const std::vector<Song>& songs) {
-    size_t count = 0;
-
-    for(const Song& to_remove : songs)
-    {
-      count += remove(to_remove);
-    }
-
-    return count;
-  }
-
-  /**
    * Finds songs in the database matching title and artist expressions
    * @param artist_regex artist regular expression
    * @param title_regex title regular expression
@@ -91,7 +59,7 @@ class MusicLibrary {
    */
   std::vector<Song> find(const std::string& artist_regex,
                          const std::string& title_regex) const {
-    std::vector<Song> out;
+std::vector<Song> out;
 
     //=====================================================
     // TODO: Modify to also include title_regex in search
@@ -123,5 +91,6 @@ class MusicLibrary {
     return songs_;
   }
 };
+
 
 #endif //LAB4_MUSIC_LIBRARY_H

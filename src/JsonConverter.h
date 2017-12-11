@@ -9,11 +9,10 @@
 #define LAB4_MUSIC_LIBRARY_JSON_H
 
 #include "Song.h"
+#include "CartItem.h"
 #include "Message.h"
 #include "warehouse_common.h"
-
 #include "json.hpp"   // json parsing
-
 #include <vector>
 #include <memory>     // for std::unique_ptr
 #include <set>
@@ -26,8 +25,6 @@ using JSON = nlohmann::json;
 #define MESSAGE_ADD_RESPONSE "add_response"
 #define MESSAGE_REMOVE "remove"
 #define MESSAGE_REMOVE_RESPONSE "remove_response"
-#define MESSAGE_SEARCH "search"
-#define MESSAGE_SEARCH_RESPONSE "search_response"
 #define MESSAGE_SUBMIT "submit"
 #define MESSAGE_SUBMIT_RESPONSE "submit_response"
 #define MESSAGE_CHECK "check"
@@ -50,6 +47,8 @@ using JSON = nlohmann::json;
 #define MESSAGE_ITEM_REGEX "item_regex"
 #define MESSAGE_ITEM "item"
 #define MESSAGE_QUANTITY "quantity"
+#define MESSAGE_CART_ITEM "cart_item"
+#define MESSAGE_CART_QUANTITY "cart_quantity"
 
 
 /**
@@ -63,10 +62,10 @@ class JsonConverter {
    * @param song song to jsonify
    * @return JSON object representation
    */
-  static JSON toJSON(const Item &item, int quantity) {
+  static JSON toJSON(const CartItem & cartItem) {
     JSON j;
-    j[MESSAGE_ITEM] = item.name;
-    j[MESSAGE_QUANTITY] = quantity;
+    j[MESSAGE_CART_ITEM] = cartItem.item;
+    j[MESSAGE_CART_QUANTITY] = cartItem.quantity;
     return j;
   }
 
@@ -75,10 +74,10 @@ class JsonConverter {
    * @param songs vector of songs to jsonify
    * @return JSON array representation
    */
-  static JSON toJSON(const Item *items, int n, int *quantity) {
+    static JSON toJSON(const std::vector<CartItem> &cartItems) {
     JSON j;
-    for (int i=0; i<n; i++) {
-      j.push_back(toJSON(items[i], quantity[i]));
+        for (const auto& cartItem : cartItems) {
+            j.push_back(toJSON(cartItem));
     }
     return j;
   }
@@ -88,6 +87,7 @@ class JsonConverter {
    * @param song song to jsonify
    * @return JSON object representation
    */
+    
   static JSON toJSON(const std::pair<Item, int> &p) {
     JSON j;
     j[MESSAGE_ITEM] = p.first.name;
@@ -95,12 +95,14 @@ class JsonConverter {
     
     return j;
   }
+    
   
   /**
    * Converts a vector of items to a JSON array of items
    * @param songs vector of songs to jsonify
    * @return JSON array representation
    */
+    
   static JSON toJSON(const std::vector<std::pair<Item, int>> &result) {
     JSON j;
     for (const auto& r : result) {
@@ -108,12 +110,14 @@ class JsonConverter {
     }
     return j;
   }
+    
   
   /**
    * Converts a vector of items to a JSON array of items
    * @param songs vector of songs to jsonify
    * @return JSON array representation
    */
+    
   static JSON toJSON(const Order& order) {
     JSON j;
     
@@ -122,7 +126,22 @@ class JsonConverter {
     
     return j;
   }
-
+    
+    static JSON toJSON(const Item &item, int quantity) {
+        JSON j;
+        j[MESSAGE_ITEM] = item.name;
+        j[MESSAGE_QUANTITY] = quantity;
+        return j;
+    }
+    
+    static JSON toJSON(const Item *items, int n, int *quantity) {
+        JSON j;
+        for(int i=0; i<n; i++) {
+            j.push_back(toJSON(items[i], quantity[i]));
+        }
+        return j;
+    }
+    
   /**
    * Converts an "add" message to a JSON object
    * @param add message
@@ -131,8 +150,7 @@ class JsonConverter {
   static JSON toJSON(const AddMessage &add) {
     JSON j;
     j[MESSAGE_TYPE] = MESSAGE_ADD;
-    j[MESSAGE_ITEM] = add.item.name;
-    j[MESSAGE_QUANTITY] = add.quantity;
+    j[MESSAGE_CART_ITEM] = toJSON(add.cartItem);
     return j;
   }
 
@@ -158,9 +176,8 @@ class JsonConverter {
   static JSON toJSON(const RemoveMessage &remove) {
     JSON j;
     j[MESSAGE_TYPE] = MESSAGE_REMOVE;
-    j[MESSAGE_ITEM] = remove.item.name;
-    j[MESSAGE_QUANTITY] = remove.quantity;
-    
+    j[MESSAGE_CART_ITEM] = toJSON(remove.cartItem);
+
     return j;
   }
   
@@ -183,18 +200,21 @@ class JsonConverter {
    * @param search message
    * @return JSON object representation
    */
+    /*
   static JSON toJSON(const SearchMessage &search) {
     JSON j;
     j[MESSAGE_TYPE] = MESSAGE_SEARCH;
     j[MESSAGE_ITEM_REGEX] = search.item_regex;
     return j;
   }
+     */
 
   /**
    * Converts a "search" response message to a JSON object
    * @param search_response message
    * @return JSON object representation
    */
+    /*
   static JSON toJSON(const SearchResponseMessage &search_response) {
     JSON j;
     j[MESSAGE_TYPE] = MESSAGE_SEARCH_RESPONSE;
@@ -204,6 +224,7 @@ class JsonConverter {
     j[MESSAGE_SEARCH_RESULTS] = toJSON(search_response.results);
     return j;
   }
+     */
 
   /**
    * Converts a "remove" message to a JSON object
@@ -213,7 +234,6 @@ class JsonConverter {
   static JSON toJSON(const SubmitMessage &submit) {
     JSON j;
     j[MESSAGE_TYPE] = MESSAGE_SUBMIT;
-    
     return j;
   }
   
@@ -284,6 +304,7 @@ class JsonConverter {
     j[MESSAGE_STATUS] = show_response.status;
     j[MESSAGE_INFO] = show_response.info;
     j[MESSAGE_SHOW] = toJSON(show_response.show);
+    j[MESSAGE_SHOW_RESULT] = toJSON(show_response.results);
     
     return j;
   }
@@ -319,12 +340,14 @@ class JsonConverter {
       case REMOVE_RESPONSE: {
         return toJSON((RemoveResponseMessage &) msg);
       }
+    /*
       case SEARCH: {
         return toJSON((SearchMessage &) msg);
       }
       case SEARCH_RESPONSE: {
         return toJSON((SearchResponseMessage &) msg);
       }
+    */
       case SUBMIT: {
         return toJSON((SubmitMessage &) msg);
       }
@@ -388,22 +411,27 @@ class JsonConverter {
     
     return order;
   }
+    
+    static CartItem parseCartItem(const JSON &j) {
+
+        return CartItem(j[MESSAGE_CART_ITEM], j[MESSAGE_CART_QUANTITY]);
+    }
 
   /**
    * Converts a JSON array representing a list of songs to a
    * vector of Song objects
    * @param jsongs JSON array
    * @return resulting vector of Song
-   */
-  /*static std::vector<Song> parseSongs(const JSON &jsongs) {
-    std::vector<Song> out;
+*/
+  static std::vector<CartItem> parseCartItems(const JSON &jcartItems) {
+    std::vector<CartItem> out;
 
-    for (const auto& song : jsongs) {
-      out.push_back(parseSong(song));
+    for (const auto& cartItem : jcartItems) {
+      out.push_back(parseCartItem(cartItem));
     }
 
     return out;
-  }*/
+  }
   
   /**
    * Converts a JSON object representing an AddMessage to a AddMessage object
@@ -411,10 +439,8 @@ class JsonConverter {
    * @return AddMessage
    */
   static AddMessage parseAdd(const JSON &jadd) {
-    Item item;
-    item.name = jadd[MESSAGE_ITEM];
-    int quantity = jadd[MESSAGE_QUANTITY];
-    return AddMessage(item, quantity);
+    CartItem cartItem = parseCartItem(jadd[MESSAGE_CART_ITEM]);
+    return AddMessage(cartItem);
   }
 
   /**
@@ -429,9 +455,6 @@ class JsonConverter {
     return AddResponseMessage(add, status, info);
   }
 
-  //======================================================
-  // TODO: Parse "remove" and response message from JSON
-  //======================================================
   
   /**
    * Converts a JSON object representing a RemoveMessage to a RemoveMessage object
@@ -439,10 +462,8 @@ class JsonConverter {
    * @return RemoveMessage
    */
   static RemoveMessage parseRemove(const JSON &jrmv) {
-    Item item;
-    item.name = jrmv[MESSAGE_ITEM];
-    int quantity = jrmv[MESSAGE_QUANTITY];
-    return RemoveMessage(item, quantity);
+    CartItem cartItem = parseCartItem(jrmv[MESSAGE_CART_ITEM]);
+    return RemoveMessage(cartItem);
   }
   
   /**
@@ -462,16 +483,19 @@ class JsonConverter {
    * @param j JSON object
    * @return SearchMessage
    */
+    /*
   static SearchMessage parseSearch(const JSON &jsearch) {
     std::string item_regex = jsearch[MESSAGE_ITEM_REGEX];
     return SearchMessage(item_regex);
   }
+     */
 
   /**
    * Converts a JSON object representing a SearchResponseMessage to a SearchResponseMessage object
    * @param j JSON object
    * @return SearchResponseMessage
    */
+    /*
   static SearchResponseMessage parseSearchResponse(const JSON &jsearchr) {
     SearchMessage search = parseSearch(jsearchr[MESSAGE_SEARCH]);
     Order results;
@@ -480,6 +504,7 @@ class JsonConverter {
     std::string info = jsearchr[MESSAGE_INFO];
     return SearchResponseMessage(search, results, status, info);
   }
+     */
 
   /**
    * Converts a JSON object representing an AddMessage to a AddMessage object
@@ -530,21 +555,23 @@ class JsonConverter {
    * @param j JSON object
    * @return AddMessage
    */
+
   static ShowMessage parseShow(const JSON &jshow) {
     return ShowMessage();
   }
-  
+
   /**
    * Converts a JSON object representing an AddResponseMessage to an AddResponseMessage object
    * @param j JSON object
    * @return AddResponseMessage
    */
+    
   static ShowResponseMessage parseShowResponse(const JSON &jshowr) {
     ShowMessage show = parseShow(jshowr[MESSAGE_SHOW]);
     std::string status = jshowr[MESSAGE_STATUS];
     std::string info = jshowr[MESSAGE_INFO];
-    Order result = parseOrder(jshowr[MESSAGE_SHOW_RESULT]);
-    return ShowResponseMessage(show, status, result, info);
+    std::vector<CartItem> results = parseCartItems(jshowr[MESSAGE_SHOW_RESULT]);
+    return ShowResponseMessage(show, results, status, info);
   }
   
   /**
@@ -571,10 +598,6 @@ class JsonConverter {
       return MessageType::REMOVE;
     } else if (MESSAGE_REMOVE_RESPONSE == msg) {
       return MessageType::REMOVE_RESPONSE;
-    } else if (MESSAGE_SEARCH == msg) {
-      return MessageType::SEARCH;
-    } else if (MESSAGE_SEARCH_RESPONSE == msg) {
-      return MessageType::SEARCH_RESPONSE;
     } else if (MESSAGE_SUBMIT == msg) {
       return MessageType::SUBMIT;
     } else if (MESSAGE_SUBMIT_RESPONSE == msg) {
@@ -620,12 +643,12 @@ class JsonConverter {
       case REMOVE_RESPONSE: {
         return std::unique_ptr<Message>(new RemoveResponseMessage(parseRemoveResponse(jmsg)));
       }
-      case SEARCH: {
+      /*case SEARCH: {
         return std::unique_ptr<Message>(new SearchMessage(parseSearch(jmsg)));
       }
       case SEARCH_RESPONSE: {
         return std::unique_ptr<Message>(new SearchResponseMessage(parseSearchResponse(jmsg)));
-      }
+      }*/
       case SUBMIT: {
         return std::unique_ptr<Message>(new SubmitMessage(parseSubmit(jmsg)));
       }

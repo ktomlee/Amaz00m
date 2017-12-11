@@ -30,6 +30,31 @@
 #define MAX_DOCKS 5
 #define MAX_TRUCKS 50
 
+#define ORDERQ_SIZE 256
+#define SHIPPINGQ_SIZE 256
+#define RECEIVINGQ_SIZE 256
+#define CATALOGUE_SIZE 256
+#define MAX_ITEM_QUANTITY 100
+
+std::string getItemName(int id) {
+    switch(id) {
+        case 001: {
+            return "broom";
+        }
+        case 002: {
+            return "cup";
+        }
+        case 003: {
+            return "banana";
+        }
+        case 004: {
+            return "hat";
+        }
+    }
+    return "Not Found";
+}
+
+
 struct WarehouseInfo {
   int rows;           // rows in warehouse
   int cols;           // columns in warehouse
@@ -58,6 +83,10 @@ struct Item {
 	Shelf shelf;
 };
 
+struct Catalogue {
+    std::map<int, std::string> catalogue[CATALOGUE_SIZE]; // Item ID to item name
+};
+
 #define ORDER_SIZE 256
 struct Order {
   int orderId;
@@ -66,6 +95,7 @@ struct Order {
   // replace vector above with fixed size arrays below:
   Item items[ORDER_SIZE];
   int quantity[ORDER_SIZE];
+  //int items[CATALOGUE_SIZE][MAX_ITEM_QUANTITY];
   int nitems;
 };
 
@@ -74,20 +104,17 @@ struct DockInfo {
     int ndocks;
 };
 
-#define ORDERQ_SIZE 256
-#define SHIPPINGQ_SIZE 256
-#define RECEIVINGQ_SIZE 256
-
 struct SharedData {
 	RobotInfo rinfo;
 	WarehouseInfo winfo;
-  DockInfo dinfo;
-  TruckInfo tinfo;
+    DockInfo dinfo;
+    TruckInfo tinfo;
   
 	bool quit;
 	Order newOrderQ[ORDERQ_SIZE];
 	Order shippingQ[SHIPPINGQ_SIZE];
 	Item receivingQ[RECEIVINGQ_SIZE];
+    int inventory[CATALOGUE_SIZE][MAX_ITEM_QUANTITY];
 	//std::map<std::string, int> inventory;
 };
 

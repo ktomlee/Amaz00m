@@ -8,6 +8,7 @@
 
 #include "MusicLibrary.h"
 #include "JsonWarehouseApi.h"
+#include "CartItem.h"
 
 #include <cpen333/process/socket.h>
 /*
@@ -16,7 +17,7 @@
 
 static const char CLIENT_ADD = '1';
 static const char CLIENT_REMOVE = '2';
-static const char CLIENT_SEARCH = '3';
+static const char CLIENT_SHOW = '3';
 static const char CLIENT_QUIT = '4';
 
 // print menu options
@@ -25,9 +26,9 @@ void print_menu() {
   std::cout << "=========================================" << std::endl;
   std::cout << "=                  MENU                 =" << std::endl;
   std::cout << "=========================================" << std::endl;
-  std::cout << " (1) Add Song" << std::endl;
-  std::cout << " (2) Remove Song" << std::endl;
-  std::cout << " (3) Search" << std::endl;
+  std::cout << " (1) Add to Cart" << std::endl;
+  std::cout << " (2) Remove from Cart" << std::endl;
+  std::cout << " (3) Show Cart" << std::endl;
   std::cout << " (4) Quit"  << std::endl;
   std::cout << "=========================================" << std::endl;
   std::cout << "Enter number: ";
@@ -40,6 +41,17 @@ void print_menu() {
 void do_add(MusicLibraryApi &api) {
 
   std::string artist, title;
+    std::string item, quantity;
+ 
+    std::cout << std::endl << "Add to Cart" << std::endl;
+    std::cout << "Possible Items: Broom, Cup, Banana, Hat" << std::endl;
+    std::cout << "Please specify the item and the quantity that you would like to add" << std::endl;
+    std::cout << "Item: ";
+    std::getline(std::cin, item);
+    std::cout << "Quantity: ";
+    std::getline(std::cin, quantity);
+ 
+ 
 
   // collect artist and title
   std::cout << std::endl << "Add Song" << std::endl;

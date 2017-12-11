@@ -22,6 +22,7 @@ set(AMAZOOM_HEADERS
 	src/WarehouseApi.h
 	src/JsonConverter.h
 	src/JsonWarehouseApi.h
+	src/CartItem.h
 	src/Message.h)
 
 
@@ -46,11 +47,11 @@ add_executable(shippingtruck src/shippingtruck.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(shippingtruck Threads::Threads)
 
 # server
-add_executable(webserver src/webserver.cpp ${MUSIC_LIBRARY_HEADERS})
+add_executable(webserver src/webserver.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(webserver Threads::Threads)
 
 # client
-add_executable(client src/client.cpp ${MUSIC_LIBRARY_HEADERS})
+add_executable(client src/client.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(client Threads::Threads)
 
 # link with unix realtime library

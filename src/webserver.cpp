@@ -16,19 +16,13 @@
 #include "MusicLibrary.h"
 #include "warehouse_common.h"
 #include "JsonWarehouseApi.h"
+#include "CartItem.h"
 
 #include <cpen333/process/socket.h>
 #include <cpen333/process/mutex.h>
 #include <cpen333/process/shared_memory.h>
 
-bool add(AddMessage &addm, Order &cart)
-{
-  cpen333::process::shared_object<SharedData> memory(WAREHOUSE_MEMORY_NAME);
-
-  
-  
-  return true;
-}
+cpen333::process::mutex mutex(SERVER_MUTEX);
 
 /**
  * Main thread function for handling communication with a single remote
@@ -38,17 +32,11 @@ bool add(AddMessage &addm, Order &cart)
  * @param api communication interface layer
  * @param id client id for printing messages to the console
  */
-void service(MusicLibraryApi &&api, int id, int &numActiveClients) {
+void service(Cart &cart, MusicLibraryApi &&api, int id, int &numActiveClients) {
   std::cout << "Client " << id << " connected" << std::endl;
-  
-  // Get mutex
-  cpen333::process::mutex mutex(MUSICLIBMUTEXNAME);
   
   // receive message
   std::unique_ptr<Message> msg = api.recvMessage();
-  
-  // create cart for this client
-  Order cart;
 
   // continue while we don't have an error
   while (msg != nullptr) {
@@ -60,12 +48,12 @@ void service(MusicLibraryApi &&api, int id, int &numActiveClients) {
         // process "add" message
         // get reference to ADD
         AddMessage &addm = (AddMessage &) (*msg);
-        std::cout << "Client " << id << " adding song: " << addm.item.name << std::endl;
+        std::cout << "Client " << id << " adding item: " << addm.cartItem.item << " quantity: " << addm.cartItem.quantity << std::endl;
 
         // add song to library
         bool success = false;
         mutex.lock();
-        success = add(addm, cart);
+        success = cart.add(addm.cartItem);
         mutex.unlock();
 
         // send response
@@ -74,22 +62,22 @@ void service(MusicLibraryApi &&api, int id, int &numActiveClients) {
         } else {
           api.sendMessage(AddResponseMessage(addm,
             MESSAGE_STATUS_ERROR,
-            "Song already exists in database"));
+            "Item already exists in cart"));
         }
         break;
       }
-        /*
+        
       case MessageType::REMOVE: {
         //====================================================
         // Implement "remove" functionality
         //====================================================
         RemoveMessage &rmv = (RemoveMessage &) (*msg);
-        std::cout << "Client " << id << " removing song: " << rmv.song << std::endl;
+        std::cout << "Client " << id << " removing item: " << rmv.cartItem.item << std::endl;
         
-        // remove song from library
+        // remove item from cart
         bool success = false;
         mutex.lock();
-        success = lib.remove(rmv.song);
+        success = cart.remove(rmv.cartItem);
         mutex.unlock();
         
         // send response
@@ -101,10 +89,31 @@ void service(MusicLibraryApi &&api, int id, int &numActiveClients) {
         {
           api.sendMessage(RemoveResponseMessage(rmv,
                                                 MESSAGE_STATUS_ERROR,
-                                                "Song not removed from database"));
+                                                "Item not removed from cart"));
         }
         break;
       }
+    
+        case MessageType::SHOW: {
+            ShowMessage &show = (ShowMessage &) (*msg);
+            std::map<std::string, int> cartInfo;
+            bool success = false;
+            
+            mutex.lock();
+            cartInfo = cart.show();
+            mutex.unlock();
+            
+            /*
+            if(success) {
+                api.sendMessage(ShowResponseMessage(show, MESSAGE_STATUS_OK, cartInfo));
+            }
+            else {
+                api.sendMessage(ShowResponseMessage(show, MESSAGE_STATUS_ERROR, "Cart is empty"));
+            }
+             */
+            
+        }
+            /*
       case MessageType::SEARCH: {
         // process "search" message
         // get reference to SEARCH
@@ -124,6 +133,7 @@ void service(MusicLibraryApi &&api, int id, int &numActiveClients) {
 
         break;
       }
+             */
       case MessageType::GOODBYE: {
         // process "goodbye" message
         std::cout << "Client " << id << " closing" << std::endl;
@@ -133,7 +143,7 @@ void service(MusicLibraryApi &&api, int id, int &numActiveClients) {
       default: {
         std::cout << "Client " << id << " sent invalid message" << std::endl;
       }
-         */
+         
     }
 
     // receive next message
@@ -163,53 +173,28 @@ void load_songs(MusicLibrary &lib, const std::string& filename) {
 
 int main() {
 
-  // load  data
-  std::vector<std::string> filenames = {
-      "data/billboard_hot_100.json",
-      "data/billboard_greatest_hot_100.json",
-      "data/billboard_adult_contemporary.json",
-      "data/billboard_adult_pop.json",
-      "data/billboard_alternative.json",
-      "data/billboard_country.json",
-      "data/billboard_electronic.json",
-      "data/billboard_jazz.json",
-      "data/billboard_r&b.json",
-      "data/billboard_rap.json",
-      "data/billboard_rock.json",
-  };
 
   //MusicLibrary lib;       // main shared music library
-/*
-  // load music library files
-  for (const auto &filename : filenames) {
-    load_songs(lib, filename);
-  }
-*/
+
   // start server
   cpen333::process::socket_server server(MUSIC_LIBRARY_SERVER_PORT);
   server.open();
   std::cout << "Server started on port " << server.port() << std::endl;
 
-  //===============================================================
-  // TODO: Modify to allow multiple client-server connections
-  //     Loop:
-  //       - 'Accept' a socket client
-  //       - Create an API wrapper around the socket
-  //       - Send the API wrapper to the service(...) function
-  //         to run in a new detached thread
-  //===============================================================
   cpen333::process::socket client;
   int shouldcontinue = true;
   int numActiveClients = 0;
+    
   
   int clientId = 0;
   while(shouldcontinue)
   {
     if (server.accept(client)) {
       // create API handler
-      JsonMusicLibraryApi api(std::move(client));
+        JsonMusicLibraryApi api(std::move(client));
+        Cart cart;
       // service client-server communication
-      std::thread t(service, std::move(api), clientId++, std::ref(numActiveClients));
+        std::thread t(service, std::ref(cart), std::move(api), clientId++, std::ref(numActiveClients));
       numActiveClients++;
  
       t.detach();
