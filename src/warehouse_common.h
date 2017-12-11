@@ -5,6 +5,9 @@
 #include <map>
 #include <vector>
 
+#include <cpen333/process/mutex.h>
+#include <cpen333/process/shared_memory.h>
+
 #define WAREHOUSE_MEMORY_NAME "warehouse_memory"
 #define MUTEX_NAME "warehouse_mutex"
 
@@ -15,6 +18,8 @@
 
 #define COL_IDX 0
 #define ROW_IDX 1
+#define SIDE_IDX 2
+#define HEIGHT_IDX 3
 
 #define UP(c,r)    (r > 0             ? winfo_.warehouse[c][r-1] : 'X')
 #define DOWN(c,r)  (r < winfo_.rows-1 ? winfo_.warehouse[c][r+1] : 'X')
@@ -33,8 +38,10 @@
 #define ORDERQ_SIZE 256
 #define SHIPPINGQ_SIZE 256
 #define RECEIVINGQ_SIZE 256
-#define CATALOGUE_SIZE 256
+#define CATALOGUE_SIZE 4
 #define MAX_ITEM_QUANTITY 100
+
+#define SHELF_CAPACITY 100
 
 bool validItem(std::string name) {
     bool valid = false;
@@ -58,17 +65,17 @@ bool validItem(std::string name) {
 
 std::string getItemName(int id) {
     switch(id) {
-        case 001: {
-            return "broom";
+        case 0: {
+            return "Broom";
         }
-        case 002: {
-            return "cup";
+        case 1: {
+            return "Cup";
         }
-        case 003: {
-            return "banana";
+        case 2: {
+            return "Banana";
         }
-        case 004: {
-            return "hat";
+        case 3: {
+            return "Hat";
         }
     }
     return "Not Found";
@@ -95,7 +102,7 @@ struct TruckInfo {
 
 struct Shelf {
     int capacity;
-    std::vector<std::string> location; // Ex. (A, 3, Right, 6);
+    std::string location; // Ex. (4, 3, Right, 6);
 };
 
 struct Item {
@@ -104,32 +111,6 @@ struct Item {
 	int weight;
 	Shelf shelf;
 };
-
-Item getItem(std::string name)
-{
-  Item out;
-  out.name = name;
-  
-  if(name == "Broom") {
-    out.weight = 5;
-    out.itemId = 001;
-    //out.shelf
-  }
-  else if(name == "Cup") {
-    out.weight = 1;
-    out.itemId = 002;
-  }
-  else if(name == "Banana") {
-    out.weight = 3;
-    out.itemId = 003;
-  }
-  else if(name == "Hat") {
-    out.weight = 10;
-    out.itemId = 004;
-  }
-  
-  return out;
-}
 
 struct Catalogue {
     std::map<int, std::string> catalogue[CATALOGUE_SIZE]; // Item ID to item name
@@ -167,10 +148,48 @@ struct SharedData {
   
 	Order shippingQ[SHIPPINGQ_SIZE];
 	Item receivingQ[RECEIVINGQ_SIZE];
-    int inventory[CATALOGUE_SIZE][MAX_ITEM_QUANTITY];
-	//std::map<std::string, int> inventory;
+  int itemloc[CATALOGUE_SIZE][4];
 };
 
+Item getItem(std::string name)
+{
+  Item out;
+  out.name = name;
+  
+  cpen333::process::mutex whmutex(MUTEX_NAME);
+  cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+  
+  if(name == "Broom") {
+    out.weight = 5;
+    out.itemId = 0;
+  }
+  else if(name == "Cup") {
+    out.weight = 1;
+    out.itemId = 1;
+  }
+  else if(name == "Banana") {
+    out.weight = 3;
+    out.itemId = 2;
+  }
+  else if(name == "Hat") {
+    out.weight = 10;
+    out.itemId = 3;
+  }
+  
+  whmutex.lock();
+  int x = whmemory->itemloc[out.itemId][COL_IDX];
+  int y = whmemory->itemloc[out.itemId][ROW_IDX];
+  int s = whmemory->itemloc[out.itemId][SIDE_IDX];
+  int h = whmemory->itemloc[out.itemId][HEIGHT_IDX];
+  whmutex.unlock();
+  
+  std::string side = (s==0) ? "Left" : "Right";
+  
+  out.shelf.location = std::to_string(x) + "," + std::to_string(y) + "," + side + "," + std::to_string(h);
+  out.shelf.capacity = SHELF_CAPACITY;
+  
+  return out;
+}
 
 
 #endif

@@ -3,8 +3,6 @@
 
 #include <iostream>
 
-#include <cpen333/process/shared_memory.h>
-#include <cpen333/process/mutex.h>
 
 int main()
 {
@@ -32,6 +30,17 @@ int main()
   Central_computer cc;
   
   cc.reportInventory();
+  
+  int w;
+  while(1)
+  {
+    w = cc.checkShelfWeight(0, 0, 0);
+    
+    std::cout << "Shelf weight: " << w << std::endl;
+    
+    std::cout << "Press ENTER to go again." << std::endl;
+    std::cin.get();
+  }
   
   return 0;
 }
