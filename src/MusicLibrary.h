@@ -14,34 +14,83 @@
 #include "warehouse_common.h"
 #include "CartItem.h"
 
+#include <cpen333/process/shared_memory.h>
+#include <cpen333/process/mutex.h>
+
 #define SERVER_MUTEX "server_mutex"
 
 class Cart {
-    std::map<std::string, int> cartInfo;
-    //Order order;
-    std::set<CartItem> cartItems;
+  //std::map<std::string, int> cartInfo;
+  //Order order;
+  std::set<CartItem> cartItems;
+  
+public:
+  
+  //Adds an item to the cart
+  bool add(const CartItem& cartItem) {
+    // try to add item to the cart
     
-    public:
+    auto elem = cartItems.insert(cartItem);
     
-    //Adds an item to the cart
-    bool add(const CartItem& cartItem) {
-        // try to add item to the cart
-        
-        auto elem = cartItems.insert(cartItem);
-        return elem.second;
-        //return true;
+    //if(!elem.second) elem.first->quantity = std::to_string(std::stoi(elem.first->quantity) + std::stoi(cartItem.quantity));
+    
+    return elem.second;
+  }
+  
+  bool remove(const CartItem& cartItem) {
+    for(auto &item : cartItems)
+    {
+      if(item.item == cartItem.item)
+      {
+        cartItems.erase(item);
+        return true;
+      }
+    //auto elem = cartItems.erase(cartItem);
     }
     
-    bool remove(const CartItem& cartItem) {
-        
-        auto elem = cartItems.erase(cartItem);
-        return elem;
-
+    return false;
+  }
+    
+  std::set<CartItem> show() {
+    return cartItems;
+  }
+  
+  int submit()
+  {
+    // add something to new order q in warehouse common
+    cpen333::process::mutex whmutex(MUTEX_NAME);
+    cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+    
+    Order order_to_add;
+    
+    int order_id;
+    
+    for(auto &ci : cartItems)
+    {
+      Item item_to_add = getItem(ci.item);
+      order_to_add.items[order_to_add.nitems] = item_to_add;
+      order_to_add.quantity[order_to_add.nitems] = std::stoi(ci.quantity);
+      order_to_add.nitems++;
+      order_to_add.weight += (item_to_add.weight * std::stoi(ci.quantity));
     }
     
-    std::map<std::string, int> show() {
-        return cartInfo;
-    }
+    whmutex.lock();
+    
+    order_to_add.orderId = whmemory->nOrders;
+    order_id = order_to_add.orderId;
+    whmemory->nOrders++;
+    
+    whmemory->newOrderIdx_end++;
+    whmemory->newOrderQ[whmemory->newOrderIdx_end] = order_to_add;
+    
+    whmutex.unlock();
+    
+    // clear cartItems
+    cartItems.clear();
+    
+    return order_id;
+  }
+  
 };
 
 // Stores a list of songs

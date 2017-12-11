@@ -96,23 +96,39 @@ void service(Cart &cart, MusicLibraryApi &&api, int id, int &numActiveClients) {
     
         case MessageType::SHOW: {
             ShowMessage &show = (ShowMessage &) (*msg);
-            std::map<std::string, int> cartInfo;
-            bool success = false;
             
             mutex.lock();
-            cartInfo = cart.show();
+          std::set<CartItem> results = cart.show();
             mutex.unlock();
             
-            /*
-            if(success) {
-                api.sendMessage(ShowResponseMessage(show, MESSAGE_STATUS_OK, cartInfo));
+          
+            if(!results.empty()) {
+                api.sendMessage(ShowResponseMessage(show, results, MESSAGE_STATUS_OK));
             }
             else {
-                api.sendMessage(ShowResponseMessage(show, MESSAGE_STATUS_ERROR, "Cart is empty"));
+                api.sendMessage(ShowResponseMessage(show, results, MESSAGE_STATUS_ERROR, "Cart is empty"));
             }
-             */
-            
+          
+          break;
         }
+        
+      case MessageType::SUBMIT: {
+        SubmitMessage &sub = (SubmitMessage &) (*msg);
+        
+        mutex.lock();
+        bool success = cart.submit();
+        mutex.unlock();
+        
+        
+        if(success) {
+          api.sendMessage(SubmitResponseMessage(sub, MESSAGE_STATUS_OK));
+        }
+        else {
+          api.sendMessage(SubmitResponseMessage(sub, MESSAGE_STATUS_ERROR, "Cart is empty"));
+        }
+        
+        break;
+      }
             /*
       case MessageType::SEARCH: {
         // process "search" message
@@ -200,14 +216,15 @@ int main() {
       t.detach();
     }
     
-    std::cout << numActiveClients << std::endl;
-    
+    //std::cout << numActiveClients << std::endl;
+    /*
     if(numActiveClients == 0)
     {
       std::cout << "No active users." << std::endl;
       std::cout << "Continue? (1) or Quit? (0)";
       std::cin >> shouldcontinue;
     }
+     */
   }
 
   // close server

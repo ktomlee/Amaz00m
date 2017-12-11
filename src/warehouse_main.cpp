@@ -139,6 +139,9 @@ int main(int argc, char* argv[]) {
   memory->dinfo = dinfo;
   memory->tinfo = tinfo;
   memory->quit = false;
+  
+  memory->newOrderIdx_start = memory->newOrderIdx_end = 0;
+  memory->nOrders = 0;
 
   std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
   std::cout << "Press ENTER to quit." << std::endl;

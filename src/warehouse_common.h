@@ -55,6 +55,8 @@ std::string getItemName(int id) {
 }
 
 
+
+
 struct WarehouseInfo {
   int rows;           // rows in warehouse
   int cols;           // columns in warehouse
@@ -82,6 +84,32 @@ struct Item {
 	int weight;
 	Shelf shelf;
 };
+
+Item getItem(std::string name)
+{
+  Item out;
+  out.name = name;
+  
+  if(name == "Broom") {
+    out.weight = 5;
+    out.itemId = 001;
+    //out.shelf
+  }
+  else if(name == "Cup") {
+    out.weight = 1;
+    out.itemId = 002;
+  }
+  else if(name == "Banana") {
+    out.weight = 3;
+    out.itemId = 003;
+  }
+  else if(name == "Hat") {
+    out.weight = 10;
+    out.itemId = 004;
+  }
+  
+  return out;
+}
 
 struct Catalogue {
     std::map<int, std::string> catalogue[CATALOGUE_SIZE]; // Item ID to item name
@@ -111,7 +139,13 @@ struct SharedData {
     TruckInfo tinfo;
   
 	bool quit;
+  
+  int nOrders;
+  
 	Order newOrderQ[ORDERQ_SIZE];
+  int newOrderIdx_start;
+  int newOrderIdx_end;
+  
 	Order shippingQ[SHIPPINGQ_SIZE];
 	Item receivingQ[RECEIVINGQ_SIZE];
     int inventory[CATALOGUE_SIZE][MAX_ITEM_QUANTITY];

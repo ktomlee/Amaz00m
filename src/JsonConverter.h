@@ -74,7 +74,7 @@ class JsonConverter {
    * @param songs vector of songs to jsonify
    * @return JSON array representation
    */
-    static JSON toJSON(const std::vector<CartItem> &cartItems) {
+    static JSON toJSON(const std::set<CartItem> &cartItems) {
     JSON j;
         for (const auto& cartItem : cartItems) {
             j.push_back(toJSON(cartItem));
@@ -413,8 +413,7 @@ class JsonConverter {
   }
     
     static CartItem parseCartItem(const JSON &j) {
-
-        return CartItem(j[MESSAGE_CART_ITEM], j[MESSAGE_CART_QUANTITY]);
+      return CartItem(j[MESSAGE_CART_ITEM], j[MESSAGE_CART_QUANTITY]);
     }
 
   /**
@@ -423,11 +422,11 @@ class JsonConverter {
    * @param jsongs JSON array
    * @return resulting vector of Song
 */
-  static std::vector<CartItem> parseCartItems(const JSON &jcartItems) {
-    std::vector<CartItem> out;
+  static std::set<CartItem> parseCartItems(const JSON &jcartItems) {
+    std::set<CartItem> out;
 
     for (const auto& cartItem : jcartItems) {
-      out.push_back(parseCartItem(cartItem));
+      out.insert(parseCartItem(cartItem));
     }
 
     return out;
@@ -570,7 +569,7 @@ class JsonConverter {
     ShowMessage show = parseShow(jshowr[MESSAGE_SHOW]);
     std::string status = jshowr[MESSAGE_STATUS];
     std::string info = jshowr[MESSAGE_INFO];
-    std::vector<CartItem> results = parseCartItems(jshowr[MESSAGE_SHOW_RESULT]);
+    std::set<CartItem> results = parseCartItems(jshowr[MESSAGE_SHOW_RESULT]);
     return ShowResponseMessage(show, results, status, info);
   }
   

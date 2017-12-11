@@ -221,9 +221,9 @@ public:
 class ShowResponseMessage : public ResponseMessage {
 public:
     const ShowMessage show;
-    const std::vector<CartItem> results;
+    const std::set<CartItem> results;
   
-  ShowResponseMessage(const ShowMessage& show, const std::vector<CartItem>& results, std::string status, std::string info = "") :
+  ShowResponseMessage(const ShowMessage& show, const std::set<CartItem>& results, std::string status, std::string info = "") :
   ResponseMessage(status, info), show(show), results(results) {}
   
   MessageType type() const {
