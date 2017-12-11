@@ -92,6 +92,30 @@ public:
     return order_id;
   }
   
+  Order check(int checkid)
+  {
+    cpen333::process::mutex whmutex(MUTEX_NAME);
+    cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+    Order result;
+    result.orderId = 0;
+    
+    whmutex.lock();
+    
+    for(int i=whmemory->newOrderIdx_start; i<=whmemory->newOrderIdx_end; i++)
+    {
+      if(whmemory->newOrderQ[i].orderId == checkid)
+      {
+        result = whmemory->newOrderQ[i];
+        whmutex.unlock();
+        return result;
+      }
+    }
+    
+    whmutex.unlock();
+    
+    return result;
+  }
+  
 };
 
 // Stores a list of songs

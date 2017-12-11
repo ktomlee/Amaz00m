@@ -388,6 +388,7 @@ class JsonConverter {
    */
   static void parseItems(const JSON &jitems, Order &order) {
     int i=0;
+    order.nitems = 0;
     
     for (const auto& res : jitems) {
       order.items[i].name = res[MESSAGE_ITEM];
@@ -532,7 +533,7 @@ class JsonConverter {
    * @return AddMessage
    */
   static CheckMessage parseCheck(const JSON &jcheck) {
-    int orderId = jcheck[MESSAGE_ORDER_ID];
+    std::string orderId = jcheck[MESSAGE_ORDER_ID];
     return CheckMessage(orderId);
   }
   

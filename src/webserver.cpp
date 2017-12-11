@@ -116,12 +116,12 @@ void service(Cart &cart, MusicLibraryApi &&api, int id, int &numActiveClients) {
         SubmitMessage &sub = (SubmitMessage &) (*msg);
         
         mutex.lock();
-        bool success = cart.submit();
+        int orderid = cart.submit();
         mutex.unlock();
         
         
-        if(success) {
-          api.sendMessage(SubmitResponseMessage(sub, MESSAGE_STATUS_OK));
+        if(orderid != 0) {
+          api.sendMessage(SubmitResponseMessage(sub, MESSAGE_STATUS_OK, "Order id: " + std::to_string(orderid)));
         }
         else {
           api.sendMessage(SubmitResponseMessage(sub, MESSAGE_STATUS_ERROR, "Cart is empty"));
@@ -129,6 +129,26 @@ void service(Cart &cart, MusicLibraryApi &&api, int id, int &numActiveClients) {
         
         break;
       }
+        
+        
+      case MessageType::CHECK: {
+        CheckMessage &chk = (CheckMessage &) (*msg);
+        
+        mutex.lock();
+        Order result = cart.check(std::stoi(chk.orderId));
+        mutex.unlock();
+        
+        
+        if(result.orderId != 0) {
+          api.sendMessage(CheckResponseMessage(chk, MESSAGE_STATUS_OK, result));
+        }
+        else {
+          api.sendMessage(CheckResponseMessage(chk, MESSAGE_STATUS_ERROR, result, "Order does not exist"));
+        }
+        
+        break;
+      }
+        
             /*
       case MessageType::SEARCH: {
         // process "search" message

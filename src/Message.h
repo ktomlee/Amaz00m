@@ -180,9 +180,9 @@ public:
  */
 class CheckMessage : public Message {
 public:
-  const int orderId;
+  const std::string orderId;
   
-  CheckMessage(const int orderId)  : orderId(orderId) {}
+  CheckMessage(const std::string orderId)  : orderId(orderId) {}
   
   MessageType type() const {
     return MessageType::CHECK;

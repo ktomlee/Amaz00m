@@ -19,7 +19,8 @@ static const char CLIENT_ADD = '1';
 static const char CLIENT_REMOVE = '2';
 static const char CLIENT_SHOW = '3';
 static const char CLIENT_SUBMIT = '4';
-static const char CLIENT_QUIT = '5';
+static const char CLIENT_CHECK = '5';
+static const char CLIENT_QUIT = '6';
 
 // print menu options
 void print_menu() {
@@ -31,7 +32,8 @@ void print_menu() {
   std::cout << " (2) Remove from Cart" << std::endl;
   std::cout << " (3) Show Cart" << std::endl;
   std::cout << " (4) Submit Order" << std::endl;
-  std::cout << " (5) Quit"  << std::endl;
+  std::cout << " (5) Check Order" << std::endl;
+  std::cout << " (6) Quit"  << std::endl;
   std::cout << "=========================================" << std::endl;
   std::cout << "Enter number: ";
   std::cout.flush();
@@ -148,6 +150,42 @@ void do_submit(MusicLibraryApi &api) {
     
     if (resp.status == MESSAGE_STATUS_OK) {
       std::cout << "Order submitted!" << std::endl;
+      std::cout << resp.info << std::endl;
+    } else {
+      std::cout << std::endl << resp.info << std::endl;
+    }
+  }
+}
+
+// remove song from server
+void do_check(MusicLibraryApi &api) {
+  
+  //=================================================
+  // TODO: Implement "show" functionality
+  //=================================================
+  std::string orderId;
+  
+  std::cout << std::endl << "Check order by ID" << std::endl;
+  std::cout << "Please specify the order Id" << std::endl;
+  std::cout << "Id: ";
+  std::getline(std::cin, orderId);
+  
+  // send message to server and wait for response
+  //Song song(artist, title);
+  CheckMessage msg(orderId);
+  if (api.sendMessage(msg)) {
+    // get response
+    std::unique_ptr<Message> msgr = api.recvMessage();
+    CheckResponseMessage& resp = (CheckResponseMessage&)(*msgr);
+    
+    if (resp.status == MESSAGE_STATUS_OK) {
+      std::cout << "Order found!" << std::endl;
+      std::cout << "Order Id: " << resp.result.orderId << std::endl;
+      std::cout << "Unique items in order: " << resp.result.nitems << std::endl;
+      for(int i=0; i<resp.result.nitems; i++)
+      {
+        std::cout << "item " << i << ": " << resp.result.items[i].name << " x" << resp.result.quantity[i] << std::endl << std::endl;
+      }
     } else {
       std::cout << std::endl << resp.info << std::endl;
     }
@@ -238,8 +276,11 @@ int main() {
         case CLIENT_SUBMIT:
           do_submit(api);
           break;
+        case CLIENT_CHECK:
+          do_check(api);
+          break;
         case CLIENT_QUIT:
-          //do_goodbye(api);
+          do_goodbye(api);
           break;
         default:
           std::cout << "Invalid command number " << cmd << std::endl << std::endl;
