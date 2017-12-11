@@ -1,4 +1,5 @@
 #include "warehouse_common.h"
+#include "Central_computer.h"
 
 #include <iostream>
 
@@ -7,6 +8,7 @@
 
 int main()
 {
+  /*
   cpen333::process::mutex whmutex(MUTEX_NAME);
   cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
   
@@ -25,6 +27,11 @@ int main()
     std::cout << "Press ENTER to go again." << std::endl;
     std::cin.get();
   }
+  */
+  
+  Central_computer cc;
+  
+  cc.reportInventory();
   
   return 0;
 }

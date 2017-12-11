@@ -23,7 +23,8 @@ set(AMAZOOM_HEADERS
 	src/JsonConverter.h
 	src/JsonWarehouseApi.h
 	src/CartItem.h
-	src/Message.h)
+	src/Message.h
+	src/Central_computer.h)
 
 
 # child
