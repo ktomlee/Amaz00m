@@ -44,15 +44,22 @@ void print_menu() {
 // add a song to remote server
 void do_add(MusicLibraryApi &api) {
 
-  std::string item, quantity;
+    std::string item, quantity;
   
-  std::cout << std::endl << "Add to Cart" << std::endl;
-  std::cout << "Possible Items: Broom, Cup, Banana, Hat" << std::endl;
-  std::cout << "Please specify the item and the quantity that you would like to add" << std::endl;
-  std::cout << "Item: ";
-  std::getline(std::cin, item);
-  std::cout << "Quantity: ";
-  std::getline(std::cin, quantity);
+    std::cout << std::endl << "Add to Cart" << std::endl;
+    std::cout << "Possible Items: Broom, Cup, Banana, Hat" << std::endl;
+    std::cout << "Please specify the item and the quantity that you would like to add" << std::endl;
+    std::cout << "Item: ";
+    std::getline(std::cin, item);
+    
+    while(!validItem(item)) {
+        std::cout << "Item is not valid. Please specify a valid item" << std::endl;
+        std::cout << "Item: ";
+        std::getline(std::cin, item);
+    }
+    
+    std::cout << "Quantity: ";
+    std::getline(std::cin, quantity);
 
   // send message to server and wait for response
   CartItem cartitem(item, quantity);
@@ -74,18 +81,20 @@ void do_add(MusicLibraryApi &api) {
 
 // remove song from server
 void do_remove(MusicLibraryApi &api) {
-
-  //=================================================
-  // TODO: Implement "remove" functionality
-  //=================================================
   
-  std::string item, quantity;
+    std::string item, quantity;
   
-  std::cout << std::endl << "Remove from Cart" << std::endl;
-  std::cout << "Possible Items: Broom, Cup, Banana, Hat" << std::endl;
-  std::cout << "Please specify the item that you would like to remove" << std::endl;
-  std::cout << "Item: ";
-  std::getline(std::cin, item);
+    std::cout << std::endl << "Remove from Cart" << std::endl;
+    std::cout << "Possible Items: Broom, Cup, Banana, Hat" << std::endl;
+    std::cout << "Please specify the item that you would like to remove" << std::endl;
+    std::cout << "Item: ";
+    std::getline(std::cin, item);
+    
+    while(!validItem(item)) {
+        std::cout << "Item is not valid. Please specify a valid item" << std::endl;
+        std::cout << "Item: ";
+        std::getline(std::cin, item);
+    }
   
   // send message to server and wait for response
   //Song song(artist, title);
@@ -136,10 +145,6 @@ void do_show(MusicLibraryApi &api) {
 // remove song from server
 void do_submit(MusicLibraryApi &api) {
   
-  //=================================================
-  // TODO: Implement "show" functionality
-  //=================================================
-  
   // send message to server and wait for response
   //Song song(artist, title);
   SubmitMessage msg;
@@ -160,9 +165,6 @@ void do_submit(MusicLibraryApi &api) {
 // remove song from server
 void do_check(MusicLibraryApi &api) {
   
-  //=================================================
-  // TODO: Implement "show" functionality
-  //=================================================
   std::string orderId;
   
   std::cout << std::endl << "Check order by ID" << std::endl;
@@ -192,39 +194,6 @@ void do_check(MusicLibraryApi &api) {
   }
 }
 
-/*
-// search for songs on server
-void do_search(MusicLibraryApi &api) {
-  std::string artist_regex, title_regex;
-
-  // collect regular expressions for song search
-  std::cout << std::endl << "Search for Songs" << std::endl;
-  std::cout << "   Artist Expression: ";
-  std::getline(std::cin, artist_regex);
-  std::cout << "   Title Expression:  ";
-  std::getline(std::cin, title_regex);
-
-  // send search message and wait for response
-  SearchMessage msg(artist_regex, title_regex);
-  if (api.sendMessage(msg)) {
-    // get response
-    std::unique_ptr<Message> msgr = api.recvMessage();
-    SearchResponseMessage& resp = (SearchResponseMessage&)(*msgr);
-
-    if (resp.status == MESSAGE_STATUS_OK) {
-      std::cout << std::endl << "   Results:" << std::endl;
-      for (const auto& song : resp.results) {
-        std::cout << "      " << song << std::endl;
-      }
-    } else {
-      std::cout << std::endl << "   Search \"" << artist_regex << " - "
-                << title_regex << "\" failed: " << resp.info << std::endl;
-    }
-  }
-
-  std::cout << std::endl;
-}
-*/
 // search for songs on server
 void do_goodbye(MusicLibraryApi &api) {
   GoodbyeMessage msg;
@@ -267,9 +236,6 @@ int main() {
         case CLIENT_REMOVE:
           do_remove(api);
           break;
-        //case CLIENT_SEARCH:
-          //do_search(api);
-        //  break;
         case CLIENT_SHOW:
           do_show(api);
           break;

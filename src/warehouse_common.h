@@ -36,6 +36,26 @@
 #define CATALOGUE_SIZE 256
 #define MAX_ITEM_QUANTITY 100
 
+bool validItem(std::string name) {
+    bool valid = false;
+    if(name == "Broom") {
+        valid = true;
+    }
+    else if(name == "Cup") {
+        valid = true;
+    }
+    else if(name == "Banana") {
+        valid = true;
+    }
+    else if(name == "Hat") {
+        valid = true;
+    }
+    else {
+        valid = false;
+    }
+    return valid;
+}
+
 std::string getItemName(int id) {
     switch(id) {
         case 001: {
@@ -137,14 +157,13 @@ struct SharedData {
 	WarehouseInfo winfo;
     DockInfo dinfo;
     TruckInfo tinfo;
-  
 	bool quit;
   
-  int nOrders;
+    int nOrders;
   
 	Order newOrderQ[ORDERQ_SIZE];
-  int newOrderIdx_start;
-  int newOrderIdx_end;
+    int newOrderIdx_start;
+    int newOrderIdx_end;
   
 	Order shippingQ[SHIPPINGQ_SIZE];
 	Item receivingQ[RECEIVINGQ_SIZE];

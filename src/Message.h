@@ -23,8 +23,6 @@ enum MessageType {
   ADD_RESPONSE,
   REMOVE,
   REMOVE_RESPONSE,
-  //SEARCH,
-  //SEARCH_RESPONSE,
   SUBMIT,
   SUBMIT_RESPONSE,
   CHECK,
@@ -114,41 +112,6 @@ class RemoveResponseMessage : public ResponseMessage {
     return MessageType::REMOVE_RESPONSE;
   }
 };
-
-/**
- * Search the catalogue for an item
- */
-/*
-class SearchMessage : public Message {
- public:
-  const std::string item_regex;
-
-  SearchMessage(const std::string& item_regex) :
-      item_regex(item_regex) {}
-
-  MessageType type() const {
-    return MessageType::SEARCH;
-  }
-};
-*/
-/**
- * Response to an item search
- */
-/*
-class SearchResponseMessage : public ResponseMessage {
- public:
-  const SearchMessage search;
-  const Order results;
-
-  SearchResponseMessage(const SearchMessage& search, const Order results,
-    const std::string& status, const std::string& info = "" ) :
-      ResponseMessage(status, info), search(search), results(results) {}
-
-  MessageType type() const {
-    return MessageType::SEARCH_RESPONSE;
-  }
-};
-*/
 
 /**
  * Checkout cart and add to order queue
