@@ -136,7 +136,7 @@ class Central_computer : public cpen333::thread::thread_object {
         {
             for(int i=0; i<p.second; i++)
             {
-                ReceivingQ_.add(p.first);
+                ReceivingQ_.add(std::make_pair(p.first, dock));
                 truckWeightsByDock[dock] += p.first.weight;
             }
         }
@@ -148,7 +148,7 @@ class Central_computer : public cpen333::thread::thread_object {
 
         truckWeightsByDock[dock] -= item.weight;
         
-        if(truckWeightsByDock[dock] == 0)
+        if(truckWeightsByDock[dock] <= 0)
         {
             // if truck is empty it can leave
             cv_dock.notify_one();

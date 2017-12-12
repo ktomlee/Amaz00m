@@ -101,6 +101,8 @@ class Robot : public cpen333::thread::thread_object {
    * @return 1 for success, 0 for failure, -1 to quit
    */
   void go(int c, int r) {
+      if(x_==c && y_==r) return;
+      
     // If we're going to a dock, go down first then go laterally
       if(r == winfo_.rows)
       {
@@ -191,6 +193,16 @@ class Robot : public cpen333::thread::thread_object {
         return cc_.getValidDock(RECEIVING_TYPE);
     }
     
+    void ship()
+    {
+        
+    }
+    
+    void receive()
+    {
+        
+    }
+    
     int main() {
         /*
         CircularOrderQueue OQ;
@@ -247,6 +259,7 @@ class Robot : public cpen333::thread::thread_object {
         
         while(true)
         {
+            /*
             // Go to a dock with a shipping truck
             int dock = INVALID_DOCK;
             do
@@ -260,15 +273,26 @@ class Robot : public cpen333::thread::thread_object {
             whmutex.unlock();
             
             go(dock_x, dock_y-1);
-            
-            weight = 0;
+            */
+            int weight = 0;
             receivingBucket.clear();
+            int dock = INVALID_DOCK;
             while(weight < ROBOT_CAPACITY)
             {
-                Item tmp = (ReceivingQ_.get());
-                weight += tmp.weight;
-                receivingBucket.push_back(tmp);
-                cc_.unloadItemFromTruck(tmp, dock);
+                std::pair<Item, int> tmp = (ReceivingQ_.get());
+                dock = tmp.second;
+                
+                whmutex.lock();
+                int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
+                int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
+                whmutex.unlock();
+                
+                go(dock_x, dock_y-1);
+                
+                weight += tmp.first.weight;
+                
+                receivingBucket.push_back(tmp.first);
+                cc_.unloadItemFromTruck(tmp.first, dock);
             }
             
             for(auto &item : receivingBucket)
