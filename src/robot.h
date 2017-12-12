@@ -112,7 +112,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
           
           // move to bottom wall
@@ -120,7 +120,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               y_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
           
           // move left to dock if we are right of it
@@ -128,7 +128,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_--;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
           
           // move right to dock if we are left of it
@@ -136,7 +136,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
       }
       
@@ -147,7 +147,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
           
           // move to top wall
@@ -155,7 +155,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               y_--;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
           
           // move right to goal if we are left of it
@@ -163,7 +163,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
           
           // move left to goal if we are right of it
@@ -171,7 +171,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_--;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
           
           // move down to goal
@@ -179,7 +179,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               y_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
       }
   }
@@ -198,11 +198,6 @@ class Robot : public cpen333::thread::thread_object {
     {
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
-        
-        status = RSTATUS_IDLE;
-        whmutex.lock();
-        whmemory->rinfo.rstatus[idx_] = status;
-        whmutex.unlock();
         
         std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
         std::uniform_int_distribution<size_t> dist(0, 10);
@@ -254,11 +249,6 @@ class Robot : public cpen333::thread::thread_object {
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
-        status = RSTATUS_IDLE;
-        whmutex.lock();
-        whmemory->rinfo.rstatus[idx_] = status;
-        whmutex.unlock();
-        
         int dock = getShippingDock();
         
         // There are no shipping trucks here!
@@ -304,12 +294,7 @@ class Robot : public cpen333::thread::thread_object {
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
-        status = RSTATUS_IDLE;
-        whmutex.lock();
-        whmemory->rinfo.rstatus[idx_] = status;
-        whmutex.unlock();
-        
-        
+
         // No items to receive!
         if(ReceivingQ_.isEmpty()) return;
         
@@ -363,10 +348,25 @@ class Robot : public cpen333::thread::thread_object {
     }
     
     int main() {
+        std::default_random_engine rnd(
+                                       (unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
+        std::uniform_int_distribution<size_t> dist(0, 10);
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
+                
         while(true)
         {
             ship();
             receive();
+            
+            
+            status = RSTATUS_IDLE;
+            whmutex.lock();
+            whmemory->rinfo.rstatus[idx_] = status;
+            whmutex.unlock();
+            int t  = dist(rnd);
+            std::this_thread::sleep_for(std::chrono::seconds(t));
         }
 
         return 0;

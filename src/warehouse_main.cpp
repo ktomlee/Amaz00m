@@ -226,7 +226,7 @@ void addRemoveRobot() {
 int main(int argc, char* argv[]) {
 
   // read maze from command-line, default to maze0
-    std::string warehouse = "data/warehouse2.txt";
+    std::string warehouse = "data/warehouse.txt";
     if (argc > 1) {
         warehouse = argv[1];
     }

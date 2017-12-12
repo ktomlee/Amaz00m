@@ -283,9 +283,9 @@ class Central_computer : public cpen333::thread::thread_object {
     
     int allowReceivingTruck(std::vector< std::pair< Item, int > > truckContents)
     {
+        cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
-        cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
         
         for(auto &p : truckContents)
         {
@@ -307,9 +307,23 @@ class Central_computer : public cpen333::thread::thread_object {
   
     int allowShippingTruck()
     {
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
         
-        if(ShippingQ_.isEmpty())
+        bool alreadyStruck = false;
+        
+        whmutex.lock();
+        for(int i=0; i<whmemory->dinfo.ndocks; i++)
+        {
+            if(whmemory->dinfo.truck_type[i] == SHIPPING_TYPE)
+            {
+                alreadyStruck = true;
+            }
+        }
+        whmutex.unlock();
+        
+        if(ShippingQ_.isEmpty() || alreadyStruck)
         {
             sem_docking.notify();
             return INVALID_DOCK;
