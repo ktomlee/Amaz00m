@@ -2,15 +2,17 @@
 
 #include <cpen333/process/shared_memory.h>
 #include <cpen333/process/mutex.h>
+#include <cpen333/thread/thread_object.h>
 #include <cstring>
 #include <chrono>
 #include <thread>
 #include "CircularQueue.h"
 #include "ItemQueue.h"
+#include "safe_printf.h"
 
 cpen333::process::mutex mutex(MUTEX_NAME);
 
-class Robot {
+class Robot : public cpen333::thread::thread_object {
     cpen333::process::shared_object<SharedData> memory_;
     cpen333::process::mutex mutex_;
 
@@ -181,8 +183,16 @@ class Robot {
         Robot robot(id, OQ, IQ);
         */
         
-        //robot.goToDest();
         
+        while(true) {
+            std::this_thread::sleep_for(std::chrono::seconds(10));
+            Order order = ShippingQ_.get();
+            std::cout << order.items[0].name << ": " << order.quantity[0] << std::endl;
+        }
+        
+        
+        //robot.goToDest();
+
         return 0;
     }
 

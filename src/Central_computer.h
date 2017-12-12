@@ -10,11 +10,13 @@
 #include <cpen333/process/mutex.h>
 #include "CircularQueue.h"
 #include "ItemQueue.h"
+#include <cpen333/thread/thread_object.h>
 
 /**
  * Central computer class
  */
 class Central_computer {
+    
     std::map<std::string, int> inventory;
     CircularOrderQueue& ShippingQ_;
     ItemQueue& ReceivingQ_;

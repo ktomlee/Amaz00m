@@ -165,6 +165,11 @@ int main(int argc, char* argv[]) {
         computers.push_back(new Central_computer(OQ, IQ));
     }
     
+    for (auto& robot : robots) {
+        robot->start();
+    }
+    
+    
     std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
     std::cout << "Press ENTER to quit." << std::endl;
     std::cin.get();
