@@ -205,6 +205,7 @@ int main(int argc, char* argv[]) {
     }
   
     cpen333::process::shared_object<SharedData> memory(WAREHOUSE_MEMORY_NAME);
+    cpen333::process::mutex whmutex(MUTEX_NAME);
   
     WarehouseInfo winfo;
     RobotInfo rinfo;
@@ -306,7 +307,26 @@ int main(int argc, char* argv[]) {
             case DEBUG_MODE:
                 while(true) {
                     cc.debug();
-                    std::this_thread::sleep_for(std::chrono::seconds(5));
+                    whmutex.lock();
+                    DockInfo dockinfo = memory->dinfo;
+                    whmutex.unlock();
+                    
+                    for(int i = 0; i < dockinfo.ndocks; i++) {
+                        std::string type;
+                        if(dockinfo.truck_type[i] == 0) {
+                            type = "Shipping";
+                        }
+                        else if(dockinfo.truck_type[i] == 1) {
+                            type = "Receiving";
+                        }
+                        else {
+                            type = "Invalid";
+                        }
+                        std::cout << "Dock " << i + 1 << ": "<< type << std::endl;
+                    }
+                    
+                    
+                    std::this_thread::sleep_for(std::chrono::seconds(2));
                 }
                 //
                 break;

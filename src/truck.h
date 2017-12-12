@@ -110,6 +110,7 @@ public:
   ReceivingTruck(Central_computer &cc) : Truck(cc) {}
   
   void unloadItems();
+    
   
   int main(void)
   {
