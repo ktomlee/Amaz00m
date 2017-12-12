@@ -191,6 +191,8 @@ class Central_computer : public cpen333::thread::thread_object {
     void loadOrderOnTruck(Order order, int dock)
     {
         cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
 
         for(int i=0; i<order.nitems; i++)
         {
@@ -203,6 +205,16 @@ class Central_computer : public cpen333::thread::thread_object {
             cv_dock.notify_one();
         }
         
+        for(int i = 0; i < ORDERQ_SIZE; i++) {
+            whmutex.lock();
+            if(whmemory->newOrderQ[i].orderId == order.orderId)
+            {
+                whmemory->newOrderQ[i].status = "Shipped";
+                whmutex.unlock();
+                break;
+            }
+            whmutex.unlock();
+        }
     }
     
     int getValidDock(int type)
