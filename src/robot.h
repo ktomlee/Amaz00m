@@ -116,7 +116,7 @@ class Robot : public cpen333::thread::thread_object {
           }
           
           // move to bottom wall
-          while(y_ < winfo_.rows-1)
+          while(y_ < winfo_.rows-1 && DOWN(x_,y_) == EMPTY_CHAR)
           {
               y_++;
               strLoc(x_, y_);
@@ -132,7 +132,7 @@ class Robot : public cpen333::thread::thread_object {
           }
           
           // move right to dock if we are left of it
-          while(x_ < c)
+          while(x_ < c && RIGHT(x_,y_) == EMPTY_CHAR)
           {
               x_++;
               strLoc(x_, y_);
@@ -151,7 +151,7 @@ class Robot : public cpen333::thread::thread_object {
           }
           
           // move to top wall
-          while(y_ > 1)
+          while(y_ > 1 && UP(x_,y_) == EMPTY_CHAR)
           {
               y_--;
               strLoc(x_, y_);
@@ -159,7 +159,7 @@ class Robot : public cpen333::thread::thread_object {
           }
           
           // move right to goal if we are left of it
-          while(x_ < c)
+          while(x_ < c && RIGHT(x_,y_) == EMPTY_CHAR)
           {
               x_++;
               strLoc(x_, y_);
@@ -175,7 +175,7 @@ class Robot : public cpen333::thread::thread_object {
           }
           
           // move down to goal
-          while(y_ < r)
+          while(y_ < r && DOWN(x_,y_) == EMPTY_CHAR)
           {
               y_++;
               strLoc(x_, y_);
