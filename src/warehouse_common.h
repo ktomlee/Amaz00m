@@ -113,9 +113,10 @@ struct WarehouseInfo {
 };
 
 struct RobotInfo {
-  int nrobots;      // number of robots
-  int rloc[MAX_ROBOTS][2];   // robot locations [col][row]
-  int rstatus[MAX_ROBOTS];
+    int nrobots;      // number of robots
+    int rloc[MAX_ROBOTS][2];   // robot locations [col][row]
+    int rstatus[MAX_ROBOTS];
+    bool deathrow[MAX_ROBOTS];
 };
 
 struct TruckInfo {

@@ -15,7 +15,8 @@ static const char ORDER_STATUS = '1';
 static const char INVENTORY_STATUS = '2';
 static const char CHECK_LOW = '3';
 static const char DEBUG_MODE = '4';
-static const char CLIENT_QUIT = '5';
+static const char ROBOT = '5';
+static const char CLIENT_QUIT = '6';
 
 void print_menu() {
     
@@ -26,7 +27,8 @@ void print_menu() {
     std::cout << " (2) Check Inventory" << std::endl;
     std::cout << " (3) Check Items with Low Stock" << std::endl;
     std::cout << " (4) Debug Mode" << std::endl;
-    std::cout << " (5) Quit"  << std::endl;
+    std::cout << " (5) Add/Remove Robot" << std::endl;
+    std::cout << " (6) Quit"  << std::endl;
     std::cout << "=========================================" << std::endl;
     std::cout << "Enter number: ";
     std::cout.flush();
@@ -195,6 +197,31 @@ void getLowStock(Central_computer cc) {
     
 }
 
+/*
+void addRemoveRobot() {
+    
+    cpen333::process::mutex whmutex(MUTEX_NAME);
+    cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+    
+    std::string addrem;
+    std::cout << "Would you like to add or remove a robot?" << std::endl;
+    std::cout << "1: Add 2: Remove" << std::endl;
+    std::getline(std::cin, addrem);
+    
+    if(addrem == "1") {
+        whmutex.lock();
+        
+        whmutex.unlock();
+    }
+    else if(addrem == "2") {
+        
+    }
+    else {
+        std::cout << "Invalid Entry" << std::endl;
+    }
+}
+*/
+
 
 int main(int argc, char* argv[]) {
 
@@ -330,6 +357,35 @@ int main(int argc, char* argv[]) {
                 }
                 //
                 break;
+            case ROBOT:
+            {
+                cpen333::process::mutex whmutex(MUTEX_NAME);
+                cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+                
+                std::string addrem;
+                std::cout << "Would you like to add or remove a robot?" << std::endl;
+                std::cout << "1: Add 2: Remove" << std::endl;
+                std::getline(std::cin, addrem);
+                
+                if(addrem == "1") {
+                    whmutex.lock();
+                    whmemory->rinfo.nrobots +=1;
+                    int idx = whmemory->rinfo.nrobots;
+                    robots.push_back(new Robot(idx, OQ, IQ, cc));
+                    whmutex.unlock();
+                }
+                else if(addrem == "2") {
+                    whmutex.lock();
+                    int idx = whmemory->rinfo.nrobots;
+                    whmemory->rinfo.deathrow[idx] = true;
+                    whmutex.unlock();
+                }
+                else {
+                    std::cout << "Invalid Entry" << std::endl;
+                }
+            }
+                break;
+                
             case CLIENT_QUIT:
                 std::cout << "Goodbye." << std::endl;
                 memory->quit = true;
