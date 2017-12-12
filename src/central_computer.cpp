@@ -31,9 +31,9 @@ int main()
     
     
   
-  Central_computer cc;
+  //Central_computer cc();
   
-  cc.reportInventory();
+  //cc.reportInventory();
   
 
   return 0;

@@ -8,12 +8,16 @@
 
 #include <cpen333/process/shared_memory.h>
 #include <cpen333/process/mutex.h>
+#include "CircularQueue.h"
+#include "ItemQueue.h"
 
 /**
  * Central computer class
  */
 class Central_computer {
-  std::map<std::string, int> inventory;
+    std::map<std::string, int> inventory;
+    CircularOrderQueue& ShippingQ_;
+    ItemQueue& ReceivingQ_;
 
 
  public:
@@ -21,7 +25,7 @@ class Central_computer {
    * Creates a queue with provided circular buffer size
    * @param buffsize size of circular buffer
    */
-  Central_computer() {
+    Central_computer(CircularOrderQueue& ShippingQ, ItemQueue& ReceivingQ) : ShippingQ_(ShippingQ), ReceivingQ_(ReceivingQ) {
     inventory["Broom"] = 5;
     inventory["Cup"] = 5;
     inventory["Hat"] = 5;

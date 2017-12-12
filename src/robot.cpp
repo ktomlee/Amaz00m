@@ -28,28 +28,6 @@ class Robot {
     ItemQueue& ReceivingQ_;
 
  public:
-
-    /*
-  Robot() : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
-                 winfo_(), idx_(0), x_(0), y_(0), ShippingQ_() {
-
-    // copy maze contents
-    winfo_ = memory_->winfo;
-
-    {
-        // protect access of number of runners
-        std::lock_guard<decltype(mutex_)> lock(mutex_);
-        idx_ = memory_->rinfo.nrobots;
-        memory_->rinfo.nrobots++;
-        mutex_.unlock();
-    }
-
-    // get current location
-    x_ = memory_->rinfo.rloc[idx_][COL_IDX];
-    y_ = memory_->rinfo.rloc[idx_][ROW_IDX];
-
-  }
-     */
     
     Robot(CircularOrderQueue& ShippingQ, ItemQueue& ReceivingQ) : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
     winfo_(), idx_(0), x_(0), y_(0), ShippingQ_(ShippingQ), ReceivingQ_(ReceivingQ) {
