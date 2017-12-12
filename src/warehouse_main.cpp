@@ -9,6 +9,7 @@
 #include "ItemQueue.h"
 #include "robot.h"
 #include "Central_computer.h"
+#include "truck.h"
 
 
 /**
@@ -152,22 +153,40 @@ int main(int argc, char* argv[]) {
     ItemQueue IQ;
     
     static int nrobots = 1;
-    static int ncomputers = 1;
+  static int nstrucks = 10;
+  static int nrtrucks = 10;
     
     std::vector<Robot*> robots;
-    std::vector<Central_computer*> computers;
+    std::vector<ShippingTruck*> strucks;
+  std::vector<ReceivingTruck*> rtrucks;
     
     for(int i = 0; i<nrobots; i++) {
         robots.push_back(new Robot(i, OQ, IQ));
     }
-    
-    for(int i = 0; i<ncomputers; i++) {
-        computers.push_back(new Central_computer(OQ, IQ));
-    }
+  
+    Central_computer cc(OQ, IQ);
+
+  for(int i = 0; i<nrtrucks; i++) {
+    rtrucks.push_back(new ReceivingTruck(cc));
+  }
+  
+  for(int i = 0; i<nstrucks; i++) {
+    strucks.push_back(new ShippingTruck(cc));
+  }
     
     for (auto& robot : robots) {
         robot->start();
     }
+  
+  for (auto& rtruck : rtrucks)
+  {
+    rtruck->start();
+  }
+  
+  for (auto& struck : strucks)
+  {
+    struck->start();
+  }
     
     for (auto& computer : computers) {
         computer->start();

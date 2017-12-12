@@ -43,14 +43,6 @@ target_link_libraries(warehouse_main Threads::Threads)
 add_executable(robot src/robot.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(robot Threads::Threads)
 
-# parent
-add_executable(receivingtruck src/receivingtruck.cpp ${AMAZOOM_HEADERS})
-target_link_libraries(receivingtruck Threads::Threads)
-
-# parent
-add_executable(shippingtruck src/shippingtruck.cpp ${AMAZOOM_HEADERS})
-target_link_libraries(shippingtruck Threads::Threads)
-
 # server
 add_executable(webserver src/webserver.cpp ${AMAZOOM_HEADERS})
 target_link_libraries(webserver Threads::Threads)
@@ -68,8 +60,6 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(warehouse_main rt)
     target_link_libraries(warehouse_ui rt)
     target_link_libraries(robot rt)
-    target_link_libraries(shippingtruck rt)
-    target_link_libraries(receivingtruck rt)
     target_link_libraries(webserver rt)
     target_link_libraries(client rt)
     target_link_libraries(central_computer rt)

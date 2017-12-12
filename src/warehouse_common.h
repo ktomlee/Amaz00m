@@ -45,6 +45,10 @@
 
 #define SHELF_CAPACITY 100
 
+#define TRUCK_CV_NAME  "truck_cv"
+#define DOCK_MUTEX_NAME "dock_mutex"
+#define DOCK_SEM_NAME "dock_semaphore"
+
 bool validItem(std::string name) {
     bool valid = false;
     if(name == "Broom") {
