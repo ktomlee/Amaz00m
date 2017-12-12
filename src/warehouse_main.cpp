@@ -226,7 +226,7 @@ void addRemoveRobot() {
 int main(int argc, char* argv[]) {
 
   // read maze from command-line, default to maze0
-    std::string warehouse = "data/warehouse.txt";
+    std::string warehouse = "data/warehouse2.txt";
     if (argc > 1) {
         warehouse = argv[1];
     }
@@ -267,7 +267,7 @@ int main(int argc, char* argv[]) {
         sem_docking.notify();
     }
     
-    static int nrobots = 1;
+    static int nrobots = 8;
     static int nstrucks = 10;
     static int nrtrucks = 10;
     
