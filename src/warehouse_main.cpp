@@ -11,6 +11,26 @@
 #include "Central_computer.h"
 #include "truck.h"
 
+static const char ORDER_STATUS = '1';
+static const char INVENTORY_STATUS = '2';
+static const char CHECK_LOW = '3';
+static const char CLIENT_QUIT = '4';
+
+void print_menu() {
+    
+    std::cout << "=========================================" << std::endl;
+    std::cout << "=                  MENU                 =" << std::endl;
+    std::cout << "=========================================" << std::endl;
+    std::cout << " (1) Check Order Status" << std::endl;
+    std::cout << " (2) Check Inventory" << std::endl;
+    std::cout << " (3) Check Items with Low Stock" << std::endl;
+    std::cout << " (4) Quit"  << std::endl;
+    std::cout << "=========================================" << std::endl;
+    std::cout << "Enter number: ";
+    std::cout.flush();
+    
+}
+
 
 /**
  * Reads a maze from a filename and populates the maze
@@ -122,6 +142,58 @@ void init_docks(const WarehouseInfo& winfo, DockInfo& dinfo) {
     }
 }
 
+void getOrderStatus() {
+    
+    cpen333::process::mutex whmutex(MUTEX_NAME);
+    cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+    
+    bool found = false;
+    
+    std::string orderId = "";
+    int intID;
+    std::cout << "Checking Order Status" << std::endl;
+    std::cout << "Enter Order ID: ";
+    std::getline(std::cin, orderId);
+    intID = std::stoi(orderId);
+    
+    whmutex.lock();
+    
+    for(int i=whmemory->newOrderIdx_start; i<=whmemory->newOrderIdx_end; i++)
+    {
+        if(whmemory->newOrderQ[i].orderId == intID)
+        {
+            found = true;
+            whmutex.unlock();
+            Order order = whmemory->newOrderQ[i];
+            std::cout << "Order Found: " << std::endl;
+            std::cout << "Order Status: " << order.status << std::endl;
+            
+            for(int j=0; j<order.nitems; j++)
+            {
+                std::cout << "Item " << j + 1 << ": " << order.items[j].name << "    Quantity: " << order.quantity[j] << std::endl;
+            }
+            
+        }
+    }
+    
+    if(!found) {
+        std::cout << "Order Not Found" << std::endl;
+        whmutex.unlock();
+    }
+    
+    
+    
+}
+
+void getInventoryStatus(Central_computer cc) {
+    
+}
+
+void getLowStock(Central_computer cc) {
+    
+}
+
+
 int main(int argc, char* argv[]) {
 
   // read maze from command-line, default to maze0
@@ -202,11 +274,46 @@ int main(int argc, char* argv[]) {
     struck->start();
   }
     
+    char cmd = 0;
+    while (cmd != CLIENT_QUIT) {
+        print_menu();
+        
+        // get menu entry
+        std::cin >> cmd;
+        // gobble newline
+        std::cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
+        
+        switch(cmd) {
+            case ORDER_STATUS:
+                getOrderStatus();
+                break;
+            case INVENTORY_STATUS:
+                //getInventoryStatus(cc);
+                cc.reportInventory();
+                break;
+            case CHECK_LOW:
+                //getLowStock(cc);
+                cc.lowStock();
+                break;
+            case CLIENT_QUIT:
+                std::cout << "Goodbye." << std::endl;
+                memory->quit = true;
+                return 0;
+                break;
+            default:
+                std::cout << "Invalid command number " << cmd << std::endl << std::endl;
+        }
+        
+        cpen333::pause();
+    }
+    
+    /*
     std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
     std::cout << "Press ENTER to quit." << std::endl;
     std::cin.get();
+     */
   
-    memory->quit = true;
+    //memory->quit = true;
   
     // kill cc, robots, strucks, rtrucks
     /*cc.join();

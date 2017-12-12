@@ -167,6 +167,7 @@ struct SharedData {
 	Order shippingQ[SHIPPINGQ_SIZE];
 	Item receivingQ[RECEIVINGQ_SIZE];
     int itemloc[CATALOGUE_SIZE][4];
+    
 };
 
 Item getItem(std::string name)
