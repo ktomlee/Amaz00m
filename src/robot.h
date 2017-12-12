@@ -342,6 +342,21 @@ class Robot : public cpen333::thread::thread_object {
         }
     }
     
+    bool death() {
+        
+        bool death = false;
+        
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        whmutex.lock();
+        if(whmemory->rinfo.deathrow[idx_]) {
+            whmemory->rinfo.nrobots--;
+            death = true;
+        }
+        whmutex.unlock();
+        return death;
+    }
+    
     int getStatus()
     {
         return status;
@@ -354,12 +369,18 @@ class Robot : public cpen333::thread::thread_object {
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
-                
+        
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+
         while(true)
         {
             ship();
             receive();
             
+            if(death()) {
+                break;
+            }
             
             status = RSTATUS_IDLE;
             whmutex.lock();
@@ -368,7 +389,11 @@ class Robot : public cpen333::thread::thread_object {
             int t  = dist(rnd);
             std::this_thread::sleep_for(std::chrono::seconds(t));
         }
-
+        
+        whmutex.lock();
+        whmemory->rinfo.deathrow[idx_] = false;
+        whmutex.unlock();
+        
         return 0;
     }
 
