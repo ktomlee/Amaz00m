@@ -15,7 +15,7 @@
 /**
  * Central computer class
  */
-class Central_computer {
+class Central_computer : public cpen333::thread::thread_object {
     
     std::map<std::string, int> inventory;
     CircularOrderQueue& ShippingQ_;
@@ -101,6 +101,13 @@ class Central_computer {
     
     return weight;
   }
+    
+    int main() {
+        
+        std::cout << "Central Computer started" << std::endl;
+        
+        return 0;
+    }
 
 };
 

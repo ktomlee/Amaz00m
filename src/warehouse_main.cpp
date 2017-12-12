@@ -169,6 +169,9 @@ int main(int argc, char* argv[]) {
         robot->start();
     }
     
+    for (auto& computer : computers) {
+        computer->start();
+    }
     
     std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
     std::cout << "Press ENTER to quit." << std::endl;
