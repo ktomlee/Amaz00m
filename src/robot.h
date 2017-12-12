@@ -9,6 +9,7 @@
 #include "CircularQueue.h"
 #include "ItemQueue.h"
 #include "safe_printf.h"
+#include "Central_computer.h"
 
 cpen333::process::mutex mutex(MUTEX_NAME);
 
@@ -28,11 +29,12 @@ class Robot : public cpen333::thread::thread_object {
     bool atDest_;
     CircularOrderQueue& ShippingQ_;
     ItemQueue& ReceivingQ_;
+    Central_computer& cc_;
 
  public:
     
-    Robot(int id, CircularOrderQueue& ShippingQ, ItemQueue& ReceivingQ) : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
-    winfo_(), idx_(0), x_(0), y_(0), ShippingQ_(ShippingQ), ReceivingQ_(ReceivingQ) {
+    Robot(int id, CircularOrderQueue& ShippingQ, ItemQueue& ReceivingQ, Central_computer& cc) : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
+    winfo_(), idx_(0), x_(0), y_(0), ShippingQ_(ShippingQ), ReceivingQ_(ReceivingQ), cc_(cc) {
         
         // copy maze contents
         winfo_ = memory_->winfo;
@@ -175,6 +177,16 @@ class Robot : public cpen333::thread::thread_object {
     return result;
   }
     
+    int getShippingDock()
+    {
+        cc_.getValidDock(SHIPPING_TYPE);
+    }
+    
+    int getReceivingDock()
+    {
+        cc_.getValidDock(RECEIVING_TYPE);
+    }
+    
     int main() {
         /*
         CircularOrderQueue OQ;
@@ -182,13 +194,45 @@ class Robot : public cpen333::thread::thread_object {
         int id = 0;
         Robot robot(id, OQ, IQ);
         */
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
+        Order dummy;
+        dummy.items[0] = getItem("Broom");
+        dummy.quantity[0] = 2;
+        dummy.orderId = 1;
+        dummy.nitems = 1;
         
         while(true) {
             //std::this_thread::sleep_for(std::chrono::seconds(10));
             
             //Order order = ShippingQ_.get();
             //std::cout << order.items[0].name << ": " << order.quantity[0] << std::endl;
+            
+            // Collect the items
+            for(int i=0; i<dummy.nitems; i++)
+            {
+                if(dummy.items[0].shelf.s == S_LEFT)
+                {
+                    go(dummy.items[0].shelf.x-1, dummy.items[0].shelf.y);
+                }
+                else // if(dummy.items[0].shelf.s == S_RIGHT)
+                {
+                    go(dummy.items[0].shelf.x+1, dummy.items[0].shelf.y);
+                }
+            }
+            
+            // Go to a dock with a shipping truck
+            int dock = getShippingDock();
+            
+            whmutex.lock();
+            int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
+            int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
+            whmutex.unlock();
+            
+            go(dock_x, dock_y-1);
+            
+            cc_.loadOrderOnTruck(dummy, dock);
         }
         
         
