@@ -236,15 +236,15 @@ int main() {
       t.detach();
     }
     
-    //std::cout << numActiveClients << std::endl;
-    /*
+    std::cout << numActiveClients << std::endl;
+    
     if(numActiveClients == 0)
     {
       std::cout << "No active users." << std::endl;
       std::cout << "Continue? (1) or Quit? (0)";
       std::cin >> shouldcontinue;
     }
-     */
+     
   }
 
   // close server

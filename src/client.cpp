@@ -116,9 +116,6 @@ void do_remove(MusicLibraryApi &api) {
 // remove song from server
 void do_show(MusicLibraryApi &api) {
   
-  //=================================================
-  // TODO: Implement "show" functionality
-  //=================================================
   
   std::string item, quantity;
   
@@ -134,7 +131,7 @@ void do_show(MusicLibraryApi &api) {
       std::cout << "Cart contains:" << std::endl;
       for(auto &res : resp.results)
       {
-        std::cout << std::endl << res.item << " " << res.quantity << std::endl;
+        std::cout << res.item << ": " << res.quantity << std::endl;
       }
     } else {
       std::cout << std::endl << resp.info << std::endl;
@@ -187,7 +184,7 @@ void do_check(MusicLibraryApi &api) {
         std::cout << "Order Status: " << resp.result.status << std::endl;
       for(int i=0; i<resp.result.nitems; i++)
       {
-        std::cout << "item " << i << ": " << resp.result.items[i].name << " x" << resp.result.quantity[i] << std::endl << std::endl;
+          std::cout << "Item " << i+1 << ": " << resp.result.items[i].name << " Quantity: " << resp.result.quantity[i] << std::endl;
       }
     } else {
       std::cout << std::endl << resp.info << std::endl;

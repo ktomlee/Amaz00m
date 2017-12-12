@@ -86,9 +86,15 @@ public:
     whmemory->newOrderQ[whmemory->newOrderIdx_end] = order_to_add;
     
     whmutex.unlock();
-        
+      
+      if(cartItems.size() == 0) {
+          order_id = 0;
+      }
+      
     // clear cartItems
     cartItems.clear();
+      
+     
     
     return order_id;
   }

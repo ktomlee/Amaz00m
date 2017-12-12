@@ -78,12 +78,27 @@ class Central_computer : public cpen333::thread::thread_object {
 
   void reportInventory() {
     std::cout << "Printing Inventory" << std::endl << std::endl;
-    std::cout << "Item     Quantity" << std::endl;
+    std::cout << "Item  Quantity" << std::endl;
     for(auto iter = inventory.begin(); iter != inventory.end(); ++iter)
     {
-      std::cout << iter->first << " " << iter->second << std::endl;
+      std::cout << iter->first << ": " << iter->second << std::endl;
     }
   }
+    
+    void lowStock() {
+        bool low = false;
+        for(auto iter = inventory.begin(); iter != inventory.end(); ++iter)
+        {
+            if(iter->second < 5) {
+                std::cout << iter->first << " " << iter->second << std::endl;
+                low = true;
+            }
+        }
+        
+        if(low == false) {
+            std::cout << "There are no items that are low stock" << std::endl;
+        }
+    }
   
   int checkShelfWeight(int x, int y, int s)
   {
