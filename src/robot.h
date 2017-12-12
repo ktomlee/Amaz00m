@@ -185,9 +185,10 @@ class Robot : public cpen333::thread::thread_object {
         
         
         while(true) {
-            std::this_thread::sleep_for(std::chrono::seconds(10));
-            Order order = ShippingQ_.get();
-            std::cout << order.items[0].name << ": " << order.quantity[0] << std::endl;
+            //std::this_thread::sleep_for(std::chrono::seconds(10));
+            
+            //Order order = ShippingQ_.get();
+            //std::cout << order.items[0].name << ": " << order.quantity[0] << std::endl;
         }
         
         

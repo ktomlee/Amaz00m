@@ -49,6 +49,7 @@ using JSON = nlohmann::json;
 #define MESSAGE_QUANTITY "quantity"
 #define MESSAGE_CART_ITEM "cart_item"
 #define MESSAGE_CART_QUANTITY "cart_quantity"
+#define MESSAGE_ORDER_STATUS "order_status"
 
 
 /**
@@ -123,6 +124,7 @@ class JsonConverter {
     
     j[MESSAGE_ORDER_ID] = order.orderId;
     j[MESSAGE_ORDER_INFO] = toJSON((Item *)order.items, order.nitems, (int *)order.quantity);
+    j[MESSAGE_ORDER_STATUS] = order.status;
     
     return j;
   }
@@ -139,6 +141,7 @@ class JsonConverter {
         for(int i=0; i<n; i++) {
             j.push_back(toJSON(items[i], quantity[i]));
         }
+        //j[MESSAGE_ORDER_STATUS] = status;
         return j;
     }
     
@@ -391,9 +394,10 @@ class JsonConverter {
     order.nitems = 0;
     
     for (const auto& res : jitems) {
-      order.items[i].name = res[MESSAGE_ITEM];
-      order.quantity[i] = res[MESSAGE_QUANTITY];
-      order.nitems++;
+        order.items[i].name = res[MESSAGE_ITEM];
+        order.quantity[i] = res[MESSAGE_QUANTITY];
+        order.nitems++;
+        //order.status = res[MESSAGE_ORDER_STATUS];
     
       i++;
     }
@@ -408,6 +412,7 @@ class JsonConverter {
     Order order;
     
     order.orderId = jorder[MESSAGE_ORDER_ID];
+    order.status = jorder[MESSAGE_ORDER_STATUS];
     parseItems(jorder[MESSAGE_ORDER_INFO], order);
     
     return order;

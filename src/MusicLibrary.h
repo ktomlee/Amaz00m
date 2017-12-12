@@ -68,11 +68,12 @@ public:
     
     for(auto &ci : cartItems)
     {
-      Item item_to_add = getItem(ci.item);
-      order_to_add.items[order_to_add.nitems] = item_to_add;
-      order_to_add.quantity[order_to_add.nitems] = std::stoi(ci.quantity);
-      order_to_add.nitems++;
-      order_to_add.weight += (item_to_add.weight * std::stoi(ci.quantity));
+        Item item_to_add = getItem(ci.item);
+        order_to_add.items[order_to_add.nitems] = item_to_add;
+        order_to_add.quantity[order_to_add.nitems] = std::stoi(ci.quantity);
+        order_to_add.nitems++;
+        order_to_add.weight += (item_to_add.weight * std::stoi(ci.quantity));
+        order_to_add.status = "Submitted";
     }
     
     whmutex.lock();

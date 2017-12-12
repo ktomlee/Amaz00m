@@ -35,11 +35,11 @@ public:
     producer(CIRCULAR_BUFF_SIZE), consumer(0),
     pmutex(), cmutex(), pidx_(0), cidx_(0) {
         //Test
-        consumer.notify();
-        Order order;
-        order.items[0].name = "Turkey";
-        order.quantity[0] = 4;
-        buff[0] = order;
+        //consumer.notify();
+        //Order order;
+        //order.items[0].name = "Turkey";
+        //order.quantity[0] = 4;
+        //buff[0] = order;
     }
     
     void add(const Order& order) {

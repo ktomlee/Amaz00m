@@ -149,23 +149,27 @@ int main(int argc, char* argv[]) {
     memory->newOrderIdx_start = memory->newOrderIdx_end = 0;
     memory->nOrders = 0;
     
+    for(int i = 0; i < ORDERQ_SIZE; i++) {
+        memory->newOrderQ[i].items[i].name = "";
+    }
+    
     CircularOrderQueue OQ;
     ItemQueue IQ;
     
     static int nrobots = 1;
-  static int nstrucks = 10;
-  static int nrtrucks = 10;
+    static int nstrucks = 10;
+    static int nrtrucks = 10;
     
     std::vector<Robot*> robots;
     std::vector<ShippingTruck*> strucks;
-  std::vector<ReceivingTruck*> rtrucks;
+    std::vector<ReceivingTruck*> rtrucks;
     
     for(int i = 0; i<nrobots; i++) {
         robots.push_back(new Robot(i, OQ, IQ));
     }
   
     Central_computer cc(OQ, IQ);
-  cc.start();
+    cc.start();
 
   for(int i = 0; i<nrtrucks; i++) {
     rtrucks.push_back(new ReceivingTruck(cc));
@@ -188,6 +192,12 @@ int main(int argc, char* argv[]) {
   {
     struck->start();
   }
+    
+    while(memory->quit != true) {
+        Order order = OQ.get();
+        std::this_thread::sleep_for(std::chrono::seconds(10));
+        std::cout << order.items[0].name << ": " << order.quantity[0] << std::endl;
+    }
     
     std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
     std::cout << "Press ENTER to quit." << std::endl;

@@ -124,14 +124,16 @@ struct Catalogue {
 
 #define ORDER_SIZE 256
 struct Order {
-  int orderId;
-  int weight;
-  //std::vector<std::pair<Item, int>> items;
-  // replace vector above with fixed size arrays below:
-  Item items[ORDER_SIZE];
-  int quantity[ORDER_SIZE];
-  //int items[CATALOGUE_SIZE][MAX_ITEM_QUANTITY];
-  int nitems;
+    int orderId;
+    int weight;
+    //std::vector<std::pair<Item, int>> items;
+    // replace vector above with fixed size arrays below:
+    Item items[ORDER_SIZE];
+    int quantity[ORDER_SIZE];
+    //int items[CATALOGUE_SIZE][MAX_ITEM_QUANTITY];
+    int nitems;
+    std::string status = "";
+    
 };
 
 struct DockInfo {

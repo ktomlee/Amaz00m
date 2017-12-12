@@ -104,7 +104,48 @@ class Central_computer : public cpen333::thread::thread_object {
     
     int main() {
         
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
         std::cout << "Central Computer started" << std::endl;
+        
+        while(true) {
+            for(int i = 0; i < ORDERQ_SIZE; i++) {
+                whmutex.lock();
+                if((whmemory->newOrderQ[i].status == "Submitted") || (whmemory->newOrderQ[i].status == "Unavailable")) {
+                    bool canComplete = true;
+                    Order order = whmemory->newOrderQ[i];
+                    whmutex.unlock();
+                    
+                    for(int j = 0; j < order.nitems; j++) {
+                        if(inventory[order.items[j].name] >= order.quantity[j]) {
+                            //inventory[order.items[j].name] -= order.quantity[j];
+                        }
+                        else {
+                            canComplete = false;
+                            whmutex.lock();
+                            whmemory->newOrderQ[i].status = "Unavailable";
+                            whmutex.unlock();
+                        }
+                    }
+                    
+                    if(canComplete) {
+                        for(int j = 0; j < order.nitems; j++) {
+                            inventory[order.items[j].name] -= order.quantity[j];
+                            whmutex.lock();
+                            whmemory->newOrderQ[i].status = "Processing";
+                            whmutex.unlock();
+                            
+                            ShippingQ_.add(order);
+                        }
+                    }
+                }
+                else {
+                    whmutex.unlock();
+                }
+            }
+        }
+        
         
         return 0;
     }

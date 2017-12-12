@@ -184,6 +184,7 @@ void do_check(MusicLibraryApi &api) {
       std::cout << "Order found!" << std::endl;
       std::cout << "Order Id: " << resp.result.orderId << std::endl;
       std::cout << "Unique items in order: " << resp.result.nitems << std::endl;
+        std::cout << "Order Status: " << resp.result.status << std::endl;
       for(int i=0; i<resp.result.nitems; i++)
       {
         std::cout << "item " << i << ": " << resp.result.items[i].name << " x" << resp.result.quantity[i] << std::endl << std::endl;
