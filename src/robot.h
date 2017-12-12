@@ -124,7 +124,7 @@ class Robot : public cpen333::thread::thread_object {
           }
           
           // move left to dock if we are right of it
-          while(x_ > c)
+          while(x_ > c && LEFT(x_,y_) == EMPTY_CHAR)
           {
               x_--;
               strLoc(x_, y_);
@@ -158,18 +158,18 @@ class Robot : public cpen333::thread::thread_object {
               std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
           
-          // move left to goal if we are right of it
-          while(x_ > c)
-          {
-              x_--;
-              strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
-          }
-          
           // move right to goal if we are left of it
           while(x_ < c)
           {
               x_++;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+          
+          // move left to goal if we are right of it
+          while(x_ > c && LEFT(x_,y_) == EMPTY_CHAR)
+          {
+              x_--;
               strLoc(x_, y_);
               std::this_thread::sleep_for(std::chrono::milliseconds(100));
           }
