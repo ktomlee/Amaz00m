@@ -7,6 +7,8 @@
 
 #include <cpen333/process/mutex.h>
 #include <cpen333/process/shared_memory.h>
+#include <cpen333/process/subprocess.h>
+
 
 #define WAREHOUSE_MEMORY_NAME "warehouse_memory"
 #define MUTEX_NAME "warehouse_mutex"
@@ -145,10 +147,12 @@ struct SharedData {
 	Order newOrderQ[ORDERQ_SIZE];
     int newOrderIdx_start;
     int newOrderIdx_end;
+    int consumerIdx_start;
+    int consumerIdx_end;
   
 	Order shippingQ[SHIPPINGQ_SIZE];
 	Item receivingQ[RECEIVINGQ_SIZE];
-  int itemloc[CATALOGUE_SIZE][4];
+    int itemloc[CATALOGUE_SIZE][4];
 };
 
 Item getItem(std::string name)

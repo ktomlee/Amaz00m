@@ -6,9 +6,8 @@
 #include <chrono>
 #include <thread>
 #include "CircularQueue.h"
-#include "ItemQueue.h"
 
-
+cpen333::process::mutex mutex(MUTEX_NAME);
 
 class Robot {
     cpen333::process::shared_object<SharedData> memory_;
@@ -25,7 +24,6 @@ class Robot {
     int desty_;
     bool atDest_;
     CircularOrderQueue& ShippingQ_;
-    ItemQueue& ReceivingQ_;
 
  public:
 
@@ -51,8 +49,8 @@ class Robot {
   }
      */
     
-    Robot(CircularOrderQueue& ShippingQ, ItemQueue& ReceivingQ) : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
-    winfo_(), idx_(0), x_(0), y_(0), ShippingQ_(ShippingQ), ReceivingQ_(ReceivingQ) {
+    Robot(int id, CircularOrderQueue& ShippingQ) : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
+    winfo_(), idx_(0), x_(0), y_(0), ShippingQ_(ShippingQ) {
         
         // copy maze contents
         winfo_ = memory_->winfo;
@@ -62,7 +60,6 @@ class Robot {
             std::lock_guard<decltype(mutex_)> lock(mutex_);
             idx_ = memory_->rinfo.nrobots;
             memory_->rinfo.nrobots++;
-            
             mutex_.unlock();
         }
         
@@ -198,17 +195,10 @@ class Robot {
 
 };
 
-int main(int argc, char* argv[]) {
-    
-    std::cout << "argc = " << argc << std::endl;
-    for(int i = 0; i < argc; ++i ) {
-        std::cout << "arg[" << i << "] = " << argv[i] << std::endl;
-    }
-    
-    CircularOrderQueue OQ;
-    ItemQueue IQ;
-
-    Robot robot(OQ, IQ);
+int main() {
+    CircularOrderQueue CO;
+    int id = 0;
+    Robot robot(id, CO);
     
     robot.goToDest();
 

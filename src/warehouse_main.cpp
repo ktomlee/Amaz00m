@@ -5,6 +5,9 @@
 #include <thread>
 #include <random>
 #include <cpen333/process/shared_memory.h>
+#include "CircularQueue.h"
+#include "ItemQueue.h"
+
 
 /**
  * Reads a maze from a filename and populates the maze
@@ -117,37 +120,48 @@ void init_docks(const WarehouseInfo& winfo, DockInfo& dinfo) {
 int main(int argc, char* argv[]) {
 
   // read maze from command-line, default to maze0
-  std::string warehouse = "data/warehouse.txt";
-  if (argc > 1) {
-    warehouse = argv[1];
-  }
+    std::string warehouse = "data/warehouse.txt";
+    if (argc > 1) {
+        warehouse = argv[1];
+    }
   
-  cpen333::process::shared_object<SharedData> memory(WAREHOUSE_MEMORY_NAME);
+    cpen333::process::shared_object<SharedData> memory(WAREHOUSE_MEMORY_NAME);
   
-  WarehouseInfo winfo;
-  RobotInfo rinfo;
-  DockInfo dinfo;
-  TruckInfo tinfo;
+    WarehouseInfo winfo;
+    RobotInfo rinfo;
+    DockInfo dinfo;
+    TruckInfo tinfo;
   
-  load_warehouse(warehouse, winfo);
-  init_robots(winfo, rinfo);
-  init_trucks(winfo, tinfo);
-  init_docks(winfo, dinfo);
+    load_warehouse(warehouse, winfo);
+    init_robots(winfo, rinfo);
+    init_trucks(winfo, tinfo);
+    init_docks(winfo, dinfo);
   
-  memory->winfo = winfo;
-  memory->rinfo = rinfo;
-  memory->dinfo = dinfo;
-  memory->tinfo = tinfo;
-  memory->quit = false;
+    memory->winfo = winfo;
+    memory->rinfo = rinfo;
+    memory->dinfo = dinfo;
+    memory->tinfo = tinfo;
+    memory->quit = false;
   
-  memory->newOrderIdx_start = memory->newOrderIdx_end = 0;
-  memory->nOrders = 0;
+    memory->newOrderIdx_start = memory->newOrderIdx_end = 0;
+    memory->nOrders = 0;
+    
+    CircularOrderQueue OQ;
+    ItemQueue IQ;
+    
+    std::vector<std::string> robot_args;
+    robot_args.push_back("./robot");
+    
+    const int nRobots = 1;
+    for (int i=0; i<nRobots; ++i) {
+        cpen333::process::subprocess robot(robot_args, true, false);
+    }
 
-  std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
-  std::cout << "Press ENTER to quit." << std::endl;
-  std::cin.get();
+    std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
+    std::cout << "Press ENTER to quit." << std::endl;
+    std::cin.get();
   
-  memory->quit = true;
+    memory->quit = true;
   
   
   return 0;

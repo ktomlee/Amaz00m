@@ -24,6 +24,8 @@ set(AMAZOOM_HEADERS
 	src/JsonWarehouseApi.h
 	src/CartItem.h
 	src/Message.h
+	src/CircularQueue.h
+	src/ItemQueue.h
 	src/Central_computer.h)
 
 
