@@ -75,6 +75,10 @@ public:
         
         return out;
     }
+    
+    int numElements() {
+        return pidx_ - cidx_;
+    }
   
   bool isEmpty()
   {

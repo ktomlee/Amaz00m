@@ -85,6 +85,17 @@ class Central_computer : public cpen333::thread::thread_object {
     }
   }
     
+    void debug() {
+        std::cout << "Printing Inventory" << std::endl << std::endl;
+        std::cout << "Item  Quantity" << std::endl;
+        for(auto iter = inventory.begin(); iter != inventory.end(); ++iter)
+        {
+            std::cout << iter->first << ": " << iter->second << std::endl;
+        }
+        std::cout << "Number of Orders in ShippingQ: " << ShippingQ_.numElements() << std::endl;
+        std::cout << "Number of Items in ReceivingQ: " << ReceivingQ_.numElements() << std::endl;
+    }
+    
     void lowStock() {
         bool low = false;
         for(auto iter = inventory.begin(); iter != inventory.end(); ++iter)

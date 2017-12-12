@@ -14,7 +14,8 @@
 static const char ORDER_STATUS = '1';
 static const char INVENTORY_STATUS = '2';
 static const char CHECK_LOW = '3';
-static const char CLIENT_QUIT = '4';
+static const char DEBUG_MODE = '4';
+static const char CLIENT_QUIT = '5';
 
 void print_menu() {
     
@@ -24,7 +25,8 @@ void print_menu() {
     std::cout << " (1) Check Order Status" << std::endl;
     std::cout << " (2) Check Inventory" << std::endl;
     std::cout << " (3) Check Items with Low Stock" << std::endl;
-    std::cout << " (4) Quit"  << std::endl;
+    std::cout << " (4) Debug Mode" << std::endl;
+    std::cout << " (5) Quit"  << std::endl;
     std::cout << "=========================================" << std::endl;
     std::cout << "Enter number: ";
     std::cout.flush();
@@ -299,6 +301,13 @@ int main(int argc, char* argv[]) {
             case CHECK_LOW:
                 //getLowStock(cc);
                 cc.lowStock();
+                break;
+            case DEBUG_MODE:
+                while(true) {
+                    cc.debug();
+                    std::this_thread::sleep_for(std::chrono::seconds(5));
+                }
+                //
                 break;
             case CLIENT_QUIT:
                 std::cout << "Goodbye." << std::endl;
