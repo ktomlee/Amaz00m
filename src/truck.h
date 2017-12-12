@@ -91,7 +91,6 @@ inline void Truck::goToDock(int dIdx)
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
     
-    cc_.setTruckPresent(dIdx);
 }
 
 inline void Truck::goAway(void)
@@ -186,6 +185,8 @@ public:
         } while(dock == INVALID_DOCK);
         
         goToDock(dock);
+        cc_.setTruckPresent(dock);
+        
         cpen333::process::mutex mutex(DOCK_MUTEX_NAME + std::to_string(dock));
         cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));
         

@@ -73,10 +73,10 @@ class Robot : public cpen333::thread::thread_object {
   }
   
   int goToDest() {
-    ldLoc();
+    /*ldLoc();
     destx_ = 13;
     desty_ = 1;
-    return go(x_, y_);
+    return go(x_, y_);*/
     /*
      if(memory_->magic == 80085) {
      return go(loc_[COL_IDX], loc_[ROW_IDX]);
@@ -87,6 +87,7 @@ class Robot : public cpen333::thread::thread_object {
      return 0;
      }
      */
+      return 0;
   }
     
     
@@ -94,97 +95,95 @@ class Robot : public cpen333::thread::thread_object {
    * Solves the maze, taking time between each step so we can actually see progress in the UI
    * @return 1 for success, 0 for failure, -1 to quit
    */
-  int go(int c, int r) {
-    
-    // Store current location
-    strLoc(c, r);
-    
-    // If we found exit or have been told to quit, return early.
-    // These class prperties will persist all the way up the
-    // recursion tree and return the result back to escape().
-    if(atDest_) return SUCCESS;
-    if(memory_->quit) return QUIT;
-    
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    
-    int result;
-    
-    //==========================================================
-    // NAVIGATE MAZE
-    //==========================================================
-    
-    // Base cases begin
-    
-    // If we are at the exit we win! Return success.
-    if(c==destx_ && r==desty_)
-    {
-      atDest_ = true;
-      return SUCCESS;
-    }
-    
-    // If we are adjacent to the exit, move to it.
-    if     (c==destx_ && (r-1)==desty_) result = go(c,r-1);
-    else if(c==destx_ && (r+1)==desty_) result = go(c,r+1);
-    else if((c-1)==destx_ && r==desty_) result = go(c-1,r);
-    else if((c+1)==destx_ && r==desty_) result = go(c+1,r);
-    
-    // If we are at a dead end, return failure.
-    if(UP(c,r) == 'X' && DOWN(c,r) == 'X' &&
-       LEFT(c,r) == 'X' && RIGHT(c,r) == 'X')
-    {
-      return FAILURE;
-    }
-    
-    // Base cases end
-    
-    
-    // Mark current location as visited in local copy of maze info
-    winfo_.warehouse[c][r] = 'X';
-    
-    // If there are any empty spaces, explore them.
-    // After returning from those trees, set position back to loc we had before call.
-    if(UP(c,r) == ' ')
-    {
-      result = go(c,r-1);
-      if(result == SUCCESS) return SUCCESS;
-      strLoc(c, r);
-    }
-    if(LEFT(c,r) == ' ')
-    {
-      result = go(c-1,r);
-      if(result == SUCCESS) return SUCCESS;
-      strLoc(c, r);
-    }
-    if(DOWN(c,r) == ' ')
-    {
-      result = go(c,r+1);
-      if(result == SUCCESS) return SUCCESS;
-      strLoc(c, r);
-    }
-    if(RIGHT(c,r) == ' ')
-    {
-      result = go(c+1,r);
-      if(result == SUCCESS) return SUCCESS;
-      strLoc(c, r);
-    }
-    
-    // Mark current location back to unvisited.
-    winfo_.warehouse[c][r] = ' ';
-    
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    
-    // If we end up here, result should be 0 (dead end).
-    return result;
+  void go(int c, int r) {
+    // If we're going to a dock, go down first then go laterally
+      if(r == winfo_.rows)
+      {
+          // move right until not above shelves
+          while(DOWN(x_, y_) != EMPTY_CHAR && y_ < winfo_.rows-1)
+          {
+              x_++;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+          
+          // move to bottom wall
+          while(y_ < winfo_.rows-1)
+          {
+              y_++;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+          
+          // move left to dock if we are right of it
+          while(x_ > c)
+          {
+              x_--;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+          
+          // move right to dock if we are left of it
+          while(x_ < c)
+          {
+              x_++;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+      }
+      
+      else
+      {
+          // move right until not above shelves
+          while(UP(x_, y_) != EMPTY_CHAR && y_ > 1)
+          {
+              x_++;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+          
+          // move to top wall
+          while(y_ > 1)
+          {
+              y_--;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+          
+          // move left to goal if we are right of it
+          while(x_ > c)
+          {
+              x_--;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+          
+          // move right to goal if we are left of it
+          while(x_ < c)
+          {
+              x_++;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+          
+          // move down to goal
+          while(y_ < r)
+          {
+              y_++;
+              strLoc(x_, y_);
+              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+          }
+      }
   }
     
     int getShippingDock()
     {
-        cc_.getValidDock(SHIPPING_TYPE);
+        return cc_.getValidDock(SHIPPING_TYPE);
     }
     
     int getReceivingDock()
     {
-        cc_.getValidDock(RECEIVING_TYPE);
+        return cc_.getValidDock(RECEIVING_TYPE);
     }
     
     int main() {
@@ -223,7 +222,11 @@ class Robot : public cpen333::thread::thread_object {
             }
             
             // Go to a dock with a shipping truck
-            int dock = getShippingDock();
+            int dock = INVALID_DOCK;
+            do
+            {
+                dock = getShippingDock();
+            } while(dock == INVALID_DOCK);
             
             whmutex.lock();
             int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
