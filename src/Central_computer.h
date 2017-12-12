@@ -11,6 +11,7 @@
 #include "CircularQueue.h"
 #include "ItemQueue.h"
 #include <cpen333/thread/thread_object.h>
+#include <cpen333/process/condition_variable.h>
 
 /**
  * Central computer class
@@ -20,6 +21,8 @@ class Central_computer : public cpen333::thread::thread_object {
     std::map<std::string, int> inventory;
     CircularOrderQueue& ShippingQ_;
     ItemQueue& ReceivingQ_;
+    int truckWeightsByDock[MAX_DOCKS];
+    
 
 
  public:
@@ -66,6 +69,10 @@ class Central_computer : public cpen333::thread::thread_object {
       whmemory->itemloc[itemid][HEIGHT_IDX] = h;
       whmutex.unlock();
       
+        for(int i=0; i<MAX_DOCKS; i++)
+        {
+            truckWeightsByDock[i] = 0;
+        }
     }
   }
 
@@ -102,6 +109,41 @@ class Central_computer : public cpen333::thread::thread_object {
     return weight;
   }
   
+    void loadOrderOnTruck(Order order, int dock)
+    {
+        cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));
+
+        for(int i=0; i<order.nitems; i++)
+        {
+            truckWeightsByDock[dock] += (order.items[i].weight * order.quantity[i]);
+        }
+        
+        if(truckWeightsByDock[dock] >= TRUCK_THRESHOLD)
+        {
+            // if truck is full enough it can leave
+            cv_dock.notify_one();
+        }
+        
+    }
+    
+    int getValidDock(int type)
+    {
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
+        whmutex.lock();
+        for(int i=0; i<whmemory->dinfo.ndocks; i++)
+        {
+            if(whmemory->dinfo.truck_type[i] == type && whmemory->dinfo.truck_present[i] == true)
+            {
+                whmutex.unlock();
+                return i;
+            }
+        }
+        whmutex.unlock();
+        return INVALID_DOCK;
+    }
+    
     void setTruckPresent(int dockId)
     {
         cpen333::process::mutex whmutex(MUTEX_NAME);
@@ -176,6 +218,14 @@ class Central_computer : public cpen333::thread::thread_object {
     {
         cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
         
+        //
+        //tmp:
+        int dock = getFreeDockId(SHIPPING_TYPE);
+        truckWeightsByDock[dock] = 0;
+        return dock;
+        //
+        //
+        
         if(ShippingQ_.isEmpty())
         {
             sem_docking.notify();
@@ -183,7 +233,9 @@ class Central_computer : public cpen333::thread::thread_object {
         }
         else
         {
-            return getFreeDockId(SHIPPING_TYPE);
+            int dock = getFreeDockId(SHIPPING_TYPE);
+            truckWeightsByDock[dock] = 0;
+            return dock;
         }
     }
   

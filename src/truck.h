@@ -149,9 +149,11 @@ public:
   }
 };
 
+
+
 class ShippingTruck : public Truck
 {
-    int capacity;
+    int capacity = TRUCK_CAPACITY;
     int type = SHIPPING_TYPE;
     
 public:
@@ -170,7 +172,7 @@ public:
         std::uniform_int_distribution<size_t> dist(0, 1);
         
        
-        cpen333::process::mutex mutex(DOCK_MUTEX_NAME);
+        
         cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
         
         int dock = INVALID_DOCK;
@@ -184,12 +186,12 @@ public:
         } while(dock == INVALID_DOCK);
         
         goToDock(dock);
-        
+        cpen333::process::mutex mutex(DOCK_MUTEX_NAME + std::to_string(dock));
         cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));
         
         {
-            //std::unique_lock<decltype(mutex)> lock(mutex);
-            //cv_dock.wait(lock, [&]() { return 1;});
+            std::unique_lock<decltype(mutex)> lock(mutex);
+            cv_dock.wait(lock);
         }
         
         goAway();

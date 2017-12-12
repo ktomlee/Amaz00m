@@ -55,6 +55,12 @@
 
 #define  DOCK_CV_NAME "dock_cv"
 
+#define S_LEFT 0
+#define S_RIGHT 1
+
+#define TRUCK_CAPACITY 100
+#define TRUCK_THRESHOLD 50
+
 bool validItem(std::string name) {
     bool valid = false;
     if(name == "Broom") {
@@ -114,7 +120,10 @@ struct TruckInfo {
 
 struct Shelf {
     int capacity;
-    std::string location; // Ex. (4, 3, Right, 6);
+    int x; // Ex. (4, 3, Right, 6);
+    int y;
+    int s;
+    int h;
 };
 
 struct Item {
@@ -203,7 +212,10 @@ Item getItem(std::string name)
   
   std::string side = (s==0) ? "Left" : "Right";
   
-  out.shelf.location = std::to_string(x) + "," + std::to_string(y) + "," + side + "," + std::to_string(h);
+    out.shelf.x = x;
+    out.shelf.y = y;
+    out.shelf.s = s;
+    out.shelf.h = h;
   out.shelf.capacity = SHELF_CAPACITY;
   
   return out;

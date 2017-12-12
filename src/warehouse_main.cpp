@@ -173,12 +173,15 @@ int main(int argc, char* argv[]) {
     std::vector<ShippingTruck*> strucks;
     std::vector<ReceivingTruck*> rtrucks;
     
-    for(int i = 0; i<nrobots; i++) {
-        robots.push_back(new Robot(i, OQ, IQ));
-    }
-  
     Central_computer cc(OQ, IQ);
     cc.start();
+    
+    for(int i = 0; i<nrobots; i++) {
+        robots.push_back(new Robot(i, OQ, IQ, cc));
+    }
+  
+    
+    
 
   for(int i = 0; i<nrtrucks; i++) {
     rtrucks.push_back(new ReceivingTruck(cc));
