@@ -261,11 +261,11 @@ int main(int argc, char* argv[]) {
   for(int i = 0; i<nrtrucks; i++) {
     rtrucks.push_back(new ReceivingTruck(cc));
   }
- /*
+ 
   for(int i = 0; i<nstrucks; i++) {
     strucks.push_back(new ShippingTruck(cc));
   }
-   */
+   
     for (auto& robot : robots) {
         robot->start();
     }
@@ -275,12 +275,12 @@ int main(int argc, char* argv[]) {
   {
     rtruck->start();
   }
-  /*
+  
   for (auto& struck : strucks)
   {
     struck->start();
   }
-*/
+
     
     
     char cmd = 0;

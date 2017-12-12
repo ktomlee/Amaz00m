@@ -75,6 +75,11 @@ public:
         return pidx_ - cidx_;
     }
     
+    bool isEmpty()
+    {
+        return pidx_ == cidx_;
+    }
+    
 };
 
 #endif 

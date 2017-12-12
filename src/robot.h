@@ -33,6 +33,7 @@ class Robot : public cpen333::thread::thread_object {
     CircularOrderQueue& ShippingQ_;
     ItemQueue& ReceivingQ_;
     Central_computer& cc_;
+    std::string status;
     
     std::vector<Item> receivingBucket;
 
@@ -193,125 +194,159 @@ class Robot : public cpen333::thread::thread_object {
         return cc_.getValidDock(RECEIVING_TYPE);
     }
     
+    void ship_random_orders()
+    {
+        status = "Loading truck with randomly generated orders";
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
+        std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
+        std::uniform_int_distribution<size_t> dist(0, 10);
+        
+        int dock = getShippingDock();
+        
+        // There are no shipping trucks here!
+        if(dock == INVALID_DOCK) return;
+        
+        Order order;
+        
+        for(int i=0; i<CATALOGUE_SIZE; i++)
+        {
+            Item tmp;
+            order.items[i] = getItem(getItemName(i));
+            order.quantity[i] = dist(rnd);
+            order.nitems++;
+        }
+        
+        for(int i=0; i<order.nitems; i++)
+        {
+            if(order.items[i].shelf.s == S_LEFT)
+            {
+                go(order.items[i].shelf.x-1, order.items[i].shelf.y);
+            }
+            else // if(dummy.items[0].shelf.s == S_RIGHT)
+            {
+                go(order.items[i].shelf.x+1, order.items[i].shelf.y);
+            }
+        }
+        
+        whmutex.lock();
+        int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
+        int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
+        whmutex.unlock();
+        
+        go(dock_x, dock_y-1);
+        
+        cc_.loadOrderOnTruck(order, dock);
+    }
+    
     void ship()
     {
+        status = "Loading truck from ShippingQ";
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
+        int dock = getShippingDock();
+        
+        // There are no shipping trucks here!
+        if(dock == INVALID_DOCK) return;
+        
+        Order order;
+        
+        //get order from shippingQ
+        for(int i=0; i<order.nitems; i++)
+        {
+            if(order.items[i].shelf.s == S_LEFT)
+            {
+                go(order.items[i].shelf.x-1, order.items[i].shelf.y);
+            }
+            else // if(dummy.items[0].shelf.s == S_RIGHT)
+            {
+                go(order.items[i].shelf.x+1, order.items[i].shelf.y);
+            }
+        }
+        
+        // Go to a dock with a shipping truck
+
+        
+        whmutex.lock();
+        int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
+        int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
+        whmutex.unlock();
+        
+        go(dock_x, dock_y-1);
+        
+        cc_.loadOrderOnTruck(order, dock);
     }
     
     void receive()
     {
+        status = "Unloading truck";
         
-    }
-    
-    int main() {
-        /*
-        CircularOrderQueue OQ;
-        ItemQueue IQ;
-        int id = 0;
-        Robot robot(id, OQ, IQ);
-        */
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
+        // No items to receive!
+        if(ReceivingQ_.isEmpty()) return;
+        
+        weight = 0;
+        receivingBucket.clear();
+        int dock = INVALID_DOCK;
+        
+        // Collect items from receivingQ
+        while(weight < ROBOT_CAPACITY)
+        {
+            std::pair<Item, int> tmp = (ReceivingQ_.get());
+            dock = tmp.second;
+            
+            whmutex.lock();
+            int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
+            int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
+            whmutex.unlock();
+            
+            go(dock_x, dock_y-1);
+            
+            weight += tmp.first.weight;
+            
+            receivingBucket.push_back(tmp.first);
+            cc_.unloadItemFromTruck(tmp.first, dock);
+        }
+        
+        // put them on the shelves
+        for(auto &item : receivingBucket)
+        {
+            if(item.shelf.s == S_LEFT)
+            {
+                go(item.shelf.x-1, item.shelf.y);
+            }
+            else // if(dummy.items[0].shelf.s == S_RIGHT)
+            {
+                go(item.shelf.x+1, item.shelf.y);
+            }
+            
+            cc_.addToInventory(item);
+        }
+    }
+    
+    std::string getStatus()
+    {
+        return status;
+    }
+    
+    int main() {
         Order dummy;
         dummy.items[0] = getItem("Broom");
         dummy.quantity[0] = 2;
         dummy.orderId = 1;
         dummy.nitems = 1;
         
-        /*
-        while(true) {
-            //std::this_thread::sleep_for(std::chrono::seconds(10));
-            
-            //Order order = ShippingQ_.get();
-            //std::cout << order.items[0].name << ": " << order.quantity[0] << std::endl;
-            
-            // Collect the items
-            for(int i=0; i<dummy.nitems; i++)
-            {
-                if(dummy.items[0].shelf.s == S_LEFT)
-                {
-                    go(dummy.items[0].shelf.x-1, dummy.items[0].shelf.y);
-                }
-                else // if(dummy.items[0].shelf.s == S_RIGHT)
-                {
-                    go(dummy.items[0].shelf.x+1, dummy.items[0].shelf.y);
-                }
-            }
-            
-            // Go to a dock with a shipping truck
-            int dock = INVALID_DOCK;
-            do
-            {
-                dock = getShippingDock();
-            } while(dock == INVALID_DOCK);
-            
-            whmutex.lock();
-            int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
-            int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
-            whmutex.unlock();
-            
-            go(dock_x, dock_y-1);
-            
-            cc_.loadOrderOnTruck(dummy, dock);
-        }
-         */
+    
         
         while(true)
         {
-            /*
-            // Go to a dock with a shipping truck
-            int dock = INVALID_DOCK;
-            do
-            {
-                dock = getReceivingDock();
-            } while(dock == INVALID_DOCK);
-            
-            whmutex.lock();
-            int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
-            int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
-            whmutex.unlock();
-            
-            go(dock_x, dock_y-1);
-            */
-            int weight = 0;
-            receivingBucket.clear();
-            int dock = INVALID_DOCK;
-            while(weight < ROBOT_CAPACITY)
-            {
-                std::pair<Item, int> tmp = (ReceivingQ_.get());
-                dock = tmp.second;
-                
-                whmutex.lock();
-                int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
-                int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
-                whmutex.unlock();
-                
-                go(dock_x, dock_y-1);
-                
-                weight += tmp.first.weight;
-                
-                receivingBucket.push_back(tmp.first);
-                cc_.unloadItemFromTruck(tmp.first, dock);
-            }
-            
-            for(auto &item : receivingBucket)
-            {
-                if(item.shelf.s == S_LEFT)
-                {
-                    go(item.shelf.x-1, item.shelf.y);
-                }
-                else // if(dummy.items[0].shelf.s == S_RIGHT)
-                {
-                    go(item.shelf.x+1, item.shelf.y);
-                }
-                
-                cc_.addToInventory(item);
-            }
+            ship_random_orders();
+            receive();
         }
-        
-        
-        //robot.goToDest();
 
         return 0;
     }
