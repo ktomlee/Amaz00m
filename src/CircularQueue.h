@@ -32,7 +32,7 @@ public:
      */
     CircularOrderQueue() :
     buff(),
-    producer(CIRCULAR_BUFF_SIZE), consumer(0),
+    producer(CIRCULAR_BUFF_SIZE-1), consumer(0),
     pmutex(), cmutex(), pidx_(0), cidx_(0) {
         //Test
         //consumer.notify();
@@ -75,7 +75,11 @@ public:
         
         return out;
     }
-    
+  
+  bool isEmpty()
+  {
+    return pidx_ == cidx_;
+  }
 };
 
 #endif //LAB6_CIRCULARORDERQUEUE_H
