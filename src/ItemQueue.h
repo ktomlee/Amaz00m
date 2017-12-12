@@ -15,7 +15,7 @@
  * (i.e. a fixed-size queue)
  */
 class ItemQueue {
-  std::pair<Item, int> buff[ITEM_BUFF_SIZE];
+  Item buff[ITEM_BUFF_SIZE];
     cpen333::thread::semaphore producer;
     cpen333::thread::semaphore consumer;
     std::mutex pmutex;
@@ -34,7 +34,7 @@ public:
     producer(ITEM_BUFF_SIZE), consumer(0),
     pmutex(), cmutex(), pidx_(0), cidx_(0){}
     
-    void add(std::pair<Item, int> to_add) {
+    void add(Item to_add) {
         
         int pidx;
         pidx = pidx_;
@@ -43,15 +43,14 @@ public:
         
         pidx_ = (pidx_+1)%ITEM_BUFF_SIZE;
         pmutex.lock();
-        buff[pidx].first = to_add.first;
-        buff[pidx].second = to_add.second;
+        buff[pidx] = to_add;
         pmutex.unlock();
         
         consumer.notify();
         
     }
     
-    std::pair<Item, int> get() {
+    Item get() {
         
         int cidx;
         cidx = cidx_;
@@ -61,9 +60,8 @@ public:
         
         cidx_ = (cidx_+1)%ITEM_BUFF_SIZE;
         cmutex.lock();
-        std::pair<Item, int> out;
-        out.first = buff[cidx].first;
-        out.second = buff[cidx].second;
+        Item out;
+        out = buff[cidx];
         cmutex.unlock();
         
         producer.notify();

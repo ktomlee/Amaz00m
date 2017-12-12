@@ -13,6 +13,8 @@
 
 cpen333::process::mutex mutex(MUTEX_NAME);
 
+#define ROBOT_CAPACITY 10
+
 class Robot : public cpen333::thread::thread_object {
     cpen333::process::shared_object<SharedData> memory_;
     cpen333::process::mutex mutex_;
@@ -27,9 +29,12 @@ class Robot : public cpen333::thread::thread_object {
     int destx_;
     int desty_;
     bool atDest_;
+    int weight;
     CircularOrderQueue& ShippingQ_;
     ItemQueue& ReceivingQ_;
     Central_computer& cc_;
+    
+    std::vector<Item> receivingBucket;
 
  public:
     
@@ -202,6 +207,7 @@ class Robot : public cpen333::thread::thread_object {
         dummy.orderId = 1;
         dummy.nitems = 1;
         
+        /*
         while(true) {
             //std::this_thread::sleep_for(std::chrono::seconds(10));
             
@@ -236,6 +242,48 @@ class Robot : public cpen333::thread::thread_object {
             go(dock_x, dock_y-1);
             
             cc_.loadOrderOnTruck(dummy, dock);
+        }
+         */
+        
+        while(true)
+        {
+            // Go to a dock with a shipping truck
+            int dock = INVALID_DOCK;
+            do
+            {
+                dock = getReceivingDock();
+            } while(dock == INVALID_DOCK);
+            
+            whmutex.lock();
+            int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
+            int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
+            whmutex.unlock();
+            
+            go(dock_x, dock_y-1);
+            
+            weight = 0;
+            receivingBucket.clear();
+            while(weight < ROBOT_CAPACITY)
+            {
+                Item tmp = (ReceivingQ_.get());
+                weight += tmp.weight;
+                receivingBucket.push_back(tmp);
+                cc_.unloadItemFromTruck(tmp, dock);
+            }
+            
+            for(auto &item : receivingBucket)
+            {
+                if(item.shelf.s == S_LEFT)
+                {
+                    go(item.shelf.x-1, item.shelf.y);
+                }
+                else // if(dummy.items[0].shelf.s == S_RIGHT)
+                {
+                    go(item.shelf.x+1, item.shelf.y);
+                }
+                
+                cc_.addToInventory(item);
+            }
         }
         
         

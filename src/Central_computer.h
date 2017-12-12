@@ -109,6 +109,42 @@ class Central_computer : public cpen333::thread::thread_object {
     return weight;
   }
   
+    void unloadTruckToReceivingQ(std::vector< std::pair< Item, int > > truckContents, int dock)
+    {
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
+        
+        truckWeightsByDock[dock] = 0;
+        
+        for(auto &p : truckContents)
+        {
+            for(int i=0; i<p.second; i++)
+            {
+                ReceivingQ_.add(p.first);
+                truckWeightsByDock[dock] += p.first.weight;
+            }
+        }
+    }
+    
+    void unloadItemFromTruck(Item item, int dock)
+    {
+        cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));
+
+        truckWeightsByDock[dock] -= item.weight;
+        
+        if(truckWeightsByDock[dock] == 0)
+        {
+            // if truck is empty it can leave
+            cv_dock.notify_one();
+        }
+    }
+    
+    void addToInventory(Item item)
+    {
+        (inventory[item.name])++;
+    }
+    
     void loadOrderOnTruck(Order order, int dock)
     {
         cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));

@@ -114,10 +114,19 @@ public:
   int main(void)
   {
       std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
-      std::uniform_int_distribution<size_t> dist(0, 1);
+      std::uniform_int_distribution<size_t> dist(0, 10);
       
+      std::vector<std::pair<Item, int>> contents;
       
-      cpen333::process::mutex mutex(DOCK_MUTEX_NAME);
+      for(int i=0; i<CATALOGUE_SIZE; i++)
+      {
+          std::pair<Item, int> tmp;
+          tmp.first = getItem(getItemName(i));
+          tmp.second = dist(rnd);
+          
+          contents.push_back(tmp);
+      }
+      
       cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
       
       int dock = INVALID_DOCK;
@@ -127,16 +136,20 @@ public:
           sem_docking.wait();
           
           // ask central computer if we are needed right now
-          dock = cc_.allowShippingTruck();
+          dock = cc_.allowReceivingTruck(contents);
       } while(dock == INVALID_DOCK);
       
       goToDock(dock);
+      cc_.setTruckPresent(dock);
       
+      cpen333::process::mutex mutex(DOCK_MUTEX_NAME + std::to_string(dock));
       cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));
       
+      cc_.unloadTruckToReceivingQ(contents, dock);
+      
       {
-          //std::unique_lock<decltype(mutex)> lock(mutex);
-          //cv_dock.wait(lock, [&]() { return 1;});
+          std::unique_lock<decltype(mutex)> lock(mutex);
+          cv_dock.wait(lock);
       }
       
       goAway();
@@ -160,17 +173,10 @@ public:
     
     int getCapacity();
     
-    void loadItems(vector<Item> items)
-    {
-        
-    }
-    
     int main(void)
     {
         std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
         std::uniform_int_distribution<size_t> dist(0, 1);
-        
-       
         
         cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
         
