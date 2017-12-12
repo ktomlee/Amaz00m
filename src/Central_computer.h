@@ -109,7 +109,7 @@ class Central_computer : public cpen333::thread::thread_object {
             else if(rinfo.rstatus[i] == RSTATUS_LOADING)
                 status = "Loading shipping truck";
             
-            std::cout << "Robot " << i << " status: " << status << std::endl;
+            std::cout << "Robot " << (char)('A' + i) << " status: " << status << std::endl;
         }
     }
     

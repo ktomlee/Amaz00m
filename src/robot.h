@@ -112,7 +112,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
           
           // move to bottom wall
@@ -120,7 +120,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               y_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
           
           // move left to dock if we are right of it
@@ -128,7 +128,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_--;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
           
           // move right to dock if we are left of it
@@ -136,7 +136,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
       }
       
@@ -147,7 +147,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
           
           // move to top wall
@@ -155,7 +155,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               y_--;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
           
           // move right to goal if we are left of it
@@ -163,7 +163,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
           
           // move left to goal if we are right of it
@@ -171,7 +171,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               x_--;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
           
           // move down to goal
@@ -179,7 +179,7 @@ class Robot : public cpen333::thread::thread_object {
           {
               y_++;
               strLoc(x_, y_);
-              std::this_thread::sleep_for(std::chrono::milliseconds(100));
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
       }
   }
