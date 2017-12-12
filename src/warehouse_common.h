@@ -35,6 +35,7 @@
 #define MAX_ROBOTS 10
 #define MAX_WAREHOUSE_SIZE 20
 #define MAX_DOCKS 5
+#define INVALID_DOCK MAX_DOCKS
 #define MAX_TRUCKS 50
 
 #define ORDERQ_SIZE 256
@@ -45,9 +46,14 @@
 
 #define SHELF_CAPACITY 100
 
-#define TRUCK_CV_NAME  "truck_cv"
+#define SHIPPING_TYPE 0
+#define RECEIVING_TYPE 1
+#define INVALID_TYPE 2
+
 #define DOCK_MUTEX_NAME "dock_mutex"
 #define DOCK_SEM_NAME "dock_semaphore"
+
+#define  DOCK_CV_NAME "dock_cv"
 
 bool validItem(std::string name) {
     bool valid = false;
@@ -136,6 +142,8 @@ struct Order {
 
 struct DockInfo {
     int dloc[MAX_DOCKS][2];
+    int truck_type[MAX_DOCKS];
+    bool truck_present[MAX_DOCKS];
     int ndocks;
 };
 

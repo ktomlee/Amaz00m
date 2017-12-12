@@ -7,9 +7,6 @@
 
 using namespace std;
 
-#define SHIPPING_TYPE 0
-#define RECEIVING_TYPE 1
-
 class Truck : public cpen333::thread::thread_object
 {
 protected:
@@ -57,6 +54,7 @@ public:
   void notifyArrival();
   void notifyDeparture();
   void goToDock(int dIdx);
+    void goAway(void);
 };
 
 inline void Truck::strLoc(int c, int r)
@@ -92,6 +90,18 @@ inline void Truck::goToDock(int dIdx)
     strLoc(x_, y_);
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
+    
+    cc_.setTruckPresent(dIdx);
+}
+
+inline void Truck::goAway(void)
+{
+    for(int i=0; i<5; i++)
+    {
+        y_++;
+        strLoc(x_, y_);
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
 }
 
 class ReceivingTruck : public Truck
@@ -104,49 +114,90 @@ public:
   
   int main(void)
   {
-    //ReceivingTruck rt1;
-    cpen333::process::condition_variable cv_docking(TRUCK_CV_NAME);
-    cpen333::process::mutex mutex(DOCK_MUTEX_NAME);
-    cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
-    
-    std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
-    std::uniform_int_distribution<size_t> dist(0, 1);
-    
-    bool shouldDock = false;
-    
-    do
-    {
-      sem_docking.wait();
+      std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
+      std::uniform_int_distribution<size_t> dist(0, 1);
       
-      shouldDock = 0;
-    } while(shouldDock);
-    
-    int dockIdx = dist(rnd);
-    goToDock(dockIdx);
-    
+      
+      cpen333::process::mutex mutex(DOCK_MUTEX_NAME);
+      cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
+      
+      int dock = INVALID_DOCK;
+      do
+      {
+          // wait until a dock is free
+          sem_docking.wait();
+          
+          // ask central computer if we are needed right now
+          dock = cc_.allowShippingTruck();
+      } while(dock == INVALID_DOCK);
+      
+      goToDock(dock);
+      
+      cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));
+      
+      {
+          //std::unique_lock<decltype(mutex)> lock(mutex);
+          //cv_dock.wait(lock, [&]() { return 1;});
+      }
+      
+      goAway();
+      
+      cc_.freeDock(dock);
+      
+      sem_docking.notify();
     return 0;
   }
 };
 
 class ShippingTruck : public Truck
 {
-  int capacity;
-  int type = SHIPPING_TYPE;
-  
+    int capacity;
+    int type = SHIPPING_TYPE;
+    
 public:
-  ShippingTruck(Central_computer &cc) : Truck(cc) {}
-  
-  int getCapacity();
-  void loadItems(vector<Item> items);
-  
-  int main(void)
-  {
-    std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
-    std::uniform_int_distribution<size_t> dist(0, 1);
+    ShippingTruck(Central_computer &cc) : Truck(cc) {}
     
-    int dockIdx = dist(rnd);
-    goToDock(dockIdx);
+    int getCapacity();
     
-    return 0;
-  }
+    void loadItems(vector<Item> items)
+    {
+        
+    }
+    
+    int main(void)
+    {
+        std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
+        std::uniform_int_distribution<size_t> dist(0, 1);
+        
+       
+        cpen333::process::mutex mutex(DOCK_MUTEX_NAME);
+        cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
+        
+        int dock = INVALID_DOCK;
+        do
+        {
+            // wait until a dock is free
+            sem_docking.wait();
+            
+            // ask central computer if we are needed right now
+            dock = cc_.allowShippingTruck();
+        } while(dock == INVALID_DOCK);
+        
+        goToDock(dock);
+        
+        cpen333::process::condition_variable cv_dock(DOCK_CV_NAME + std::to_string(dock));
+        
+        {
+            //std::unique_lock<decltype(mutex)> lock(mutex);
+            //cv_dock.wait(lock, [&]() { return 1;});
+        }
+        
+        goAway();
+        
+        cc_.freeDock(dock);
+        
+        sem_docking.notify();
+        
+        return 0;
+    }
 };

@@ -101,7 +101,92 @@ class Central_computer : public cpen333::thread::thread_object {
     
     return weight;
   }
+  
+    void setTruckPresent(int dockId)
+    {
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
+        whmutex.lock();
+        whmemory->dinfo.truck_present[dockId] = true;
+        whmutex.unlock();
+    }
     
+    void freeDock(int dockId)
+    {
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
+        whmutex.lock();
+        whmemory->dinfo.truck_type[dockId] = INVALID_TYPE;
+        whmemory->dinfo.truck_present[dockId] = false;
+        whmutex.unlock();
+    }
+    
+    int getFreeDockId(int type)
+    {
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        DockInfo dinfo;
+        
+        whmutex.lock();
+        dinfo = whmemory->dinfo;
+        whmutex.unlock();
+        
+        for(int i=0; i<dinfo.ndocks; i++)
+        {
+            whmutex.lock();
+            if(whmemory->dinfo.truck_type[i] == INVALID_TYPE)
+            {
+                whmemory->dinfo.truck_type[i] = type;
+                whmutex.unlock();
+                return i;
+            }
+            whmutex.unlock();
+        }
+        
+        return INVALID_DOCK;
+    }
+    
+    int allowReceivingTruck(std::vector< std::pair< Item, int > > truckContents)
+    {
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
+        
+        for(auto &p : truckContents)
+        {
+            whmutex.lock();
+            int x = whmemory->itemloc[p.first.itemId][COL_IDX];
+            int y = whmemory->itemloc[p.first.itemId][ROW_IDX];
+            int s = whmemory->itemloc[p.first.itemId][SIDE_IDX];
+            whmutex.unlock();
+            
+            if(checkShelfWeight(x, y, s) + (p.second*p.first.weight) > SHELF_CAPACITY)
+            {
+                sem_docking.notify();
+                return INVALID_DOCK;
+            }
+        }
+        
+        return getFreeDockId(RECEIVING_TYPE);
+    }
+  
+    int allowShippingTruck()
+    {
+        cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
+        
+        if(ShippingQ_.isEmpty())
+        {
+            sem_docking.notify();
+            return INVALID_DOCK;
+        }
+        else
+        {
+            return getFreeDockId(SHIPPING_TYPE);
+        }
+    }
+  
     int main() {
         
         std::cout << "Central Computer started" << std::endl;

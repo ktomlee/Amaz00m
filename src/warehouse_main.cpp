@@ -106,18 +106,20 @@ void init_trucks(const WarehouseInfo& winfo, TruckInfo& tinfo) {
  * @param rinfo runner info to populate
  */
 void init_docks(const WarehouseInfo& winfo, DockInfo& dinfo) {
-  dinfo.ndocks = 0;
-  
-  for (size_t c=0; c<winfo.cols;c++) {
-    for (size_t r=0; r<winfo.rows; r++) {
-      if(winfo.warehouse[c][r] == DOCK_CHAR)
-      {
-        dinfo.dloc[dinfo.ndocks][COL_IDX] = c;
-        dinfo.dloc[dinfo.ndocks][ROW_IDX] = r;
-        dinfo.ndocks++;
-      }
+    dinfo.ndocks = 0;
+    
+    for (size_t c=0; c<winfo.cols;c++) {
+        for (size_t r=0; r<winfo.rows; r++) {
+            if(winfo.warehouse[c][r] == DOCK_CHAR)
+            {
+                dinfo.dloc[dinfo.ndocks][COL_IDX] = c;
+                dinfo.dloc[dinfo.ndocks][ROW_IDX] = r;
+                dinfo.truck_type[dinfo.ndocks] = INVALID_TYPE;
+                dinfo.truck_present[dinfo.ndocks] = false;
+                dinfo.ndocks++;
+            }
+        }
     }
-  }
 }
 
 int main(int argc, char* argv[]) {
@@ -151,6 +153,13 @@ int main(int argc, char* argv[]) {
     
     CircularOrderQueue OQ;
     ItemQueue IQ;
+    
+    cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
+    
+    for(int i=0; i<dinfo.ndocks; i++)
+    {
+        sem_docking.notify();
+    }
     
     static int nrobots = 1;
   static int nstrucks = 10;
@@ -195,6 +204,17 @@ int main(int argc, char* argv[]) {
   
     memory->quit = true;
   
-  
+    // kill cc, robots, strucks, rtrucks
+    /*cc.join();
+    for (auto& r : robots) {
+        r->join();
+    }
+    for (auto& st : strucks) {
+        st->join();
+    }
+    for (auto& rt : rtrucks) {
+        rt->join();
+    }
+  */
   return 0;
 }
