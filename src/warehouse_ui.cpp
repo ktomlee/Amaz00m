@@ -70,7 +70,7 @@ class MazeUI {
           std::printf("%c", SHELF);
         } else if (ch == DOCK_CHAR){
           std::printf("%c", DOCK);
-          dinfo.ndocks+=1;
+          //dinfo.ndocks+=1;
         } else {
           std::printf("%c", EMPTY_CHAR);
         }

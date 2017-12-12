@@ -240,7 +240,7 @@ int main(int argc, char* argv[]) {
         sem_docking.notify();
     }
     
-    static int nrobots = 8;
+    static int nrobots = 1;
     static int nstrucks = 10;
     static int nrtrucks = 10;
     

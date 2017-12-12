@@ -297,14 +297,6 @@ class Central_computer : public cpen333::thread::thread_object {
     {
         cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
         
-        //
-        //tmp:
-        int dock = getFreeDockId(SHIPPING_TYPE);
-        truckWeightsByDock[dock] = 0;
-        return dock;
-        //
-        //
-        
         if(ShippingQ_.isEmpty())
         {
             sem_docking.notify();

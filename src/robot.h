@@ -199,7 +199,7 @@ class Robot : public cpen333::thread::thread_object {
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
-        status = RSTATUS_LOADING;
+        status = RSTATUS_IDLE;
         whmutex.lock();
         whmemory->rinfo.rstatus[idx_] = status;
         whmutex.unlock();
@@ -211,6 +211,11 @@ class Robot : public cpen333::thread::thread_object {
         
         // There are no shipping trucks here!
         if(dock == INVALID_DOCK) return;
+        
+        status = RSTATUS_LOADING;
+        whmutex.lock();
+        whmemory->rinfo.rstatus[idx_] = status;
+        whmutex.unlock();
         
         Order order;
         
@@ -249,7 +254,7 @@ class Robot : public cpen333::thread::thread_object {
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
-        status = RSTATUS_LOADING;
+        status = RSTATUS_IDLE;
         whmutex.lock();
         whmemory->rinfo.rstatus[idx_] = status;
         whmutex.unlock();
@@ -259,9 +264,18 @@ class Robot : public cpen333::thread::thread_object {
         // There are no shipping trucks here!
         if(dock == INVALID_DOCK) return;
         
-        Order order;
+        // No orders waiting to ship!
+        if(ShippingQ_.isEmpty()) return;
         
-        //get order from shippingQ
+        
+        // Let's get an order from the shipping queue
+        status = RSTATUS_LOADING;
+        whmutex.lock();
+        whmemory->rinfo.rstatus[idx_] = status;
+        whmutex.unlock();
+        
+        Order order = ShippingQ_.get();
+        
         for(int i=0; i<order.nitems; i++)
         {
             if(order.items[i].shelf.s == S_LEFT)
@@ -275,8 +289,6 @@ class Robot : public cpen333::thread::thread_object {
         }
         
         // Go to a dock with a shipping truck
-
-        
         whmutex.lock();
         int dock_x = whmemory->dinfo.dloc[dock][COL_IDX];
         int dock_y = whmemory->dinfo.dloc[dock][ROW_IDX];
@@ -292,7 +304,7 @@ class Robot : public cpen333::thread::thread_object {
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
         
-        status = RSTATUS_UNLOADING;
+        status = RSTATUS_IDLE;
         whmutex.lock();
         whmemory->rinfo.rstatus[idx_] = status;
         whmutex.unlock();
@@ -300,6 +312,11 @@ class Robot : public cpen333::thread::thread_object {
         
         // No items to receive!
         if(ReceivingQ_.isEmpty()) return;
+        
+        status = RSTATUS_UNLOADING;
+        whmutex.lock();
+        whmemory->rinfo.rstatus[idx_] = status;
+        whmutex.unlock();
         
         weight = 0;
         receivingBucket.clear();
@@ -348,7 +365,7 @@ class Robot : public cpen333::thread::thread_object {
     int main() {
         while(true)
         {
-            ship_random_orders();
+            ship();
             receive();
         }
 

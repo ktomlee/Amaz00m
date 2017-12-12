@@ -63,6 +63,7 @@
 
 #define RSTATUS_LOADING 0
 #define RSTATUS_UNLOADING 1
+#define RSTATUS_IDLE 2
 
 bool validItem(std::string name) {
     bool valid = false;
