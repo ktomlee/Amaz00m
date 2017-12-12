@@ -368,10 +368,6 @@ class Robot : public cpen333::thread::thread_object {
         std::uniform_int_distribution<size_t> dist(0, 10);
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
-        
-        
-        cpen333::process::mutex whmutex(MUTEX_NAME);
-        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
 
         while(true)
         {
