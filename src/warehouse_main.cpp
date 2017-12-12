@@ -7,6 +7,7 @@
 #include <cpen333/process/shared_memory.h>
 #include "CircularQueue.h"
 #include "ItemQueue.h"
+#include "robot.h"
 
 
 /**
@@ -149,6 +150,16 @@ int main(int argc, char* argv[]) {
     CircularOrderQueue OQ;
     ItemQueue IQ;
     
+    static int nrobots = 1;
+    
+    std::vector<Robot*> robots;
+    
+    for(int i = 0; i<nrobots; i++) {
+        robots.push_back(new Robot(i, OQ, IQ));
+    }
+    
+    /*
+    
     std::vector<std::string> robot_args;
     robot_args.push_back("./robot");
     
@@ -156,7 +167,10 @@ int main(int argc, char* argv[]) {
     for (int i=0; i<nRobots; ++i) {
         cpen333::process::subprocess robot(robot_args, true, false);
     }
-
+    */
+    
+    
+    
     std::cout << "Keep this running until you are done with the program." << std::endl << std::endl;
     std::cout << "Press ENTER to quit." << std::endl;
     std::cin.get();

@@ -26,6 +26,7 @@ set(AMAZOOM_HEADERS
 	src/Message.h
 	src/CircularQueue.h
 	src/ItemQueue.h
+	src/robot.h
 	src/Central_computer.h)
 
 

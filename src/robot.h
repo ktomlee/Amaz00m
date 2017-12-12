@@ -6,6 +6,7 @@
 #include <chrono>
 #include <thread>
 #include "CircularQueue.h"
+#include "ItemQueue.h"
 
 cpen333::process::mutex mutex(MUTEX_NAME);
 
@@ -24,33 +25,12 @@ class Robot {
     int desty_;
     bool atDest_;
     CircularOrderQueue& ShippingQ_;
+    ItemQueue& ReceivingQ_;
 
  public:
-
-    /*
-  Robot() : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
-                 winfo_(), idx_(0), x_(0), y_(0), ShippingQ_() {
-
-    // copy maze contents
-    winfo_ = memory_->winfo;
-
-    {
-        // protect access of number of runners
-        std::lock_guard<decltype(mutex_)> lock(mutex_);
-        idx_ = memory_->rinfo.nrobots;
-        memory_->rinfo.nrobots++;
-        mutex_.unlock();
-    }
-
-    // get current location
-    x_ = memory_->rinfo.rloc[idx_][COL_IDX];
-    y_ = memory_->rinfo.rloc[idx_][ROW_IDX];
-
-  }
-     */
     
-    Robot(int id, CircularOrderQueue& ShippingQ) : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
-    winfo_(), idx_(0), x_(0), y_(0), ShippingQ_(ShippingQ) {
+    Robot(int id, CircularOrderQueue& ShippingQ, ItemQueue& ReceivingQ) : memory_(WAREHOUSE_MEMORY_NAME), mutex_(MUTEX_NAME),
+    winfo_(), idx_(0), x_(0), y_(0), ShippingQ_(ShippingQ), ReceivingQ_(ReceivingQ) {
         
         // copy maze contents
         winfo_ = memory_->winfo;
@@ -192,15 +172,20 @@ class Robot {
     // If we end up here, result should be 0 (dead end).
     return result;
   }
+    
+    int main() {
+        /*
+        CircularOrderQueue OQ;
+        ItemQueue IQ;
+        int id = 0;
+        Robot robot(id, OQ, IQ);
+        */
+        
+        //robot.goToDest();
+        
+        return 0;
+    }
 
 };
 
-int main() {
-    CircularOrderQueue CO;
-    int id = 0;
-    Robot robot(id, CO);
-    
-    robot.goToDest();
 
-  return 0;
-}
