@@ -357,17 +357,44 @@ class Robot : public cpen333::thread::thread_object {
         }
     }
     
+    bool death() {
+        
+        bool death = false;
+        
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        whmutex.lock();
+        if(whmemory->rinfo.deathrow[idx_]) {
+            whmemory->rinfo.nrobots--;
+            death = true;
+        }
+        whmutex.unlock();
+        return death;
+    }
+    
     int getStatus()
     {
         return status;
     }
     
     int main() {
+        
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
         while(true)
         {
             ship();
             receive();
+            if(death()) {
+                break;
+            }
         }
+        
+        whmutex.lock();
+        whmemory->rinfo.deathrow[idx_] = false;
+        whmutex.unlock();
+        
 
         return 0;
     }

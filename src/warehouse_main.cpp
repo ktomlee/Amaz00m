@@ -283,8 +283,6 @@ int main(int argc, char* argv[]) {
     }
   
     
-    
-
   for(int i = 0; i<nrtrucks; i++) {
     rtrucks.push_back(new ReceivingTruck(cc));
   }
@@ -369,15 +367,27 @@ int main(int argc, char* argv[]) {
                 
                 if(addrem == "1") {
                     whmutex.lock();
-                    whmemory->rinfo.nrobots +=1;
+                    //whmemory->rinfo.nrobots +=1;
                     int idx = whmemory->rinfo.nrobots;
                     robots.push_back(new Robot(idx, OQ, IQ, cc));
+                    robots[idx]->start();
+                    std::cout << "Adding Robot" << std::endl;
+                    std::cout << "Robots Remaining: " << whmemory->rinfo.nrobots << std::endl;
                     whmutex.unlock();
                 }
                 else if(addrem == "2") {
                     whmutex.lock();
-                    int idx = whmemory->rinfo.nrobots;
-                    whmemory->rinfo.deathrow[idx] = true;
+                    int idx = whmemory->rinfo.nrobots-1;
+                    
+                    if (idx != -1) {
+                        whmemory->rinfo.deathrow[idx] = true;
+                        std::cout << "Deleting Robot" << std::endl;
+                        std::cout << "Robots Remaining: " << whmemory->rinfo.nrobots-1 << std::endl;
+                    }
+                    else {
+                        std::cout << "No more robots to delete" << std::endl;
+                    }
+                    
                     whmutex.unlock();
                 }
                 else {
