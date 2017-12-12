@@ -61,6 +61,9 @@
 #define TRUCK_CAPACITY 100
 #define TRUCK_THRESHOLD 50
 
+#define RSTATUS_LOADING 0
+#define RSTATUS_UNLOADING 1
+
 bool validItem(std::string name) {
     bool valid = false;
     if(name == "Broom") {
@@ -111,6 +114,7 @@ struct WarehouseInfo {
 struct RobotInfo {
   int nrobots;      // number of robots
   int rloc[MAX_ROBOTS][2];   // robot locations [col][row]
+  int rstatus[MAX_ROBOTS];
 };
 
 struct TruckInfo {

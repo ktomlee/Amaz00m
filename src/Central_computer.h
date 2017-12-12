@@ -94,6 +94,23 @@ class Central_computer : public cpen333::thread::thread_object {
         }
         std::cout << "Number of Orders in ShippingQ: " << ShippingQ_.numElements() << std::endl;
         std::cout << "Number of Items in ReceivingQ: " << ReceivingQ_.numElements() << std::endl;
+        
+        cpen333::process::mutex whmutex(MUTEX_NAME);
+        cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        whmutex.lock();
+        RobotInfo rinfo = whmemory->rinfo;
+        whmutex.unlock();
+        
+        std::string status;
+        for(int i=0; i<rinfo.nrobots; i++)
+        {
+            if(rinfo.rstatus[i] == RSTATUS_UNLOADING)
+                status = "Unloading receiving truck";
+            else if(rinfo.rstatus[i] == RSTATUS_LOADING)
+                status = "Loading shipping truck";
+            
+            std::cout << "Robot " << i << " status: " << status << std::endl;
+        }
     }
     
     void lowStock() {

@@ -33,7 +33,7 @@ class Robot : public cpen333::thread::thread_object {
     CircularOrderQueue& ShippingQ_;
     ItemQueue& ReceivingQ_;
     Central_computer& cc_;
-    std::string status;
+    int status;
     
     std::vector<Item> receivingBucket;
 
@@ -196,9 +196,13 @@ class Robot : public cpen333::thread::thread_object {
     
     void ship_random_orders()
     {
-        status = "Loading truck with randomly generated orders";
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
+        status = RSTATUS_LOADING;
+        whmutex.lock();
+        whmemory->rinfo.rstatus[idx_] = status;
+        whmutex.unlock();
         
         std::default_random_engine rnd((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
         std::uniform_int_distribution<size_t> dist(0, 10);
@@ -242,9 +246,13 @@ class Robot : public cpen333::thread::thread_object {
     
     void ship()
     {
-        status = "Loading truck from ShippingQ";
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
+        status = RSTATUS_LOADING;
+        whmutex.lock();
+        whmemory->rinfo.rstatus[idx_] = status;
+        whmutex.unlock();
         
         int dock = getShippingDock();
         
@@ -281,10 +289,14 @@ class Robot : public cpen333::thread::thread_object {
     
     void receive()
     {
-        status = "Unloading truck";
-        
         cpen333::process::mutex whmutex(MUTEX_NAME);
         cpen333::process::shared_object<SharedData> whmemory(WAREHOUSE_MEMORY_NAME);
+        
+        status = RSTATUS_UNLOADING;
+        whmutex.lock();
+        whmemory->rinfo.rstatus[idx_] = status;
+        whmutex.unlock();
+        
         
         // No items to receive!
         if(ReceivingQ_.isEmpty()) return;
@@ -328,20 +340,12 @@ class Robot : public cpen333::thread::thread_object {
         }
     }
     
-    std::string getStatus()
+    int getStatus()
     {
         return status;
     }
     
     int main() {
-        Order dummy;
-        dummy.items[0] = getItem("Broom");
-        dummy.quantity[0] = 2;
-        dummy.orderId = 1;
-        dummy.nitems = 1;
-        
-    
-        
         while(true)
         {
             ship_random_orders();

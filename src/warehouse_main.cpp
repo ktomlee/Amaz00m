@@ -82,8 +82,8 @@ void init_robots(const WarehouseInfo& winfo, RobotInfo& rinfo) {
   // fill in random placements for future runners
   std::default_random_engine rnd(
       (unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
-  std::uniform_int_distribution<size_t> rdist(0, winfo.rows);
-  std::uniform_int_distribution<size_t> cdist(0, winfo.cols);
+  std::uniform_int_distribution<size_t> rdist(3, winfo.rows);
+  std::uniform_int_distribution<size_t> cdist(3, winfo.cols);
   for (size_t i=0; i<MAX_ROBOTS; i++) {
     // generate until on an empty space
     size_t r,c;
