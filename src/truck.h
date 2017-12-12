@@ -127,6 +127,15 @@ public:
           contents.push_back(tmp);
       }
       
+      /*
+      //tmp
+      std::pair<Item, int> tmp;
+      tmp.first = getItem(getItemName(0));
+      tmp.second = 1;
+      contents.push_back(tmp);
+      //tmp
+       */
+      
       cpen333::process::semaphore sem_docking(DOCK_SEM_NAME);
       
       int dock = INVALID_DOCK;

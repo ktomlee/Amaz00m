@@ -260,15 +260,16 @@ int main(int argc, char* argv[]) {
   for(int i = 0; i<nrtrucks; i++) {
     rtrucks.push_back(new ReceivingTruck(cc));
   }
-  /*
+ /*
   for(int i = 0; i<nstrucks; i++) {
     strucks.push_back(new ShippingTruck(cc));
   }
-    */
+   */
     for (auto& robot : robots) {
         robot->start();
     }
   
+    
   for (auto& rtruck : rtrucks)
   {
     rtruck->start();
@@ -278,8 +279,8 @@ int main(int argc, char* argv[]) {
   {
     struck->start();
   }
-<<<<<<< HEAD
-    */
+*/
+    
     
     char cmd = 0;
     while (cmd != CLIENT_QUIT) {

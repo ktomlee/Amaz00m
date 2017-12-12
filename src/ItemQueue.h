@@ -8,14 +8,14 @@
 #include <cpen333/process/shared_memory.h>
 #include <cpen333/process/subprocess.h>
 
-#define ITEM_BUFF_SIZE RECEIVINGQ_SIZE
+#define ITEM_BUFF_SIZE 4096
 
 /**
  * Queue implementation using a circular buffer
  * (i.e. a fixed-size queue)
  */
 class ItemQueue {
-  Item buff[ITEM_BUFF_SIZE];
+    std::pair<Item, int> buff[ITEM_BUFF_SIZE];
     cpen333::thread::semaphore producer;
     cpen333::thread::semaphore consumer;
     std::mutex pmutex;
@@ -34,7 +34,7 @@ public:
     producer(ITEM_BUFF_SIZE), consumer(0),
     pmutex(), cmutex(), pidx_(0), cidx_(0){}
     
-    void add(Item to_add) {
+    void add(std::pair<Item, int> to_add) {
         
         int pidx;
         pidx = pidx_;
@@ -43,14 +43,15 @@ public:
         
         pidx_ = (pidx_+1)%ITEM_BUFF_SIZE;
         pmutex.lock();
-        buff[pidx] = to_add;
+        buff[pidx].first = to_add.first;
+        buff[pidx].second = to_add.second;
         pmutex.unlock();
         
         consumer.notify();
         
     }
     
-    Item get() {
+    std::pair<Item, int> get() {
         
         int cidx;
         cidx = cidx_;
@@ -60,8 +61,9 @@ public:
         
         cidx_ = (cidx_+1)%ITEM_BUFF_SIZE;
         cmutex.lock();
-        Item out;
-        out = buff[cidx];
+        std::pair<Item, int> out;
+        out.first = buff[cidx].first;
+        out.second = buff[cidx].second;
         cmutex.unlock();
         
         producer.notify();
